@@ -19,19 +19,27 @@ export const metadata: Metadata = {
   description: "Integrative project",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#F5F6FA]`}
-      >
-        <Navbar/>
-        <Sidebar/>
-        {children}
+    <html lang="es">
+      <body className={`${geistSans.variable} ${geistMono.variable} font-sans`}>
+        <div className="flex h-screen w-screen">
+          
+          {/* Sidebar */}
+          <Sidebar className="w-64 bg-gray-800 text-white" />
+
+          {/* Área principal */}
+          <div className="flex flex-col flex-1">
+            
+            {/* Navbar */}
+            <Navbar className="h-16 bg-blue-600 text-white" />
+
+            {/* Contenido de la página */}
+            <main className="flex-1 overflow-auto p-4">
+              {children}
+            </main>
+          </div>
+        </div>
       </body>
     </html>
   );

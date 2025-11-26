@@ -1,7 +1,4 @@
 import React from 'react'
-
-export default function Navbar() {
-  return (
-    <nav className='bg-[#FFFFFF] h-17' >Navbar</nav>
-  )
+export default function Navbar({ className }: { className?: string }) {
+  return <nav className={className}>Navbar</nav>;
 }
