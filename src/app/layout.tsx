@@ -26,16 +26,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="flex h-screen w-screen">
           
           {/* Sidebar */}
-          <Sidebar className="w-64 bg-gray-800 text-white" />
+          <Sidebar className="w-64 bg-white " />
 
           {/* Área principal */}
           <div className="flex flex-col flex-1">
             
             {/* Navbar */}
-            <Navbar className="h-16 bg-blue-600 text-white" />
+            <Navbar/>
 
             {/* Contenido de la página */}
-            <main className="flex-1 overflow-auto p-4">
+            <main className=" h-screen bg-[#F5F6FA]">
               {children}
             </main>
           </div>
