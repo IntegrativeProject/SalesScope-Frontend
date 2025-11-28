@@ -4,21 +4,23 @@ import SearchBar from "./SearchBar";
 export default function Navbar() {
   return (
     <div className="navbar bg-white shadow-sm h-16 px-4 flex items-center sticky top-0 z-50">
-      
       {/* Botón hamburguesa a la izquierda */}
-      <button className="btn btn-ghost  mr-4 " >
+      <div className="p-2 mr-7 hover:bg-gray-100 cursor-pointer rounded-md " >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 text-gray-700 "
+          className="h-6 w-6 text-gray-700  "
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M4 6h16M4 12h16M4 18h16"
+          />
         </svg>
-      </button>
-
-    
+      </div>
 
       {/* Search bar */}
       <div className="mr-200 w-100">
