@@ -1,6 +1,8 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ClockIcon, AcademicCapIcon } from "@heroicons/react/24/outline"; // Si usas heroicons, o usa cualquier icono SVG
+import Image from "next/image";
 
 interface SidebarProps {
   className?: string;
@@ -8,54 +10,47 @@ interface SidebarProps {
 
 export default function Sidebar({ className }: SidebarProps) {
   const pathname = usePathname();
+
+  const links = [
+    { href: "/", label: "Dashboard", Icon: ClockIcon },
+    { href: "/registersale", label: "Register sale", Icon: AcademicCapIcon },
+    { href: "/products", label: "Products", Icon: AcademicCapIcon },
+    {
+      href: "/analysisandpredictions",
+      label: "Analysis and Predictions",
+      Icon: AcademicCapIcon,
+    },
+  ];
+
   return (
     <aside className={`${className}`}>
-      <div className="h-20 flex items-center justify-center  border-gray-200">
-        <h2 className="text-xl font-semibold">Logo</h2>
+      <div className="h-20 flex items-center justify-center ">
+        <img src="./" alt="logo" />
       </div>
 
       <nav className="flex-1 p-6 space-y-2">
-        <Link
-          href="/"
-          className={`block px-4 py-2 rounded-lg text-md font-medium ${
-            pathname === "/" ? "bg-[#4880FF] text-white" : "hover:bg-gray-100"
-          }`}
-        >
-          Dashboard
-        </Link>
+        {links.map(({ href, label, Icon }) => {
+          const isActive = pathname === href;
+          return (
+            <Link
+              key={href}
+              href={href}
+              className={`flex items-center gap-3 px-6 py-3 rounded-lg text-md font-semibold ${
+                isActive
+                  ? "bg-[#4880FF] text-white"
+                  : "hover:bg-gray-100 text-black "
+              }`}
+            >
+              <Icon
+                className={`w-5 h-5 ${
+                  isActive ? "text-white" : ""
+                }  aria-hidden="true`}
+              />
 
-        <Link
-          href="/registersale"
-          className={`block px-4 py-2 rounded-lg text-md font-medium ${
-            pathname === "/registersale"
-              ? "bg-[#4880FF] text-white"
-              : "hover:bg-gray-100"
-          }`}
-        >
-          Register sale
-        </Link>
-
-        <Link
-          href="/products"
-          className={`block px-4 py-2 rounded-lg text-md font-medium ${
-            pathname === "/products"
-              ? "bg-[#4880FF] text-white"
-              : "hover:bg-gray-100"
-          }`}
-        >
-          Products
-        </Link>
-
-        <Link
-          href="/analysisandpredictions"
-          className={`block px-4 py-2 rounded-lg text-md font-medium ${
-            pathname === "/analysisandpredictions"
-              ? "bg-[#4880FF] text-white"
-              : "hover:bg-gray-100 "
-          }`}
-        >
-          Analysis and Predictions
-        </Link>
+              {label}
+            </Link>
+          );
+        })}
       </nav>
     </aside>
   );
