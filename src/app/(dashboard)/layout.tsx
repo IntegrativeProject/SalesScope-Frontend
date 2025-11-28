@@ -8,7 +8,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="flex h-screen w-screen overflow-hidden">
 
           {/* Sidebar fijo */}
-          <Sidebar className="w-60 bg-white border-r shadow-sm" />
+          <Sidebar className="w-60 bg-white  shadow-sm" />
 
           {/* Contenedor principal */}
           <div className="flex flex-col flex-1 overflow-hidden">

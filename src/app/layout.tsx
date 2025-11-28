@@ -1,3 +1,4 @@
+import { nunito } from "@/fonts/font";
 import "./globals.css";
 
 import type { Metadata } from "next";
@@ -14,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html data-theme="cupcake" lang="es">
-      <body  >{children}</body>
+      <body className={nunito.className} >{children}</body>
     </html>
   );
 }
