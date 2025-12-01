@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ClockIcon, AcademicCapIcon } from "@heroicons/react/24/outline"; // Si usas heroicons, o usa cualquier icono SVG
-import Image from "next/image";
+import {  HomeIcon,ClipboardDocumentListIcon,QueueListIcon,PresentationChartBarIcon} from "@heroicons/react/24/outline"; // Si usas heroicons, o usa cualquier icono SVG
+
 
 interface SidebarProps {
   className?: string;
@@ -12,13 +12,13 @@ export default function Sidebar({ className }: SidebarProps) {
   const pathname = usePathname();
 
   const links = [
-    { href: "/", label: "Dashboard", Icon: ClockIcon },
-    { href: "/registersale", label: "Register sale", Icon: AcademicCapIcon },
-    { href: "/products", label: "Products", Icon: AcademicCapIcon },
+    { href: "/", label: "Dashboard", Icon: HomeIcon },
+    { href: "/registersale", label: "Register sale", Icon: ClipboardDocumentListIcon },
+    { href: "/products", label: "Products", Icon: QueueListIcon },
     {
       href: "/analysisandpredictions",
       label: "Analysis and Predictions",
-      Icon: AcademicCapIcon,
+      Icon: PresentationChartBarIcon,
     },
   ];
 
