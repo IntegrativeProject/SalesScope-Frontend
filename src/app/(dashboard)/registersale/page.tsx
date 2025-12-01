@@ -1,7 +1,10 @@
+import ListContainer from '@/components/ui/ListContainer'
 import React from 'react'
 
 export default function page() {
   return (
-    <div>page</div>
+    <div>
+      <ListContainer/>
+    </div>
   )
 }
