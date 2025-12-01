@@ -25,7 +25,7 @@ export default function Sidebar({ className }: SidebarProps) {
   return (
     <aside className={`${className}`}>
       <div className="h-20 flex items-center justify-center ">
-        <img src="./" alt="logo" />
+        <img src="/img/logofinal.png" alt="logo" className="w-75" />
       </div>
 
       <nav className="flex-1 p-6 space-y-2">
