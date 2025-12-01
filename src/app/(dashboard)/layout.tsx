@@ -17,7 +17,7 @@ export default function RootLayout({
         <Navbar />
 
 
-        <main className="flex-1 overflow-y-auto bg-[#F5F6FA] p-6">
+        <main className="flex-1  bg-[#F5F6FA] p-6">
           {children}
         </main>
       </div>
