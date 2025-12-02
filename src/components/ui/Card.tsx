@@ -1,8 +1,8 @@
 import React from "react";
 
 type CardProps = {
-  w?: number;
-  h?: number;
+  w?: string;
+  h?: string;
   worth?: number;
   percentage?: string;
   mainText?: string;
@@ -23,7 +23,7 @@ export default function Card({
 }: CardProps) {
   return (
     <div
-      className={`relative bg-white w-${w} h-${h} rounded-2xl shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)] hover:scale-101 `}
+      className={`relative bg-white ${w} ${h} rounded-2xl shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)] hover:scale-101 `}
     >
       <h1 className="text-gray-500 p-4 ">{mainText}</h1>
       <div className="flex ">
