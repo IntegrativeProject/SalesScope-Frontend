@@ -1,7 +1,7 @@
 
 export default function RegisterForm() {
   return (
-    <form className="p-5 bg-white shadow rounded-xl flex flex-col gap-2 w-[400px]">
+    <form className="p-5 bg-white  rounded-xl flex flex-col gap-2 w-[400px] shadow-xl border border-gray-200">
       <h2 className="text-center text-xl font-bold text-black">New Sale</h2>
 
       <label id="name" className="font-semibold ">
