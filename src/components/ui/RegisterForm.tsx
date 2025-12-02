@@ -19,6 +19,18 @@ export default function RegisterForm({ onSubmit }: RegisterFormProps) {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    if (!name || !quantity || !unitPrice) {
+      toast.error("All fields are required.");
+      return;
+    }
+        onSubmit({
+      name,
+      quantity: Number(quantity),
+      unitPrice: Number(unitPrice),
+      date: new Date().toISOString(),
+    })
+
+    toast.success("Sale registered successfully.");
 
     setName("");
     setQuantity("")
