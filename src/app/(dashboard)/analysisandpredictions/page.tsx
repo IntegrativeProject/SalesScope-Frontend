@@ -2,6 +2,7 @@ import AnalysisCards from "@/components/ui/AnalysisCards";
 import RecommendationsCard from "@/components/ui/RecommendationsCard";
 import StatisticsCard from "@/components/ui/StatisticsCard";
 import React from "react";
+import BestDayCard from "../../../components/ui/BestDayCard";
 
 export default function page() {
   return (
@@ -33,6 +34,7 @@ export default function page() {
 
       <RecommendationsCard/>
       </div>
+      <BestDayCard/>
     </div>
   );
 }
