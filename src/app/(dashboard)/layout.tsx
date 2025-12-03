@@ -1,10 +1,13 @@
 import Navbar from "@/components/ui/Navbar";
 import Sidebar from "@/components/ui/Sidebar";
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <div className="flex min-h-screen w-full bg-[#F5F6FA]">
-
       {/* SIDEBAR FIJO */}
       <aside className="fixed left-0 top-0 h-full w-64 bg-[#FFFFFF]   shadow-lg">
         <Sidebar />
@@ -12,7 +15,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
       {/* CONTENEDOR DERECHO */}
       <div className="flex flex-col flex-1 ml-64">
-
         {/* NAVBAR FIJO */}
         <header className="fixed top-0 left-64 right-0 z-50 bg-white h-16 shadow">
           <Navbar />
@@ -22,9 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="mt-16 p-6 overflow-y-auto min-h-screen">
           {children}
         </main>
-
       </div>
-
     </div>
   );
 }
