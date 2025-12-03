@@ -1,5 +1,6 @@
 import AnalysisCards from "@/components/ui/AnalysisCards";
 import RecommendationsCard from "@/components/ui/RecommendationsCard";
+import StatisticsCard from "@/components/ui/StatisticsCard";
 import React from "react";
 
 export default function page() {
@@ -25,7 +26,9 @@ export default function page() {
           borderColor="border-[#CD07E3]"
         />
       </div>
-
+      <div>
+        <StatisticsCard/>
+      </div>
       <div className="flex justify-center">
 
       <RecommendationsCard/>
