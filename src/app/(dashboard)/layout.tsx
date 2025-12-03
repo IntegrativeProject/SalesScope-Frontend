@@ -6,7 +6,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <div className="flex min-h-screen w-full bg-[#F5F6FA]">
 
       {/* SIDEBAR FIJO */}
-      <aside className="fixed left-0 top-0 h-full w-64 bg-white border-r border-gray-200 shadow-[4px_0_10px_-2px_rgba(0,0,0,0.3)]">
+      <aside className="fixed left-0 top-0 h-full w-64 bg-[#FFFFFF]   shadow-lg">
         <Sidebar />
       </aside>
 
