@@ -28,7 +28,7 @@ export default function page() {
           borderColor="border-[#CD07E3]"
         />
       </div>
-      <div className="mt-20 mb-10 flex justify-center">
+      <div className="mt-10 mb-5 flex justify-center">
         <PredictionCard/>
       </div>
       <div className="flex justify-center gap-5 mt-10">
