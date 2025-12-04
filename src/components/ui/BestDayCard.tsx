@@ -10,7 +10,7 @@ export default function BestDayCard({ average, day }: Props) {
         <h2 className="text-lg font-semibold">
           Best Day: <strong className="text-green-500">{day}</strong>
         </h2>
-        <p className="text-sm text-gray-700">Average sales of ${average}</p>
+        <p className="text-sm text-gray-800">Average sales of ${average}</p>
       </article>
     </section>
   );
