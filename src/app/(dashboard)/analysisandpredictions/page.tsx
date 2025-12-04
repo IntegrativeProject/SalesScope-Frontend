@@ -3,6 +3,7 @@ import RecommendationsCard from "@/components/ui/RecommendationsCard";
 import StatisticsCard from "@/components/ui/StatisticsCard";
 import React from "react";
 import BestDayCard from "../../../components/ui/BestDayCard";
+import PredictionCard from "@/components/ui/PredictionCard";
 
 export default function page() {
   return (
@@ -26,6 +27,9 @@ export default function page() {
           mainText="Linear Regression"
           borderColor="border-[#CD07E3]"
         />
+      </div>
+      <div className="mt-10 mb-5 flex justify-center">
+        <PredictionCard/>
       </div>
       <div className="flex justify-center gap-5 mt-10">
         <BestDayCard average={7200} day="Saturday" />
