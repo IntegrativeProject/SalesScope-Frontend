@@ -28,15 +28,17 @@ export default function page() {
           borderColor="border-[#CD07E3]"
         />
       </div>
-      <div className="mt-10 mb-5 flex justify-center">
-        <PredictionCard/>
+      <div className="mt-10  flex justify-center">
+        <PredictionCard />
       </div>
-      <div className="flex justify-center gap-5 mt-10">
+      <div>
+      <div className="flex justify-center gap-7 mt-5">
         <BestDayCard average={7200} day="Saturday" />
         <StatisticsCard />
       </div>
-      <div className="flex justify-center mt-2">
+      <div className="flex justify-center mt-5">
         <RecommendationsCard />
+      </div>
       </div>
     </div>
   );
