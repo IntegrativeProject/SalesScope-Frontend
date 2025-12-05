@@ -29,7 +29,20 @@ export default function BarChart() {
     plugins: {
       legend: { position: "top" as const },
     },
+    scales: {
+      y: {
+        min: 0,
+        max: 300,
+        ticks: {
+          stepSize: 10,
+        },
+      },
+    },
   };
 
-  return <Bar data={data} options={options} />;
+  return (
+    <div style={{ height: "500px" }}>
+      <Bar data={data} options={options} />
+    </div>
+  );
 }
