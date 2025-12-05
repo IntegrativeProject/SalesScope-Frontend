@@ -41,7 +41,7 @@ export default function BarChart() {
   };
 
   return (
-    <div style={{ height: "500px" }}>
+    <div style={{ height: "auto" }}>
       <Bar data={data} options={options} />
     </div>
   );
