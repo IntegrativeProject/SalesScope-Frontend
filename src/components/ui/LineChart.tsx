@@ -22,7 +22,12 @@ ChartJS.register(
   Filler
 );
 
-export default function LineChart() {
+
+type ChartProps={
+  w:string
+  h:string
+}
+export default function LineChart({w,h}:ChartProps) {
   const data = {
     labels: [
       "Week 1",
@@ -88,7 +93,7 @@ export default function LineChart() {
 
   return (
     <div className="p-2  ">
-      <Line data={data} options={options} width={"1200px"} height={"350px"}/>
+      <Line data={data} options={options} width={w} height={h}/>
     </div>
   );
 }

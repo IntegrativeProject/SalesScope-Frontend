@@ -5,7 +5,7 @@ import LineChart from "./LineChart";
       <section className="bg-white  w-320 h-auto rounded-xl p-6 shadow-sm border border-gray-200 flex flex-col justify-end ">
         <div className="">
 
-          <LineChart/>
+          <LineChart h="350px" w="1200px"/>
         </div>
         <article className="p-3 bg-blue-100 rounded-xl shadow border border-blue-300">
           <h2 className="text-lg font-semibold">
