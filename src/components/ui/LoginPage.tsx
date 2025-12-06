@@ -4,8 +4,8 @@ import Link from "next/link";
 export default function LoginPage() {
   return (
     <div className="flex justify-center">
-      <div className="grid grid-cols-2 p-20 w-300 h-auto">
-        <div className="bg-white flex items-center justify-center border border-gray-300 rounded-lg ">
+      <div className="grid grid-cols-2 p-12 w-300 h-auto">
+        <div className="bg-white flex items-center justify-center border border-gray-200 rounded-md ">
           <form className="max-w-md mx-auto mt-20 p-10 shadow-md flex justify-center flex-col ">
             <h2 className="text-2xl font-bold mb-3 text-center">Login</h2>
             <p className="text-gray-600 font-semibold p-4 mb-6">
@@ -54,7 +54,7 @@ export default function LoginPage() {
           </form>
         </div>
 
-        <div className="bg-blue-500 flex items-center justify-center rounded-lg"></div>
+        <div className="bg-[#4880FF] flex items-center justify-center rounded-lg"></div>
       </div>
     </div>
   );
