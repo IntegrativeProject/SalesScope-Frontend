@@ -17,7 +17,7 @@ export default function LoginPage() {
               <label id="email"> Email</label>
               <input
                 type="text"
-                placeholder="Full name"
+                placeholder="example@example.com"
                 className="w-full p-3 border rounded-lg bg-white "
               />
 
