@@ -1,14 +1,20 @@
-import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function LoginPage() {
   return (
     <div className="flex justify-center">
       <div className="grid grid-cols-2 p-12 w-300 h-auto">
-        <div className="bg-white flex items-center justify-center border border-gray-200 rounded-md ">
-          <form className="max-w-md mx-auto mt-20 p-10 shadow-md flex justify-center flex-col ">
-            <h2 className="text-2xl font-bold mb-3 text-center">Login</h2>
-            <p className="text-gray-600 font-semibold p-4 mb-6">
+        <div className="bg- flex items-center justify-center  rounded-md ">
+          <form className="max-w-md mx-auto mt-20 p-2  flex justify-center flex-col ">
+            <Image
+                src="/img/logofinal.png"
+                alt="Logo"
+                width={200}
+                height={200}
+                className=" flex items-center mx-auto"
+              />
+            <p className="text-gray-600 font-semibold p-4 mb-8">
               Today is a new day. Its your day. You shape it. Sign in to start
               managing your sales.
             </p>
@@ -18,17 +24,17 @@ export default function LoginPage() {
               <input
                 type="text"
                 placeholder="Full name"
-                className="w-full p-3 border rounded-lg bg-white "
+                className="w-full p-3 border rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#4880FF] "
               />
 
-              <label id="password">Password</label>
+              <label  id="password">Password</label>
               <input
                 type="password"
                 placeholder="********"
-                className="w-full p-3 border rounded-lg bg-white "
+                className="w-full p-3 border rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#4880FF] "
               />
 
-              <button className="bg-[#4880FF] w-full border p-3 rounded-xl">
+              <button className="bg-blue-500 w-full border p-3 rounded-xl cursor-pointer hover:bg-[#4880FF] text-white font-bold mt-4">
                 Sign-in
               </button>
 
