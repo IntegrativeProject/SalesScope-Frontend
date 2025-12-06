@@ -3,7 +3,7 @@ import React from "react";
 type CardProps = {
   w?: string;
   h?: string;
-  worth?: number;
+  worth?: number|string
   percentage?: string;
   mainText?: string;
   endText?: string;
