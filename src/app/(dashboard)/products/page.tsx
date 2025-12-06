@@ -10,6 +10,11 @@ export default async function page() {
   const data = await response.json();
   const products: [] = data.data;
   const totalProducts = products.length;
+
+    const totalInventoryValue = products.reduce(
+    (acc: number, product: any) => acc + product.price * product.stock,
+    0
+  );
   return (
     <div>
       <div className="flex justify-center  space-x-10 p-5 mt-1 b rounded-2xl">
@@ -34,6 +39,7 @@ export default async function page() {
         <Card
           w="w-80"
           h="h-50"
+          worth={totalInventoryValue}
           mainText="Total Inventory Value"
           iconRoute="/icons/inventario.png"
         />
