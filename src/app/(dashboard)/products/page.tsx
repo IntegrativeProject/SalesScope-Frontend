@@ -1,18 +1,19 @@
 import Card from "@/components/ui/Card";
 import ListContainer from "@/components/ui/ListContainer";
 import RegisterForm from "@/components/ui/RegisterForm";
+import { Product, ProductsResponse } from "@/types/ProductType";
 import React from "react";
 
 export default async function page() {
   const response = await fetch(
     "https://integrative-salescope.onrender.com/products/?page_size=9999"
   );
-  const data = await response.json();
-  const products: [] = data.data;
+  const data:ProductsResponse = await response.json();
+  const products = data.data;
   const totalProducts = products.length;
 
     const totalInventoryValue = products.reduce(
-    (acc: number, product: any) => acc + product.price * product.stock,
+    (acc: number, product: Product) => acc + product.price * product.stock,
     0
   );
     const formatted = totalInventoryValue.toLocaleString("en-US", {
