@@ -27,10 +27,10 @@ export default async function page() {
           <h1 className="p-1 text-center font-bold  text-4xl   w-95  mb-8 ">
             Product Management
           </h1>
-          <RegisterForm />
+          <RegisterForm mainName="New Product" firstField="Name" secondField="Price" thirdField="Initial stock" fourthField="Category" buttonLabel="Add product"/>
         </div>
         <div>
-          <ListContainer products={products} />
+          <ListContainer products={products} mainTitle="Inventory" />
         </div>
       </div>
       <div className="flex justify-center space-x-30 ">

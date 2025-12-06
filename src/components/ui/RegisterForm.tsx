@@ -1,11 +1,19 @@
+type RegisterProps ={
+  mainName:string
+  firstField:string
+  secondField:string
+  thirdField:string
+  fourthField:string
+  buttonLabel:string
 
-export default function RegisterForm() {
+}
+export default function RegisterForm({mainName,firstField,secondField,thirdField,fourthField,buttonLabel}:RegisterProps) {
   return (
     <form className="p-5 bg-white  rounded-xl flex flex-col gap-2 w-[400px] shadow-xl border border-gray-200">
-      <h2 className="text-center text-xl font-bold text-black">New Sale</h2>
+      <h2 className="text-center text-xl font-bold text-black">{mainName}</h2>
 
       <label id="name" className="font-semibold ">
-        Product name
+        {firstField}
       </label>
       <input
         id="name"
@@ -13,7 +21,7 @@ export default function RegisterForm() {
         placeholder="Cama"
       />
       <label id="name" className="font-semibold ">
-        Quantity
+        {secondField}
       </label>
 
       <input
@@ -22,7 +30,7 @@ export default function RegisterForm() {
         type="number"
       />
       <label id="name" className="font-semibold ">
-        Unit price
+        {thirdField}
       </label>
 
       <input
@@ -31,7 +39,7 @@ export default function RegisterForm() {
         type="number"
       />
       <label id="name" className="font-semibold ">
-        Date
+       {fourthField}
       </label>
 
       <input
@@ -41,7 +49,7 @@ export default function RegisterForm() {
       />
 
       <button className="w-full bg-[#4880FF] hover:bg-blue-400 mt-5 text-white p-3 rounded-lg cursor-pointer font-bold">
-        Register sale
+        {buttonLabel}
       </button>
     </form>
   );

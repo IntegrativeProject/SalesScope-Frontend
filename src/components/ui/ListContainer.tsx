@@ -13,7 +13,7 @@ export default function ListContainer({ mainTitle, price,products }: ListProps) 
 
   return (
     <section className="bg-white w-260 h-auto rounded-xl p-4 space-y-5 shadow-xl border border-gray-200">
-      <h1 className="text-center text-xl font-bold text-black">Latest Sales</h1>
+      <h1 className="text-center text-xl font-bold text-black">{mainTitle}</h1>
       {products?.map((item)=>(
         <article key={item.product_id} className="bg-[#FBFCFF] border border-[#D5D5D5] rounded-xl p-2">
         <h2 className="font-bold text-base ">{item.name}</h2>
