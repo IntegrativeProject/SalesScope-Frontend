@@ -1,10 +1,10 @@
 type RegisterProps ={
-  mainName:string
-  firstField:string
-  secondField:string
-  thirdField:string
-  fourthField:string
-  buttonLabel:string
+  mainName?:string
+  firstField?:string
+  secondField?:string
+  thirdField?:string
+  fourthField?:string
+  buttonLabel?:string
 
 }
 export default function RegisterForm({mainName,firstField,secondField,thirdField,fourthField,buttonLabel}:RegisterProps) {

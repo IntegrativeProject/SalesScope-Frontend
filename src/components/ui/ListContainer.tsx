@@ -25,7 +25,7 @@ export default function ListContainer({ mainTitle, price,products }: ListProps) 
           </div>
 
           <div className="flex items-center ml-150 ">
-            <p className="font-bold text-lg">$8481</p>
+            <p className="font-bold text-lg">{item.price}</p>
           </div>
         </div>
       </article>
