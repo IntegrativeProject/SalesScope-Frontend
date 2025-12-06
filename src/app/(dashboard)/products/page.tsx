@@ -3,7 +3,13 @@ import ListContainer from "@/components/ui/ListContainer";
 import RegisterForm from "@/components/ui/RegisterForm";
 import React from "react";
 
-export default function page() {
+export default async function page() {
+  const response = await fetch(
+    "https://integrative-salescope.onrender.com/products/?page_size=9999"
+  );
+  const data = await response.json();
+  const products: [] = data.data;
+  const totalProducts = products.length;
   return (
     <div>
       <div className="flex justify-center  space-x-10 p-5 mt-1 b rounded-2xl">
@@ -21,6 +27,7 @@ export default function page() {
         <Card
           w="w-80"
           h="h-50"
+          worth={totalProducts}
           mainText="Total Products"
           iconRoute="/icons/agregar-producto.png"
         />
