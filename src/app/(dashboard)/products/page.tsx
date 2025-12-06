@@ -30,7 +30,7 @@ export default async function page() {
           <RegisterForm />
         </div>
         <div>
-          <ListContainer />
+          <ListContainer products={products} />
         </div>
       </div>
       <div className="flex justify-center space-x-30 ">

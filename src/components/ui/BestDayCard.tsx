@@ -1,4 +1,4 @@
-import BarChart from "../BarChart";
+import BarChart from "../charts/BarChart";
 
 type Props = {
   average: number;

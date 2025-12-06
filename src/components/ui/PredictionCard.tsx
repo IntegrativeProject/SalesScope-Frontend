@@ -1,4 +1,4 @@
-import LineChart from "./LineChart";
+import LineChart from "../charts/LineChart";
 
   export default function PredictionCard() {
     return (

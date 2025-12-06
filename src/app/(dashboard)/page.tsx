@@ -1,6 +1,6 @@
-import BarChart from "@/components/BarChart";
+import BarChart from "@/components/charts/BarChart";
 import Card from "@/components/ui/Card";
-import LineChart from "@/components/ui/LineChart";
+import LineChart from "@/components/charts/LineChart";
 
 export default function page() {
   return (
