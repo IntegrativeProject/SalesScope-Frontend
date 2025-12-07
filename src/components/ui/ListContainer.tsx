@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Product } from "@/types/ProductType";
 import React from "react";
 
@@ -9,9 +9,6 @@ type ListProps = {
 };
 
 export default function ListContainer({ mainTitle, products }: ListProps) {
-
-
-
   return (
     <section className="bg-white w-200 h-150 rounded-xl p-4 space-y-5 shadow-xl border border-gray-200 overflow-y-scroll ">
       <h1 className="text-center text-xl font-bold text-black">{mainTitle}</h1>
@@ -29,14 +26,20 @@ export default function ListContainer({ mainTitle, products }: ListProps) {
             </div>
 
             <div className=" flex ml-auto text-right">
-             
-
               <p className="font-bold text-lg">{item.price}</p>
-               <button
-               
-                className="bg-red-500 text-white px-3 py-1 rounded"
-              >
-                Eliminar
+              <button className=" px-3 py-1 ">
+                <img
+                  src="icons/edit.png"
+                  alt="edit_icon"
+                  className="w-5 cursor-pointer  "
+                />
+              </button>
+              <button className=" px-3 py-1 ">
+                <img
+                  src="icons/delete.png"
+                  alt="delete_icon"
+                  className="w-5 cursor-pointer  "
+                />
               </button>
             </div>
           </div>
