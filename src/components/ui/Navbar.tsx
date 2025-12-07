@@ -23,9 +23,7 @@ export default function Navbar() {
       </div>
 
       {/* Search bar */}
-      <div className="mr-200 w-100">
-     
-      </div>
+      <div className="mr-200 w-100"></div>
 
       {/* Idioma */}
       <div className="dropdown dropdown-end mr-4">
