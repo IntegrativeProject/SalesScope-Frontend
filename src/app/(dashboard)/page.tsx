@@ -14,7 +14,7 @@ export default function page() {
           worth={36.2}
           percentage="12.5%"
           endText=" vs previous week"
-          iconRoute="/icons/ventas.png"
+          iconRoute="/icons/sales.png"
           simbol={true}
         />
         <Card
@@ -34,7 +34,7 @@ export default function page() {
           worth={362}
           percentage="15.2%"
           endText="vs previous week"
-          iconRoute="/icons/agregar-producto.png"
+          iconRoute="/icons/box.png"
         />
         <Card
           w="w-80"
@@ -43,7 +43,7 @@ export default function page() {
           worth={89}
           percentage="9.8%"
           endText="vs previous week"
-          iconRoute="/icons/transaccion2.png"
+          iconRoute="/icons/money.png"
         />
       </div>
       <div className="grid grid-cols-2 mt-2 gap-0 p-15">

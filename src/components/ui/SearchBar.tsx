@@ -1,6 +1,11 @@
-export default function SearchBar() {
+type SearchBarProps={
+  w:string
+}
+
+
+export default function SearchBar({w}:SearchBarProps) {
   return (
-    <div className="relative w-full max-w-lg ">
+    <div className={`relative ${w}   `}>
       {/* Ícono de búsqueda */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -21,7 +26,7 @@ export default function SearchBar() {
       <input
         type="text"
         placeholder="Search"
-        className="w-full pl-10 pr-4 py-2 rounded-full border border-gray-300  text-gray-700 placeholder-gray-400
+        className="w-auto pl-10   rounded-full border border-gray-300  text-gray-700 placeholder-gray-400
           focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition bg-[#F5F6FA] placeholder:font-light "
       />
     </div>

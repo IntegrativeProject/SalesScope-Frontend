@@ -34,7 +34,7 @@ export default function Card({
         <img
           src={`${iconRoute}`}
           alt="icon"
-          className="w-17 h-17 absolute top-4 right-4 mr-4 mt-2"
+          className="w-10 h-10 absolute top-4 right-4 mr-4 mt-2"
         />
       </div>
       <h3 className=" text-gray-500 p-4 mt-8 ml-8">
