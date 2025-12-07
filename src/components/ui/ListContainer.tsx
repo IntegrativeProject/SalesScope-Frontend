@@ -1,3 +1,4 @@
+"use client"
 import { Product } from "@/types/ProductType";
 import React from "react";
 
@@ -10,13 +11,14 @@ type ListProps = {
 export default function ListContainer({ mainTitle, products }: ListProps) {
 
 
+
   return (
-    <section className="bg-white w-260 h-auto rounded-xl p-4 space-y-5 shadow-xl border border-gray-200">
+    <section className="bg-white w-200 h-150 rounded-xl p-4 space-y-5 shadow-xl border border-gray-200 overflow-y-scroll ">
       <h1 className="text-center text-xl font-bold text-black">{mainTitle}</h1>
       {products?.map((item) => (
         <article
           key={item.product_id}
-          className="bg-[#FBFCFF] border border-[#D5D5D5] rounded-xl p-2"
+          className="bg-[#FBFCFF] border border-[#D5D5D5] rounded-xl p-2 "
         >
           <h2 className="font-bold text-base ">{item.name}</h2>
 
@@ -26,8 +28,16 @@ export default function ListContainer({ mainTitle, products }: ListProps) {
               <p className="">{`Stock: ${item.stock}`}</p>
             </div>
 
-            <div className="ml-auto text-right">
+            <div className=" flex ml-auto text-right">
+             
+
               <p className="font-bold text-lg">{item.price}</p>
+               <button
+               
+                className="bg-red-500 text-white px-3 py-1 rounded"
+              >
+                Eliminar
+              </button>
             </div>
           </div>
         </article>

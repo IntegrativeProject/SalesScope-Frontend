@@ -8,7 +8,7 @@ type RegisterProps = {
   secondField?: string;
   thirdField?: string;
   fourthField?: string;
-  type: string;
+  type?: string;
   buttonLabel?: string;
   products?: Product[];
 };
