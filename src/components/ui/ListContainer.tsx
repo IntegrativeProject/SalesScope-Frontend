@@ -10,16 +10,20 @@ type ListProps = {
 
 export default function ListContainer({ mainTitle, products }: ListProps) {
   return (
-    
-      <section className="bg-white w-150 h-150 rounded-xl p-5 space-y-5 shadow-xl border border-gray-200 overflow-y-scroll ">
-        <h1 className="text-center text-xl font-bold text-black mb-4">
-          {mainTitle}
-        </h1>
+      <div>
+        <div className=" flex sticky top-0 z-5 space-x-20 text-xl font-bold text-black rounded-t-md h-11  bg-green-300 ">
+           <h1>{mainTitle}</h1>
+           <div className="">
+            filters
+           </div>
+        </div>
+      <section className=" p-4 bg-white w-150 h-140 rounded-xl rounded-t-none  space-y-5 shadow-xl border border-gray-200 overflow-y-scroll ">
+        
 
         {products?.map((item) => (
           <article
             key={item.product_id}
-            className="bg-white min-h-24 border border-gray-200 rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-200 flex items-center"
+            className="p-4 bg-white min-h-24 border border-gray-200 rounded-xl  shadow-sm hover:shadow-md transition-all duration-200 flex items-center"
           >
             <div className="flex flex-col justify-center flex-1">
               <h2 className="font-semibold text-lg text-gray-800">
@@ -55,6 +59,7 @@ export default function ListContainer({ mainTitle, products }: ListProps) {
         ))}
       </section>
       
+      </div>
     
   );
 }

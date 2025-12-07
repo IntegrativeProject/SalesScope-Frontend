@@ -23,14 +23,14 @@ export default async function page() {
 });
   return (
     <div>
-      <div className="flex justify-center  space-x-10 p-5 mt-1 b rounded-2xl">
+      <div className="flex justify-center  space-x-10 p-5 b rounded-2xl">
         <div className="">
           <h1 className="p-1 text-center font-bold  text-4xl   w-95  mb-8 ">
             Product Management
           </h1>
           <RegisterForm products={products} mainName="New Product" firstField="Name" secondField="Price" thirdField="Initial stock" fourthField="Category" type="text" buttonLabel="Add product"/>
         </div>
-        <div className="flex bg-yellow-500 p-5">
+        <div className="flex bg-yellow-500 p-5 h-160">
           <ListContainer products={products} mainTitle="Inventory" />
           <ListSeconSection/>
         </div>
