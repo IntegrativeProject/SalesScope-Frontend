@@ -34,7 +34,7 @@ export default function LoginPage() {
                 className="w-full p-3 border rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#4880FF] "
               />
 
-              <button className="bg-blue-500 w-full border p-3 rounded-xl cursor-pointer hover:bg-[#4880FF] text-white font-bold mt-4">
+              <button className="bg-blue-600 w-full border p-3 rounded-xl cursor-pointer hover:bg-[#4880FF] text-white font-bold mt-4 transform-border hover:scale-95">
                 Sign-in
               </button>
 

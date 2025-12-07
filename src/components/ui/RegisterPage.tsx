@@ -46,7 +46,7 @@ export default function RegisterPage() {
                 className="w-full p-3 border rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#4880FF]"
               />
 
-              <button className="bg-blue-600 w-full border p-3 rounded-xl text-white font-bold mt-8 cursor-pointer hover:bg-[#4880FF] transform-border hover:scale-95 transition duration-300">
+              <button className="bg-blue-600 w-full border p-3 rounded-xl text-white font-bold mt-8 cursor-pointer hover:bg-[#4880FF] transform-border hover:scale-95">
                 Register
               </button>
 
