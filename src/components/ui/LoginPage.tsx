@@ -3,31 +3,31 @@ import Image from "next/image";
 
 export default function LoginPage() {
   return (
-    <div className="flex justify-center">
-      <div className="grid grid-cols-2 p-12 w-300 h-auto">
-        <div className="bg- flex items-center justify-center  rounded-md ">
-          <form className="max-w-md mx-auto mt-20 p-2  flex justify-center flex-col ">
+    <div className="flex justify-center  ">
+      <div className="grid grid-cols-2 w-300 h-screen ">
+        <div className="flex items-center justify-center ">
+          <form className="max-w-md mx-auto p-2  flex justify-center flex-col ">
             <Image
-                src="/img/logofinal.png"
-                alt="Logo"
-                width={200}
-                height={200}
-                className=" flex items-center mx-auto"
-              />
+              src="/img/logofinal.png"
+              alt="Logo"
+              width={250}
+              height={250}
+              className=" flex items-center mx-auto"
+            />
             <p className="text-gray-600 font-semibold p-4 mb-8">
               Today is a new day. Its your day. You shape it. Sign in to start
               managing your sales.
             </p>
 
             <div className="mb-4 space-y-5">
-              <label id="email"> Email</label>
+              <label id="email">Email</label>
               <input
                 type="text"
                 placeholder="Full name"
                 className="w-full p-3 border rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#4880FF] "
               />
 
-              <label  id="password">Password</label>
+              <label id="password">Password</label>
               <input
                 type="password"
                 placeholder="********"
@@ -60,7 +60,15 @@ export default function LoginPage() {
           </form>
         </div>
 
-        <div className="bg-[#4880FF] flex items-center justify-center rounded-lg"></div>
+        <div className=" flex items-center justify-center rounded-lg ">
+          <Image
+            src="/img/login-image2.png"
+            alt="Login illustration"
+            width={500}
+            height={700}
+            className="object-cover rounded-lg "
+          />
+        </div>
       </div>
     </div>
   );
