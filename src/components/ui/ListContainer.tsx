@@ -8,7 +8,7 @@ type ListProps = {
 };
 
 export default function ListContainer({ mainTitle, products }: ListProps) {
-  console.log(products);
+
 
   return (
     <section className="bg-white w-260 h-auto rounded-xl p-4 space-y-5 shadow-xl border border-gray-200">

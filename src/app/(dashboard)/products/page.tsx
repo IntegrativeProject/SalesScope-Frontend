@@ -27,7 +27,7 @@ export default async function page() {
           <h1 className="p-1 text-center font-bold  text-4xl   w-95  mb-8 ">
             Product Management
           </h1>
-          <RegisterForm mainName="New Product" firstField="Name" secondField="Price" thirdField="Initial stock" fourthField="Category" buttonLabel="Add product"/>
+          <RegisterForm products={products} mainName="New Product" firstField="Name" secondField="Price" thirdField="Initial stock" fourthField="Category" type="text" buttonLabel="Add product"/>
         </div>
         <div>
           <ListContainer products={products} mainTitle="Inventory" />
