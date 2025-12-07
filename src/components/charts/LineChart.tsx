@@ -42,7 +42,7 @@ export default function LineChart({w,h}:ChartProps) {
       "Week 10",
       "Week 11",
       "Week 12",
-      
+         
 
 
     ],
