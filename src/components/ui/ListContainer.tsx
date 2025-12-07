@@ -10,41 +10,51 @@ type ListProps = {
 
 export default function ListContainer({ mainTitle, products }: ListProps) {
   return (
-    <section className="bg-white w-200 h-150 rounded-xl p-4 space-y-5 shadow-xl border border-gray-200 overflow-y-scroll ">
-      <h1 className="text-center text-xl font-bold text-black">{mainTitle}</h1>
-      {products?.map((item) => (
-        <article
-          key={item.product_id}
-          className="bg-[#FBFCFF] border border-[#D5D5D5] rounded-xl p-2 "
-        >
-          <h2 className="font-bold text-base ">{item.name}</h2>
+    
+      <section className="bg-white w-150 h-150 rounded-xl p-5 space-y-5 shadow-xl border border-gray-200 overflow-y-scroll ">
+        <h1 className="text-center text-xl font-bold text-black mb-4">
+          {mainTitle}
+        </h1>
 
-          <div className="grid grid-cols-2">
-            <div className="flex items-center mt-auto flex-col-2 gap-3 text-sm text-[#ADADAD] font-medium  ">
-              <p className="">{item.category}</p>
-              <p className="">{`Stock: ${item.stock}`}</p>
+        {products?.map((item) => (
+          <article
+            key={item.product_id}
+            className="bg-white min-h-24 border border-gray-200 rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-200 flex items-center"
+          >
+            <div className="flex flex-col justify-center flex-1">
+              <h2 className="font-semibold text-lg text-gray-800">
+                {item.name}
+              </h2>
+
+              <div className="flex text-sm space-x-2 text-gray-500">
+                <p className="capitalize">{item.category}</p>
+                <p className="font-medium text-gray-700">{`Stock: ${item.stock}`}</p>
+              </div>
             </div>
 
-            <div className=" flex ml-auto text-right">
-              <p className="font-bold text-lg">{item.price}</p>
-              <button className=" px-3 py-1 ">
+            <div className="flex items-center  px-2 py-1 gap-2 rounded-lg">
+              <p className="font-bold text-lg text-black">${item.price}</p>
+
+              <button className="p-2 rounded-lg hover:bg-gray-100 transition">
                 <img
                   src="icons/edit.png"
                   alt="edit_icon"
-                  className="w-5 cursor-pointer  "
+                  className="w-5 cursor-pointer"
                 />
               </button>
-              <button className=" px-3 py-1 ">
+
+              <button className="p-2 rounded-lg hover:bg-red-100 transition">
                 <img
                   src="icons/delete.png"
                   alt="delete_icon"
-                  className="w-5 cursor-pointer  "
+                  className="w-5 cursor-pointer"
                 />
               </button>
             </div>
-          </div>
-        </article>
-      ))}
-    </section>
+          </article>
+        ))}
+      </section>
+      
+    
   );
 }
