@@ -11,7 +11,7 @@ type ListProps = {
 export default function ListContainer({ mainTitle, products }: ListProps) {
   return (
       <div>
-        <div className=" flex sticky top-0 z-5 space-x-20 text-xl font-bold text-black rounded-t-md h-11  bg-green-300 ">
+        <div className=" flex sticky top-0 z-5 space-x-20 text-xl font-bold text-black rounded-t-md h-11 shadow- border border-gray-200 bg-white p-2 ">
            <h1>{mainTitle}</h1>
            <div className="">
             filters

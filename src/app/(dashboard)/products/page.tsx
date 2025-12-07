@@ -30,7 +30,7 @@ export default async function page() {
           </h1>
           <RegisterForm products={products} mainName="New Product" firstField="Name" secondField="Price" thirdField="Initial stock" fourthField="Category" type="text" buttonLabel="Add product"/>
         </div>
-        <div className="flex bg-yellow-500 p-5 h-160">
+        <div className="flex bg-white rounded-xl p-5 h-160">
           <ListContainer products={products} mainTitle="Inventory" />
           <ListSeconSection/>
         </div>
