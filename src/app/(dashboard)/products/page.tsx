@@ -25,9 +25,8 @@ export default async function page() {
     <div>
       <div className="flex justify-center  space-x-10 p-5 b rounded-2xl">
         <div className="">
-          <h1 className="p-1 text-center font-bold  text-4xl   w-95  mb-8 ">
-            Product Management
-          </h1>
+          <h1 className="p-1 ml-9 font-bold  text-4xl">Product Management</h1>
+      <h2 className="p-1 ml-9 font-semibold text-gray-700 text-xl">Manage your product inventory</h2>
           <RegisterForm products={products} mainName="New Product" firstField="Name" secondField="Price" thirdField="Initial stock" fourthField="Category" type="text" buttonLabel="Add product"/>
         </div>
         <div className="flex bg-white rounded-xl p-5 h-160">

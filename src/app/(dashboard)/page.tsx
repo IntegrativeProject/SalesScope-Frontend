@@ -6,6 +6,8 @@ export default function page() {
   return (
     <div>
       <h1 className="p-1 ml-9 font-bold  text-4xl">Dashboard</h1>
+      <h2 className="p-1 ml-9 font-semibold text-gray-700 text-xl">Summary of your sales and key metrics</h2>
+
       <div className=" ml-11 grid grid-cols-4 gap-x-3 bg-[#F5F6FA] mt-5 ">
         <Card
           w="w-80"
