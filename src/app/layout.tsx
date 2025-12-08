@@ -1,4 +1,4 @@
-import { nunito } from "@/fonts/font";
+import { nunito, RubikFont } from "@/fonts/font";
 import "./globals.css";
 
 import type { Metadata } from "next";
