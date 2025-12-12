@@ -62,7 +62,7 @@ export default function LoginPage() {
 
         <div className=" flex items-center justify-center rounded-lg ">
           <Image
-            src="/img/login-image.png"
+            src="/img/login-image2.png"
             alt="Login illustration"
             width={500}
             height={700}
