@@ -24,12 +24,12 @@ export default function RegisterSaleForm() {
     e.preventDefault();
 
     if (!selectedProduct) {
-      alert("Debes seleccionar un producto.");
+      alert("You must select a product.");
       return;
     }
 
     if (quantity <= 0) {
-      alert("La cantidad debe ser mayor que 0.");
+      alert("The quantity must be greater than 0.");
       return;
     }
 
@@ -66,7 +66,7 @@ export default function RegisterSaleForm() {
         {openSelect && (
           <div
             className="absolute left-0 mt-1 w-full bg-white border border-gray-300 rounded-md shadow-lg 
-                       z-50 max-h-60 overflow-y-auto"
+                       z-50 max-h-60 "
           >
             {products.map((products) => (
               <div
