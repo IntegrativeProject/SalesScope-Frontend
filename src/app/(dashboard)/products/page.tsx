@@ -13,10 +13,13 @@ export default async function Page() {
     0
   );
 
-  const formatted = totalInventoryValue.toLocaleString("en-US", {
-    style: "currency",
-    currency: "USD",
-  });
+const formatted = totalInventoryValue.toLocaleString("en-US", {
+  style: "currency",
+  currency: "USD",
+  minimumFractionDigits: 0,
+  maximumFractionDigits: 0,
+});
+
 
   return (
     <div>

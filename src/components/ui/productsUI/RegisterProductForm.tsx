@@ -54,13 +54,13 @@ export default function RegisterForm({
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="p-5 bg-white rounded-xl flex flex-col gap-2 w-[400px] shadow-xl border border-gray-200"
+      className="p-5 bg-white rounded-xl h-auto flex flex-col gap-2 w-[400px] shadow-xl border border-gray-200"
     >
       <h2 className="text-center text-xl font-bold text-black">
         {mainName}
       </h2>
 
-      {/* NAME */}
+    
       <label className="font-semibold">{firstField}</label>
       <input
         {...register("name", {
@@ -73,7 +73,7 @@ export default function RegisterForm({
         <span className="text-red-500 text-sm">{errors.name.message}</span>
       )}
 
-      {/* PRICE */}
+     
       <label className="font-semibold">{secondField}</label>
       <input
         type="number"
@@ -88,7 +88,7 @@ export default function RegisterForm({
         <span className="text-red-500 text-sm">{errors.price.message}</span>
       )}
 
-      {/* STOCK */}
+     
       <label className="font-semibold">{thirdField}</label>
       <input
         type="number"
@@ -103,7 +103,7 @@ export default function RegisterForm({
         <span className="text-red-500 text-sm">{errors.stock.message}</span>
       )}
 
-      {/* CATEGORY */}
+     
       <label className="font-semibold">{fourthField}</label>
       <input
         {...register("category", {

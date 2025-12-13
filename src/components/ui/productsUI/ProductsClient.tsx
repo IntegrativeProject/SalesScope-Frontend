@@ -65,7 +65,7 @@ export default function ProductsClient({ initialProducts }: Props) {
   const categories = Array.from(new Set(products.map((p) => p.category)));
 
   return (
-    <div className="flex  rounded-xl p-5 h-160 gap-6">
+    <div className="flex rounded-xl p-5 h-160 gap-6">
       <RegisterForm
         mainName="New Product"
         firstField="Name"
@@ -76,8 +76,8 @@ export default function ProductsClient({ initialProducts }: Props) {
         onCreated={handleProductCreated}
       />
 
-      <div className="flex flex-col gap-4">
-        <div className="flex gap-3 bg-base-100 p-3 rounded-xl border">
+      <div className="flex flex-col gap-0 ">
+        <div className="flex gap-3 bg-white p-3 rounded-xl rounded-b-none">
           <input
             type="text"
             placeholder="Search..."
@@ -112,7 +112,7 @@ export default function ProductsClient({ initialProducts }: Props) {
 
         <ListContainer
           products={filteredProducts}
-          mainTitle="Inventory"
+          
           onEdit={setSelectedProduct}
           onDelete={handleDelete}
         />

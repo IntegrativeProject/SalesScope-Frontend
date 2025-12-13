@@ -4,23 +4,23 @@ import { Product } from "@/types/ProductType";
 
 
 type ListProps = {
-  mainTitle?: string;
+  
   products?: Product[];
   onEdit: (product: Product) => void;
   onDelete: (id: number) => void;
 };
 
 export default function ListContainer({
-  mainTitle,
+
   products,
   onDelete,
   onEdit,
 }: ListProps) {
   return (
     <div>
-      <h1>{mainTitle}</h1>
+     
 
-      <section className=" p-4 bg-white w-150 h-125 rounded-xl   space-y-5 shadow-xl border border-gray-200 overflow-y-scroll ">
+      <section className=" p-4 bg-white w-150 h-133 rounded-xl rounded-t-none  space-y-5 shadow-xl border border-gray-200  overflow-y-scroll ">
         {products?.map((item) => (
           <article
             key={item.product_id}
