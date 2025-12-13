@@ -20,7 +20,7 @@ export default function ListContainer({ mainTitle, products }: ListProps) {
           <SearchBar w="w-65" />
         </div>
       </div>
-      <section className=" p-4 bg-white w-150 h-140 rounded-xl rounded-t-none  space-y-5 shadow-xl border border-gray-200 overflow-y-scroll ">
+      <section className=" p-4 bg-white w-150 h-120 rounded-xl rounded-t-none  space-y-5 shadow-xl border border-gray-200 overflow-y-scroll ">
         {products?.map((item) => (
           <article
             key={item.product_id}
