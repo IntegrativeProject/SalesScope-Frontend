@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html data-theme="cupcake" lang="es">
-      <body className={nunito.className} >{children}</body>
+      <body className={`${nunito.className}`} >{children}</body>
     </html>
   );
 }

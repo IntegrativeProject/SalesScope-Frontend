@@ -4,10 +4,8 @@ import { Product } from "@/types/ProductType";
 import { getProducts } from "@/services/products.services";
 
 export default async function Page() {
-  // ✅ Fetch en server
   const products: Product[] = await getProducts();
 
-  // ✅ Derivados
   const totalProducts = products.length;
 
   const totalInventoryValue = products.reduce(
@@ -22,22 +20,16 @@ export default async function Page() {
 
   return (
     <div>
-      <div>
-          <h1 className="p-1 ml-9 font-bold text-4xl">
-            Product Management
-          </h1>
-          <h2 className="p-1 ml-9 font-semibold text-gray-700 text-xl">
-            Manage your product inventory
-          </h2>
-        </div>
+      <div className="flex">
+        <h1 className="p-1 ml-9 font-bold text-4xl">Product Management</h1>
+        <h2 className="p-1 ml-9 font-semibold text-gray-700 text-xl">
+          Manage your product inventory
+        </h2>
+      </div>
       <div className="flex justify-center space-x-10 p-5">
-       
-
-       
         <ProductsClient initialProducts={products} />
       </div>
 
-   
       <div className="flex justify-center space-x-30">
         <Card
           w="w-80"

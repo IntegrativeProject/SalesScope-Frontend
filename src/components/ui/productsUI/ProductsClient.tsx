@@ -65,7 +65,7 @@ export default function ProductsClient({ initialProducts }: Props) {
   const categories = Array.from(new Set(products.map((p) => p.category)));
 
   return (
-    <div className="flex bg-white rounded-xl p-5 h-160 gap-6">
+    <div className="flex  rounded-xl p-5 h-160 gap-6">
       <RegisterForm
         mainName="New Product"
         firstField="Name"
