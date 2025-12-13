@@ -14,7 +14,7 @@ export async function getTotalSales(): Promise<number> {
 
   const json = await res.json();
 
-  
+  console.log("DATA:", json.data);
 
   return (json.data as WeeklySale[]).reduce(
     (acc, w) => acc + w.revenue,
@@ -63,10 +63,16 @@ export async function getProductsSold(): Promise<number> {
 
 export async function getTransactions(): Promise<number> {
   const res = await fetch(`${BASE_URL}/orders`, {
-   cache: "no-store",
+    cache: "no-store",
   });
-  
+
   const json = await res.json();
-  console.log("DATA:", json.data);
-  return json.length;
+  const orders = json.data;
+
+ 
+  const totalOrders = orders.length;
+
+  console.log(totalOrders);
+  return totalOrders;
 }
+
