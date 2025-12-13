@@ -83,7 +83,7 @@ export default function RegisterForm({
       <input
         className="border border-gray-300 p-2 rounded text-black bg-white"
         placeholder="100"
-        type="number"
+        type="text"
         value={price}
         onChange={(e) => setPrice(Number(e.target.value))}
       />
@@ -94,7 +94,7 @@ export default function RegisterForm({
       <input
         className="w-full border border-gray-300 rounded-lg p-2 bg-white text-black"
         placeholder="1000"
-        type="number"
+        type="text"
         value={stock}
         onChange={(e) => setStock(Number(e.target.value))}
       />
