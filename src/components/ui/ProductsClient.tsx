@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Product } from "@/types/ProductType";
 import ListContainer from "./ListContainer";
 import ListSeconSection from "./ListSeconSection";
+import { deleteProduct, updateProduct } from "@/services/products.services";
+
 
 type Props = {
   initialProducts: Product[];
@@ -13,42 +15,29 @@ export default function ProductsClient({ initialProducts }: Props) {
   const [products, setProducts] = useState<Product[]>(initialProducts);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
+  /* DELETE */
   const handleDelete = async (id: number) => {
     if (!confirm("¿Eliminar producto?")) return;
 
     try {
-      const res = await fetch(
-        `https://integrative-salescope.onrender.com/products/${id}`,
-        { method: "DELETE" }
-      );
-
-      if (!res.ok) throw new Error();
-
+      await deleteProduct(id);
       setProducts((prev) =>
-        prev.filter((product) => product.product_id !== id)
+        prev.filter((p) => p.product_id !== id)
       );
     } catch {
       alert("Error eliminando producto");
     }
   };
 
-  const handleUpdate = async (updated: Product) => {
+  /* UPDATE */
+  const handleUpdate = async (product: Product) => {
     try {
-      const res = await fetch(
-        `https://integrative-salescope.onrender.com/products/${updated.product_id}`,
-        {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(updated),
-        }
-      );
-
-      if (!res.ok) throw new Error();
-
+      await updateProduct(product);
       setProducts((prev) =>
-        prev.map((p) => (p.product_id === updated.product_id ? updated : p))
+        prev.map((p) =>
+          p.product_id === product.product_id ? product : p
+        )
       );
-
       setSelectedProduct(null);
     } catch {
       alert("Error actualizando producto");

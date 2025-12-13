@@ -1,6 +1,6 @@
 "use client";
 import { Product } from "@/types/ProductType";
-import React from "react";
+
 import SearchBar from "./SearchBar";
 
 type ListProps = {

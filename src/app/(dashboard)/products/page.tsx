@@ -2,21 +2,14 @@ import ProductsClient from "@/components/ui/ProductsClient";
 import RegisterForm from "@/components/ui/RegisterForm";
 import Card from "@/components/ui/Card";
 import { Product, ProductsResponse } from "@/types/ProductType";
+import { getProducts } from "@/services/products.services";
 
 export default async function Page() {
-  const response = await fetch(
-    "https://integrative-salescope.onrender.com/products/?page_size=9999",
-    {
-      cache: "no-store",
-    }
-  );
+   const products: Product[] = await getProducts();
+  
 
-  if (!response.ok) {
-    throw new Error("Error cargando productos");
-  }
-
-  const data: ProductsResponse = await response.json();
-  const products: Product[] = data.data;
+ 
+ 
 
   const totalProducts = products.length;
 
