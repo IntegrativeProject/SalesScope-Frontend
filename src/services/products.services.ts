@@ -2,7 +2,6 @@ import { Product, ProductsResponse } from "@/types/ProductType";
 
 const BASE_URL = "https://integrative-salescope.onrender.com/products";
 
-
 export async function getProducts(): Promise<Product[]> {
   const res = await fetch(`${BASE_URL}/?page_size=9999`, {
     cache: "no-store",
@@ -16,8 +15,9 @@ export async function getProducts(): Promise<Product[]> {
   return data.data;
 }
 
-
-export async function createProduct(product: Partial<Product>) {
+export async function createProduct(
+  product: Pick<Product, "name" | "price" | "stock" | "category">
+) {
   const res = await fetch(`${BASE_URL}/`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -30,7 +30,6 @@ export async function createProduct(product: Partial<Product>) {
 
   return res.json();
 }
-
 
 export async function updateProduct(product: Product) {
   const res = await fetch(`${BASE_URL}/${product.product_id}`, {
