@@ -5,7 +5,9 @@ import { getProducts } from "@/services/products.services";
 
 export default async function Page() {
   const products: Product[] = await getProducts();
+  const lowStockProducts = products.filter((product) => product.stock < 5);
 
+  const lowStock = lowStockProducts.length;
   const totalProducts = products.length;
 
   const totalInventoryValue = products.reduce(
@@ -13,13 +15,12 @@ export default async function Page() {
     0
   );
 
-const formatted = totalInventoryValue.toLocaleString("en-US", {
-  style: "currency",
-  currency: "USD",
-  minimumFractionDigits: 0,
-  maximumFractionDigits: 0,
-});
-
+  const formatted = totalInventoryValue.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  });
 
   return (
     <div>
@@ -53,6 +54,7 @@ const formatted = totalInventoryValue.toLocaleString("en-US", {
         <Card
           w="w-80"
           h="h-50"
+          worth={lowStock}
           mainText="Low Stock"
           iconRoute="/icons/nohaystock.png"
         />

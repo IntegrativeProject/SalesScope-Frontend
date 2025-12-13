@@ -57,7 +57,7 @@ export default function ProductsClient({ initialProducts }: Props) {
         stockFilter === "all" ||
         (stockFilter === "in" && product.stock > 0) ||
         (stockFilter === "low" && product.stock < 5);
-
+        
       return matchName && matchCategory && matchStock;
     });
   }, [products, search, category, stockFilter]);
