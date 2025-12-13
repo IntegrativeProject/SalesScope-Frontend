@@ -1,6 +1,6 @@
 import { Product, ProductsResponse } from "@/types/ProductType";
 
-const BASE_URL = "https://integrative-salescope.onrender.com/products";
+export const BASE_URL = "https://integrative-salescope.onrender.com/products";
 
 export async function getProducts(): Promise<Product[]> {
   const res = await fetch(`${BASE_URL}/?page_size=9999`, {

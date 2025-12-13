@@ -1,8 +1,32 @@
+"use client"
+
 import BarChart from "@/components/charts/BarChart";
 import Card from "@/components/ui/Card";
 import LineChart from "@/components/charts/LineChart";
+import { useEffect, useState } from "react";
+import { getDailyAverage, getProductsSold, getTotalSales, getTransactions } from "@/services/Analitics.services";
 
-export default function page() {
+export default function Page() {
+   const [totalSales, setTotalSales] = useState(0);
+  const [dailyAvg, setDailyAvg] = useState(0);
+  const [productsSold, setProductsSold] = useState(0);
+  const [transactions, setTransactions] = useState(0);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token")!;
+
+    Promise.all([
+      getTotalSales(token),
+      getDailyAverage(token),
+      getProductsSold(token),
+      getTransactions(token),
+    ]).then(([sales, avg, products, trans]) => {
+      setTotalSales(sales);
+      setDailyAvg(avg);
+      setProductsSold(products);
+      setTransactions(trans);
+    });
+  }, []);
   return (
     <div>
       <h1 className="p-1 ml-9 font-bold  text-4xl">Dashboard</h1>
@@ -13,7 +37,7 @@ export default function page() {
           w="w-80"
           h="h-50"
           mainText="Total Sales"
-          worth={36.2}
+          worth={totalSales}
           percentage="12.5%"
           endText=" vs previous week"
           iconRoute="/icons/sales.png"
@@ -23,7 +47,7 @@ export default function page() {
           w="w-80"
           h="h-50"
           mainText="Daily Avarage"
-          worth={5.171}
+          worth={dailyAvg}
           percentage="18.3%"
           endText="vs previous week"
           iconRoute="/icons/promedio.png"
@@ -33,7 +57,7 @@ export default function page() {
           w="w-80"
           h="h-50"
           mainText="Products Sold"
-          worth={362}
+          worth={productsSold}
           percentage="15.2%"
           endText="vs previous week"
           iconRoute="/icons/box.png"
@@ -42,7 +66,7 @@ export default function page() {
           w="w-80"
           h="h-50"
           mainText="Transaction"
-          worth={89}
+          worth={transactions}
           percentage="9.8%"
           endText="vs previous week"
           iconRoute="/icons/money.png"
