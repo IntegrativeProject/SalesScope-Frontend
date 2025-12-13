@@ -1,4 +1,4 @@
-// services/analytics.services.ts
+
 export const BASE_URL = "https://integrative-salescope.onrender.com";
 
 type WeeklySale = {
