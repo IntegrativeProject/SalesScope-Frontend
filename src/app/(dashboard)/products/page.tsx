@@ -1,40 +1,58 @@
-import Card from "@/components/ui/Card";
-import ListContainer from "@/components/ui/ListContainer";
-import ListSeconSection from "@/components/ui/ListSeconSection";
+import ProductsClient from "@/components/ui/ProductsClient";
 import RegisterForm from "@/components/ui/RegisterForm";
+import Card from "@/components/ui/Card";
 import { Product, ProductsResponse } from "@/types/ProductType";
-import React from "react";
 
-export default async function page() {
+export default async function Page() {
   const response = await fetch(
-    "https://integrative-salescope.onrender.com/products/?page_size=9999"
+    "https://integrative-salescope.onrender.com/products/?page_size=9999",
+    {
+      cache: "no-store",
+    }
   );
-  const data:ProductsResponse = await response.json();
-  const products = data.data;
+
+  if (!response.ok) {
+    throw new Error("Error cargando productos");
+  }
+
+  const data: ProductsResponse = await response.json();
+  const products: Product[] = data.data;
+
   const totalProducts = products.length;
 
-    const totalInventoryValue = products.reduce(
-    (acc: number, product: Product) => acc + product.price * product.stock,
+  const totalInventoryValue = products.reduce(
+    (acc, product) => acc + product.price * product.stock,
     0
   );
-    const formatted = totalInventoryValue.toLocaleString("en-US", {
-  style: "currency",
-  currency: "USD",
-});
+
+  const formatted = totalInventoryValue.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
+
   return (
     <div>
-      <div className="flex justify-center  space-x-10 p-5 b rounded-2xl">
-        <div className="">
-          <h1 className="p-1 ml-9 font-bold  text-4xl">Product Management</h1>
-      <h2 className="p-1 ml-9 font-semibold text-gray-700 text-xl">Manage your product inventory</h2>
-          <RegisterForm products={products} mainName="New Product" firstField="Name" secondField="Price" thirdField="Initial stock" fourthField="Category" type="text" buttonLabel="Add product"/>
+      <div className="flex justify-center space-x-10 p-5">
+        <div>
+          <h1 className="p-1 ml-9 font-bold text-4xl">Product Management</h1>
+          <h2 className="p-1 ml-9 font-semibold text-gray-700 text-xl">
+            Manage your product inventory
+          </h2>
+
+          <RegisterForm
+            mainName="New Product"
+            firstField="Name"
+            secondField="Price"
+            thirdField="Initial stock"
+            fourthField="Category"
+            buttonLabel="Add product"
+          />
         </div>
-        <div className="flex bg-white rounded-xl p-5 h-160">
-          <ListContainer products={products} mainTitle="Inventory" />
-          <ListSeconSection/>
-        </div>
+
+        <ProductsClient initialProducts={products} />
       </div>
-      <div className="flex justify-center space-x-30 ">
+
+      <div className="flex justify-center space-x-30">
         <Card
           w="w-80"
           h="h-50"
@@ -42,6 +60,7 @@ export default async function page() {
           mainText="Total Products"
           iconRoute="/icons/agregar-producto.png"
         />
+
         <Card
           w="w-80"
           h="h-50"
@@ -49,6 +68,7 @@ export default async function page() {
           mainText="Total Inventory Value"
           iconRoute="/icons/inventario.png"
         />
+
         <Card
           w="w-80"
           h="h-50"

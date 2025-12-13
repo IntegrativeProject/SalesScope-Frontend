@@ -11,6 +11,7 @@ type FormData = {
 };
 
 type RegisterProps = {
+  products?: Product[]
   mainName?: string;
   firstField?: string;
   secondField?: string;
