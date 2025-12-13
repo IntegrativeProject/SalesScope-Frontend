@@ -1,4 +1,4 @@
-import ProductsClient from "@/components/ui/ProductsClient";
+import ProductsClient from "@/components/ui/productsUI/ProductsClient";
 import Card from "@/components/ui/Card";
 import { Product } from "@/types/ProductType";
 import { getProducts } from "@/services/products.services";

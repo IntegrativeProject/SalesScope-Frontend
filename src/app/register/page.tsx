@@ -1,4 +1,4 @@
-import RegisterPage from '@/components/ui/RegisterPage';
+import RegisterPage from '@/components/ui/registerUI/RegisterPage';
 
 export default function Page() {
     return <RegisterPage />

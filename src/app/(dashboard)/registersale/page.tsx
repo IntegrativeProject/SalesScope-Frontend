@@ -1,5 +1,5 @@
-import ListContainer from "@/components/ui/ListContainer";
-import RegisterForm from "@/components/ui/RegisterForm";
+import ListContainer from "@/components/ui/productsUI/ListContainer";
+import RegisterForm from "@/components/ui/productsUI/RegisterProductForm";
 import React from "react";
 
 export default function page() {

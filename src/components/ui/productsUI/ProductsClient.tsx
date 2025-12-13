@@ -4,11 +4,8 @@ import { useMemo, useState } from "react";
 import { Product } from "@/types/ProductType";
 import ListContainer from "./ListContainer";
 import ListSeconSection from "./ListSeconSection";
-import RegisterForm from "./RegisterForm";
-import {
-  deleteProduct,
-  updateProduct,
-} from "@/services/products.services";
+import RegisterForm from "./RegisterProductForm";
+import { deleteProduct, updateProduct } from "@/services/products.services";
 
 type Props = {
   initialProducts: Product[];
@@ -16,41 +13,31 @@ type Props = {
 
 export default function ProductsClient({ initialProducts }: Props) {
   const [products, setProducts] = useState<Product[]>(initialProducts);
-  const [selectedProduct, setSelectedProduct] =
-    useState<Product | null>(null);
-
-  // 🔎 FILTER STATES
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("all");
   const [stockFilter, setStockFilter] = useState("all");
 
-  // ➕ CREATE
   const handleProductCreated = (newProduct: Product) => {
     setProducts((prev) => [newProduct, ...prev]);
   };
 
-  // 🗑 DELETE
   const handleDelete = async (id: number) => {
     if (!confirm("¿Eliminar producto?")) return;
 
     try {
       await deleteProduct(id);
-      setProducts((prev) =>
-        prev.filter((p) => p.product_id !== id)
-      );
+      setProducts((prev) => prev.filter((p) => p.product_id !== id));
     } catch {
       alert("Error eliminando producto");
     }
   };
 
-  // ✏️ UPDATE
   const handleUpdate = async (product: Product) => {
     try {
       await updateProduct(product);
       setProducts((prev) =>
-        prev.map((p) =>
-          p.product_id === product.product_id ? product : p
-        )
+        prev.map((p) => (p.product_id === product.product_id ? product : p))
       );
       setSelectedProduct(null);
     } catch {
@@ -58,15 +45,13 @@ export default function ProductsClient({ initialProducts }: Props) {
     }
   };
 
-  // 🔍 FILTERED PRODUCTS
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
       const matchName = product.name
         .toLowerCase()
         .includes(search.toLowerCase());
 
-      const matchCategory =
-        category === "all" || product.category === category;
+      const matchCategory = category === "all" || product.category === category;
 
       const matchStock =
         stockFilter === "all" ||
@@ -77,14 +62,10 @@ export default function ProductsClient({ initialProducts }: Props) {
     });
   }, [products, search, category, stockFilter]);
 
-  // 📂 UNIQUE CATEGORIES
-  const categories = Array.from(
-    new Set(products.map((p) => p.category))
-  );
+  const categories = Array.from(new Set(products.map((p) => p.category)));
 
   return (
     <div className="flex bg-white rounded-xl p-5 h-160 gap-6">
-      {/* LEFT */}
       <RegisterForm
         mainName="New Product"
         firstField="Name"
@@ -95,9 +76,7 @@ export default function ProductsClient({ initialProducts }: Props) {
         onCreated={handleProductCreated}
       />
 
-      {/* CENTER */}
       <div className="flex flex-col gap-4">
-        {/* FILTERS */}
         <div className="flex gap-3 bg-base-100 p-3 rounded-xl border">
           <input
             type="text"
@@ -139,7 +118,6 @@ export default function ProductsClient({ initialProducts }: Props) {
         />
       </div>
 
-      {/* RIGHT */}
       <ListSeconSection
         product={selectedProduct}
         onSave={handleUpdate}

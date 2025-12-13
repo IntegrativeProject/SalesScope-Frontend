@@ -1,7 +1,7 @@
 "use client";
 import { Product } from "@/types/ProductType";
 
-import SearchBar from "./SearchBar";
+
 
 type ListProps = {
   mainTitle?: string;
@@ -18,15 +18,9 @@ export default function ListContainer({
 }: ListProps) {
   return (
     <div>
-      <div className=" flex sticky top-0 z-5 space-x-20 text-xl font-bold text-black rounded-t-md h-11 shadow- border border-gray-200 bg-white p-2 ">
-        <h1>{mainTitle}</h1>
-        <div className="flex gap-4">
-          Filters
-          <img src="/icons/filter.png" alt="filter-icon" className="w-8" />
-          <SearchBar w="w-65" />
-        </div>
-      </div>
-      <section className=" p-4 bg-white w-150 h-140 rounded-xl rounded-t-none  space-y-5 shadow-xl border border-gray-200 overflow-y-scroll ">
+      <h1>{mainTitle}</h1>
+
+      <section className=" p-4 bg-white w-150 h-125 rounded-xl   space-y-5 shadow-xl border border-gray-200 overflow-y-scroll ">
         {products?.map((item) => (
           <article
             key={item.product_id}
