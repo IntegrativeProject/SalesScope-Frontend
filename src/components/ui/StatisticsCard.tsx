@@ -70,9 +70,6 @@ export default function StatisticsCard() {
           <p className=" bg-[#3ae98063] text-green-600 rounded-xl p-1">$8481</p>
         </div>
       </article>
-      
-     
-     
     </section>
   );
 }

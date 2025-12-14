@@ -24,7 +24,7 @@ export default function ListSeconSection({
   if (!product) {
     return (
       <div className="w-100 p-5 text-gray-500">
-        Selecciona un producto para editar
+        Select a product to edit
       </div>
     );
   }
@@ -42,13 +42,13 @@ export default function ListSeconSection({
       <input type="number" {...register("stock", { valueAsNumber: true })} />
 
       <div className="flex gap-2">
-        <button className="bg-blue-500 text-white px-4 py-2 rounded">
+        <button className="bg-blue-500 text-white px-4 py-2 rounded cursor-pointer hover:bg-blue-600">
           Save
         </button>
         <button
           type="button"
           onClick={onCancel}
-          className="bg-gray-200 px-4 py-2 rounded"
+          className="bg-gray-200 px-4 py-2 rounded cursor-pointer hover:bg-gray-300"
         >
           Cancel
         </button>

@@ -22,7 +22,7 @@ type RegisterProps = {
 };
 
 export default function RegisterForm({
-  onCreated, 
+  onCreated,
   mainName,
   firstField,
   secondField,
@@ -41,13 +41,12 @@ export default function RegisterForm({
     try {
       const created = await createProduct(data);
 
-      // 🔔 notifica al padre
       onCreated?.(created.data ?? created);
 
       reset();
     } catch (error) {
       console.error(error);
-      alert("Error creando producto");
+      alert("Error creating product");
     }
   };
 
@@ -56,16 +55,13 @@ export default function RegisterForm({
       onSubmit={handleSubmit(onSubmit)}
       className="p-5 bg-white rounded-xl h-auto flex flex-col gap-2 w-[400px] shadow-xl border border-gray-200"
     >
-      <h2 className="text-center text-xl font-bold text-black">
-        {mainName}
-      </h2>
+      <h2 className="text-center text-xl font-bold text-black">{mainName}</h2>
 
-    
       <label className="font-semibold">{firstField}</label>
       <input
         {...register("name", {
-          required: "El nombre es obligatorio",
-          minLength: { value: 3, message: "Debe tener al menos 3 caracteres" },
+          required: "The name is required",
+          minLength: { value: 3, message: "Must be at least 3 characters" },
         })}
         className="border border-gray-300 p-2 rounded"
       />
@@ -73,14 +69,13 @@ export default function RegisterForm({
         <span className="text-red-500 text-sm">{errors.name.message}</span>
       )}
 
-     
       <label className="font-semibold">{secondField}</label>
       <input
         type="number"
         {...register("price", {
-          required: "El precio es obligatorio",
+          required: "The price is required",
           valueAsNumber: true,
-          min: { value: 1, message: "Debe ser mayor a 0" },
+          min: { value: 1, message: "Must be greater than 0" },
         })}
         className="border border-gray-300 p-2 rounded"
       />
@@ -88,14 +83,13 @@ export default function RegisterForm({
         <span className="text-red-500 text-sm">{errors.price.message}</span>
       )}
 
-     
       <label className="font-semibold">{thirdField}</label>
       <input
         type="number"
         {...register("stock", {
-          required: "El stock es obligatorio",
+          required: "Stock is required",
           valueAsNumber: true,
-          min: { value: 0, message: "No puede ser negativo" },
+          min: { value: 0, message: "It can't be negative" },
         })}
         className="border border-gray-300 p-2 rounded"
       />
@@ -103,25 +97,22 @@ export default function RegisterForm({
         <span className="text-red-500 text-sm">{errors.stock.message}</span>
       )}
 
-     
       <label className="font-semibold">{fourthField}</label>
       <input
         {...register("category", {
-          required: "La categoría es obligatoria",
+          required: "The category is required",
         })}
         className="border border-gray-300 p-2 rounded"
       />
       {errors.category && (
-        <span className="text-red-500 text-sm">
-          {errors.category.message}
-        </span>
+        <span className="text-red-500 text-sm">{errors.category.message}</span>
       )}
 
       <button
         disabled={isSubmitting}
-        className="w-full bg-[#4880FF] hover:bg-blue-400 mt-5 text-white p-3 rounded-lg font-bold disabled:opacity-50"
+        className="w-full bg-[#4880FF] hover:bg-blue-400 mt-5 text-white p-3 rounded-lg font-bold disabled:opacity-50 cursor-pointer"
       >
-        {isSubmitting ? "Guardando..." : buttonLabel}
+        {isSubmitting ? "Saving..." : buttonLabel}
       </button>
     </form>
   );
