@@ -32,7 +32,7 @@ export async function getLastSales() {
   return json.data
 
     .sort(
-      (a: any, b: any) =>
+      (a: Order, b: Order) =>
         new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
     )
     .slice(0, 5);
