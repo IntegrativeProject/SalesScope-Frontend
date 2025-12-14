@@ -1,23 +1,22 @@
-
-import ListSales from "@/components/ui/salesUI/ListSales";
-import RegisterSaleForm from "@/components/ui/salesUI/RegisterSaleForm";
+import SalesPageClient from "@/components/ui/salesUI/SalesPageClient";
 import { getProducts } from "@/services/products.services";
-import { Product } from "@/types/ProductType";
-import React from "react";
+import { getLastSales } from "@/services/orders.services";
 
 export default async function page() {
-  const products: Product[] = await getProducts();
-  const sales:Ordes
+  const products = await getProducts();
+  const sales = await getLastSales();
+
   return (
     <div className="space-x-1">
-      <h1 className="p-1 ml-9 font-bold  text-4xl">Register Sale</h1>
+      <h1 className="p-1 ml-9 font-bold text-4xl">Register Sale</h1>
       <h2 className="p-1 ml-9 font-semibold text-gray-700 text-xl">
         Add a new sales transaction
       </h2>
-      <div className="grid grid-cols-2 p-2 mt-5  rounded-2xl">
-        <RegisterSaleForm initialProducts={products} />
-        <ListSales/>
-      </div>
+
+      <SalesPageClient
+        initialProducts={products}
+        initialSales={sales}
+      />
     </div>
   );
 }

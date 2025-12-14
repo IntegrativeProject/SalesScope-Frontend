@@ -22,6 +22,26 @@ export async function getOrders(): Promise<Order[]> {
   }
 }
 
+
+
+
+export async function getLastSales() {
+  const res = await fetch(`${BASE_URL}/orders`, {
+    cache: "no-store",
+  });
+
+  const json = await res.json();
+
+  return json.data
+    
+    .sort(
+      (a: any, b: any) =>
+        new Date(b.created_at).getTime() -
+        new Date(a.created_at).getTime()
+    )
+    .slice(0, 5);
+}
+
 export async function createOrder(payload: CreateOrderPayload) {
   try {
     const res = await fetch(`${BASE_URL}/orders/`, {

@@ -1,13 +1,15 @@
 "use client";
 
+import { BASE_URL } from "@/services/Analitics.services";
 import { Product, ProductsResponse } from "@/types/ProductType";
 import { useEffect, useState, useRef } from "react";
 
 import { MdExpandMore, MdCheck } from "react-icons/md";
 type RegistterSaleFormProps ={
   initialProducts:Product[]
+   onSaleCreated: () => void;
 }
-export default function RegisterSaleForm({initialProducts}:RegistterSaleFormProps) {
+export default function RegisterSaleForm({initialProducts,onSaleCreated}:RegistterSaleFormProps) {
   
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [quantity, setQuantity] = useState(1);
@@ -16,11 +18,58 @@ export default function RegisterSaleForm({initialProducts}:RegistterSaleFormProp
   const selectRef = useRef<HTMLDivElement>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+ const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  if (!selectedProduct) {
+    alert("Selecciona un producto");
+    return;
+  }
+
+  setIsSubmitting(true);
+
+  try {
+    const res = await fetch(`${BASE_URL}/orders/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user_id: 3,
+        items: [
+          {
+            product_id: selectedProduct.product_id,
+            quantity: quantity,
+          },
+        ],
+      }),
+    });
+
+    if (!res.ok) {
+      const errorText = await res.text();
+      console.error("ORDER ERROR:", errorText);
+      throw new Error("Error creating order");
+    }
+
+   
+    setSelectedProduct(null);
+    setQuantity(1);
+    onSaleCreated();
+
+    alert("Venta registrada correctamente ");
+  } catch (error) {
+    console.error(error);
+    alert("Error registrando la venta");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
 
  
   return (
     <form
-     
+      onSubmit={handleSubmit}
       className="p-6 bg-white shadow rounded-md border border-gray-200 max-w-[450px] flex flex-col gap-5"
     >
       <h2 className="text-xl font-bold text-black">New Sale</h2>
