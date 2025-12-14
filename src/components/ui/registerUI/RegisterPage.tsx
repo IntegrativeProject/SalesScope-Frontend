@@ -4,17 +4,26 @@ import Image from "next/image";
 export default function RegisterPage() {
   return (
     <div className="flex justify-center">
-      <div className="grid grid-cols-2 p-1 w-300 h-auto">
-        <div className="bg-[#4880FF] flex items-center justify-center rounded-lg"></div>
+      <div className="grid grid-cols-2 p-1 w-300 h-screen">
+        <div className=" flex items-center justify-center">
+          <Image
+            src="/img/register-image.png"
+            alt="Login illustration"
+            width={500}
+            height={700}
+            className="object-cover rounded-lg "
+          />
+        </div>
+
         <div className="bg-white flex items-center justify-center rounded-md ">
           <form className="max-w-md mx-auto mt-15 p-2 flex justify-center flex-col ">
             <Image
-                src="/img/logofinal.png"
-                width={200}
-                height={200}
-                alt="SaleScope Logo"
-                className="mb-3 flex items-center mx-auto"
-                />
+              src="/img/logofinal.png"
+              width={200}
+              height={200}
+              alt="SaleScope Logo"
+              className="mb-3 flex items-center mx-auto"
+            />
             <h2 className="text-2xl font-bold mb-4 text-center ">
               Register in SalesScope
             </h2>

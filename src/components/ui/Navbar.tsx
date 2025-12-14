@@ -1,5 +1,4 @@
 import Link from "next/link";
-import SearchBar from "./SearchBar";
 
 export default function Navbar() {
   return (
@@ -23,7 +22,7 @@ export default function Navbar() {
       </div>
 
       {/* Search bar */}
-      <div className="mr-200 w-100"></div>
+      <div className="mr-200 w-100 "></div>
 
       {/* Idioma */}
       <div className="dropdown dropdown-end mr-4">
@@ -57,7 +56,7 @@ export default function Navbar() {
         {/* Dropdown opciones */}
         <ul
           tabIndex={0}
-          className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-40 mt-3"
+          className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-40 mt-3 cursor-pointer"
         >
           <li>
             <a>
@@ -125,7 +124,7 @@ export default function Navbar() {
         {/* Dropdown perfil */}
         <ul
           tabIndex={0}
-          className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 mt-3"
+          className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 mt-3 cursor-pointer"
         >
           <li>
             <Link href="/login" className="text-red-600">

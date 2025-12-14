@@ -3,12 +3,12 @@ import Image from "next/image";
 
 export default function LoginPage() {
   return (
-    <div className="flex justify-center  ">
+    <div className="flex justify-center ">
       <div className="grid grid-cols-2 w-300 h-screen ">
-        <div className="flex items-center justify-center ">
+        <div className="flex items-center justify-center">
           <form className="max-w-md mx-auto p-2  flex justify-center flex-col ">
             <Image
-              src="/img/logofinal.png"
+              src="/img/logo.png"
               alt="Logo"
               width={250}
               height={250}
@@ -62,7 +62,7 @@ export default function LoginPage() {
 
         <div className=" flex items-center justify-center rounded-lg ">
           <Image
-            src="/img/login-image2.png"
+            src="/img/login-image.png"
             alt="Login illustration"
             width={500}
             height={700}
