@@ -1,25 +1,28 @@
-"use client"
+"use client";
 
 import BarChart from "@/components/charts/BarChart";
 import Card from "@/components/ui/Card";
 import LineChart from "@/components/charts/LineChart";
 import { useEffect, useState } from "react";
-import { getDailyAverage, getProductsSold, getTotalSales, getTransactions } from "@/services/Analitics.services";
+import {
+  getDailyAverage,
+  getProductsSold,
+  getTotalSales,
+  getTransactions,
+} from "@/services/Analitics.services";
 
 export default function Page() {
-   const [totalSales, setTotalSales] = useState(0);
+  const [totalSales, setTotalSales] = useState(0);
   const [dailyAvg, setDailyAvg] = useState(0);
   const [productsSold, setProductsSold] = useState(0);
   const [transactions, setTransactions] = useState(0);
 
   useEffect(() => {
-    const token = localStorage.getItem("token")!;
-
     Promise.all([
-      getTotalSales(token),
-      getDailyAverage(token),
-      getProductsSold(token),
-      getTransactions(token),
+      getTotalSales(),
+      getDailyAverage(),
+      getProductsSold(),
+      getTransactions(),
     ]).then(([sales, avg, products, trans]) => {
       setTotalSales(sales);
       setDailyAvg(avg);
@@ -30,7 +33,9 @@ export default function Page() {
   return (
     <div>
       <h1 className="p-1 ml-9 font-bold  text-4xl">Dashboard</h1>
-      <h2 className="p-1 ml-9 font-semibold text-gray-700 text-xl">Summary of your sales and key metrics</h2>
+      <h2 className="p-1 ml-9 font-semibold text-gray-700 text-xl">
+        Summary of your sales and key metrics
+      </h2>
 
       <div className=" ml-11 grid grid-cols-4 gap-x-3 bg-[#F5F6FA] mt-5 ">
         <Card
@@ -74,7 +79,7 @@ export default function Page() {
       </div>
       <div className="grid grid-cols-2 mt-2 gap-0 p-15">
         <article className="bg-white w-160 rounded-xl shadow-xl p-6">
-          <LineChart h="350px" w="540px"/>
+          <LineChart h="350px" w="540px" />
         </article>
         <article className="bg-white rounded-xl shadow-xl p-4">
           <BarChart />
