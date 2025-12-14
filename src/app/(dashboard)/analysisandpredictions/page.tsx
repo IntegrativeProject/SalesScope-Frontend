@@ -1,11 +1,16 @@
+
+
 import AnalysisCards from "@/components/ui/AnalysisCards";
 import RecommendationsCard from "@/components/ui/RecommendationsCard";
 import StatisticsCard from "@/components/ui/StatisticsCard";
-import React from "react";
+
 import BestDayCard from "../../../components/ui/BestDayCard";
 import PredictionCard from "@/components/ui/PredictionCard";
 
-export default function page() {
+
+export default function Page() {
+ 
+
   return (
     <div>
        <h1 className="p-1 ml-9 font-bold  text-4xl">Analysis and Predictions</h1>
@@ -35,7 +40,7 @@ export default function page() {
       </div>
       <div>
       <div className="flex justify-center gap-7 mt-5">
-        <BestDayCard average={7200} day="Saturday" />
+        <BestDayCard average={8288} day="Friday" />
         <StatisticsCard />
       </div>
       <div className="flex justify-center mt-5">
