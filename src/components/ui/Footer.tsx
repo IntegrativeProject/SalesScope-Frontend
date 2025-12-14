@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer className="">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-6 border-t border-gray-500/70 ">
+      <div className="max-w-screen mx-auto grid md:grid-cols-3 gap-6 border-t ">
         <div className="flex items-end">
           <Image
             src="/img/logo.png"

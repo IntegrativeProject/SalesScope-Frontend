@@ -1,3 +1,4 @@
+import Footer from "@/components/ui/Footer";
 import Navbar from "@/components/ui/Navbar";
 import Sidebar from "@/components/ui/Sidebar";
 
@@ -24,6 +25,7 @@ export default function RootLayout({
         <main className="mt-16 p-6 overflow-y-auto min-h-screen">
           {children}
         </main>
+      <Footer/>
       </div>
     </div>
   );
