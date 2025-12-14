@@ -7,11 +7,20 @@ import { useEffect, useState } from "react";
 import {
   getDailyAverage,
   getProductsSold,
+  getTopProducts,
   getTotalSales,
   getTransactions,
+  getWeeklySales,
 } from "@/services/Analitics.services";
 
 export default function Page() {
+const [lineLabels, setLineLabels] = useState<string[]>([]);
+const [lineData, setLineData] = useState<number[]>([]);
+
+const [barLabels, setBarLabels] = useState<string[]>([]);
+const [barData, setBarData] = useState<number[]>([]);
+
+
   const [totalSales, setTotalSales] = useState(0);
   const [dailyAvg, setDailyAvg] = useState(0);
   const [productsSold, setProductsSold] = useState(0);
@@ -30,6 +39,40 @@ export default function Page() {
       setTransactions(trans);
     });
   }, []);
+ useEffect(() => {
+  async function loadCharts() {
+    /* LINE CHART (Weekly revenue) */
+    const weekly = await getWeeklySales();
+
+    setLineLabels(
+      weekly.map((w: any) =>
+        new Date(w.week).toLocaleDateString("en-US", {
+          month: "short",
+          day: "numeric",
+        })
+      )
+    );
+
+    setLineData(
+      weekly.map((w: any) => w.revenue)
+    );
+
+    /* BAR CHART (Top products) */
+    const products = await getTopProducts(5);
+
+    setBarLabels(
+      products.map((p: any) => p.name)
+    );
+
+    setBarData(
+      products.map((p: any) => p.total_sold)
+    );
+  }
+
+  loadCharts();
+}, []);
+
+
   return (
     <div>
       <h1 className="p-1 ml-9 font-bold  text-4xl">Dashboard</h1>
@@ -79,10 +122,10 @@ export default function Page() {
       </div>
       <div className="grid grid-cols-2 mt-2 gap-0 p-15">
         <article className="bg-white w-160 rounded-xl shadow-xl p-6">
-          <LineChart h="350px" w="540px" />
+         <LineChart labels={lineLabels} data={lineData} />
         </article>
         <article className="bg-white rounded-xl shadow-xl p-4">
-          <BarChart />
+         <BarChart labels={barLabels} data={barData} />
         </article>
       </div>
     </div>

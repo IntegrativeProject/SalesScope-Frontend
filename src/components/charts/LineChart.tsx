@@ -22,78 +22,44 @@ ChartJS.register(
   Filler
 );
 
+type LineChartProps = {
+  labels: string[];
+  data: number[];
+  w: string;
+  h: string;
+};
 
-type ChartProps={
-  w:string
-  h:string
-}
-export default function LineChart({w,h}:ChartProps) {
-  const data = {
-    labels: [
-      "Week 1",
-      "Week 2",
-      "Week 3",
-      "Week 4",
-      "Week 5",
-      "Week 6",
-      "Week 7",
-      "Week 8",
-      "Week 9",
-      "Week 10",
-      "Week 11",
-      "Week 12",
-         
-
-
-    ],
+export default function LineChart({ labels, data }: LineChartProps) {
+  const chartData = {
+    labels,
     datasets: [
       {
-        label: "Weekly Sales",
-        data: [5, 12, 9, 20, 64.37, 18, 25, 30, 15, 28, 35, 40],
+        label: "Ventas",
+        data,
         fill: true,
-        backgroundColor: "rgba(72, 128, 255, 0.2)", // degradado suave
+        backgroundColor: "rgba(72,128,255,0.15)",
         borderColor: "#4880FF",
-        pointBackgroundColor: "#4880FF",
-        tension: 0.3, // suaviza la curva
+        tension: 0.4,
+        pointRadius: 4,
       },
     ],
   };
 
   const options = {
-    responsive: false,
+    responsive: true,
     plugins: {
-      legend: { position: "top" as const },
-      tooltip: {
-        enabled: true,
-        callbacks: {
-          label: (context) => context.parsed.y.toFixed(2),
-        },
-      },
+      legend: { display: false },
     },
     scales: {
       y: {
         beginAtZero: true,
-        max: 100,
-        ticks: {
-          callback: (value) => value + "%",
-        },
-        grid: {
-          drawBorder: false,
-          color: "#e0e0e0",
-        },
+        grid: { color: "#eee" },
       },
       x: {
-        grid: {
-          drawBorder: false,
-          color: "#f0f0f0",
-        },
+        grid: { display: false },
       },
     },
   };
 
-  return (
-    <div className="p-2  ">
-      <Line data={data} options={options} width={w} height={h}/>
-    </div>
-  );
+  return <Line data={chartData} options={options} />;
 }

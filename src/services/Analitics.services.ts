@@ -76,3 +76,27 @@ export async function getTransactions(): Promise<number> {
   return totalOrders;
 }
 
+/* 📈 Ventas semanales */
+export async function getWeeklySales() {
+  const res = await fetch(`${BASE_URL}/analytics/weekly-sales`, {
+    cache: "no-store",
+  });
+
+  if (!res.ok) throw new Error("Error weekly sales");
+
+  const json = await res.json();
+  return json.data; // 👈 CLAVE
+}
+
+/* 📊 Top productos */
+export async function getTopProducts(limit = 5) {
+  const res = await fetch(
+    `${BASE_URL}/analytics/top-products?limit=${limit}`,
+    { cache: "no-store" }
+  );
+
+  if (!res.ok) throw new Error("Error top products");
+
+  const json = await res.json();
+  return json.data; // 👈 CLAVE
+}

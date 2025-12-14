@@ -6,20 +6,24 @@ import {
   LinearScale,
   BarElement,
   Tooltip,
-  Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
+ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip);
 
-export default function BarChart() {
-  const data = {
-    labels: ["Monday", "Tuesday", "Wednesday" , "Thursday" ,"Friday","Saturday","Sunday"],
+type BarChartProps = {
+  labels: string[];
+  data: number[];
+};
+
+export default function BarChart({ labels, data }: BarChartProps) {
+  const chartData = {
+    labels,
     datasets: [
       {
-        label: "Ventas",
-        data: [150, 230, 180,200,190,120,185],
-        backgroundColor: "#4880FF",
+        data,
+        backgroundColor: "#34D399", // verde Figma
+        borderRadius: 8,
       },
     ],
   };
@@ -27,22 +31,18 @@ export default function BarChart() {
   const options = {
     responsive: true,
     plugins: {
-      legend: { position: "top" as const },
+      legend: { display: false },
     },
     scales: {
       y: {
-        min: 0,
-        max: 300,
-        ticks: {
-          stepSize: 10,
-        },
+        beginAtZero: true,
+        grid: { color: "#eee" },
+      },
+      x: {
+        grid: { display: false },
       },
     },
   };
 
-  return (
-    <div style={{ height: "auto" }}>
-      <Bar data={data} options={options} />
-    </div>
-  );
+  return <Bar data={chartData} options={options} />;
 }
