@@ -3,7 +3,6 @@ import Link from "next/link";
 export default function Navbar() {
   return (
     <div className="navbar bg-[#FFFFFF] shadow-sm h-16 px-4 flex items-center sticky top-0 z-50">
-      {/* Botón hamburguesa solo visible en pantallas pequeñas */}
       <div className="p-2 mr-7 hover:bg-gray-100 cursor-pointer rounded-md block lg:hidden">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -21,10 +20,8 @@ export default function Navbar() {
         </svg>
       </div>
 
-      {/* Search bar */}
       <div className="mr-200 w-100 "></div>
 
-      {/* Idioma */}
       <div className="dropdown dropdown-end mr-4">
         <label
           tabIndex={0}
@@ -36,7 +33,7 @@ export default function Navbar() {
             src="https://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg"
           />
           <span className="font-medium select-none">English</span>
-          {/* Icono flecha */}
+
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-4 w-4 text-gray-500 ml-1"
@@ -53,7 +50,6 @@ export default function Navbar() {
           </svg>
         </label>
 
-        {/* Dropdown opciones */}
         <ul
           tabIndex={0}
           className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-40 mt-3 cursor-pointer"
@@ -81,13 +77,11 @@ export default function Navbar() {
         </ul>
       </div>
 
-      {/* Perfil */}
       <div className="dropdown dropdown-end ml-4">
         <label
           tabIndex={0}
           className="flex items-center gap-3 cursor-pointer px-2 py-1 rounded-lg hover:bg-gray-100"
         >
-          {/* Avatar */}
           <div className="avatar">
             <div className="w-11 rounded-full">
               <img
@@ -98,13 +92,11 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Nombre + Rol */}
           <div className="flex flex-col leading-tight">
             <span className="font-semibold text-[15px]">Moni Roy</span>
             <span className="text-sm text-gray-500 -mt-0.5">Admin</span>
           </div>
 
-          {/* Icono flecha */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-4 w-4 text-gray-500 ml-1"
@@ -121,7 +113,6 @@ export default function Navbar() {
           </svg>
         </label>
 
-        {/* Dropdown perfil */}
         <ul
           tabIndex={0}
           className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 mt-3 cursor-pointer"

@@ -6,7 +6,7 @@ import {
   ClipboardDocumentListIcon,
   QueueListIcon,
   PresentationChartBarIcon,
-} from "@heroicons/react/24/outline"; // Si usas heroicons, o usa cualquier icono SVG
+} from "@heroicons/react/24/outline";
 
 interface SidebarProps {
   className?: string;

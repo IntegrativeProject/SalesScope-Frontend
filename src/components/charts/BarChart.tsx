@@ -22,7 +22,7 @@ export default function BarChart({ labels, data }: BarChartProps) {
     datasets: [
       {
         data,
-        backgroundColor: "#34D399", // verde Figma
+        backgroundColor: "#34D399",
         borderRadius: 8,
       },
     ],

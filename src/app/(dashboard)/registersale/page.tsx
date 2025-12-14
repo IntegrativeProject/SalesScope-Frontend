@@ -13,10 +13,7 @@ export default async function page() {
         Add a new sales transaction
       </h2>
 
-      <SalesPageClient
-        initialProducts={products}
-        initialSales={sales}
-      />
+      <SalesPageClient initialProducts={products} initialSales={sales} />
     </div>
   );
 }

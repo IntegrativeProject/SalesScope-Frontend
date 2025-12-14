@@ -25,8 +25,8 @@ ChartJS.register(
 type LineChartProps = {
   labels: string[];
   data: number[];
-  w: string;
-  h: string;
+  w?: string;
+  h?: string;
 };
 
 export default function LineChart({ labels, data }: LineChartProps) {

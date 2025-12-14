@@ -9,7 +9,6 @@ export interface CreateOrderPayload {
   items: SaleItem[];
 }
 
-// Tipo de item de la orden
 export interface OrderItem {
   order_item_id: number;
   product_id: number;
@@ -17,7 +16,6 @@ export interface OrderItem {
   total_price: number;
 }
 
-// Tipo de una orden
 export interface Order {
   order_id: number;
   user_id: number;
@@ -28,7 +26,6 @@ export interface Order {
   items: OrderItem[];
 }
 
-// Tipo del response completo de la API
 export interface OrdersApiResponse {
   message: string;
   data: Order[];

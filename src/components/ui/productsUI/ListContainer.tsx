@@ -1,25 +1,19 @@
 "use client";
 import { Product } from "@/types/ProductType";
 
-
-
 type ListProps = {
-  
   products?: Product[];
   onEdit: (product: Product) => void;
   onDelete: (id: number) => void;
 };
 
 export default function ListContainer({
-
   products,
   onDelete,
   onEdit,
 }: ListProps) {
   return (
     <div>
-     
-
       <section className=" p-4 bg-white w-150 h-133 rounded-xl rounded-t-none  space-y-5 shadow-xl border border-gray-200  overflow-y-scroll ">
         {products?.map((item) => (
           <article

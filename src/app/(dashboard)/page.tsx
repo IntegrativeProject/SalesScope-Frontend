@@ -12,14 +12,14 @@ import {
   getTransactions,
   getWeeklySales,
 } from "@/services/Analitics.services";
+import { TopProduct, WeeklySale } from "@/types/analytics";
 
 export default function Page() {
-const [lineLabels, setLineLabels] = useState<string[]>([]);
-const [lineData, setLineData] = useState<number[]>([]);
+  const [lineLabels, setLineLabels] = useState<string[]>([]);
+  const [lineData, setLineData] = useState<number[]>([]);
 
-const [barLabels, setBarLabels] = useState<string[]>([]);
-const [barData, setBarData] = useState<number[]>([]);
-
+  const [barLabels, setBarLabels] = useState<string[]>([]);
+  const [barData, setBarData] = useState<number[]>([]);
 
   const [totalSales, setTotalSales] = useState(0);
   const [dailyAvg, setDailyAvg] = useState(0);
@@ -39,39 +39,31 @@ const [barData, setBarData] = useState<number[]>([]);
       setTransactions(trans);
     });
   }, []);
- useEffect(() => {
-  async function loadCharts() {
-    /* LINE CHART (Weekly revenue) */
-    const weekly = await getWeeklySales();
+  useEffect(() => {
+    async function loadCharts() {
+      const weekly = await getWeeklySales();
 
-    setLineLabels(
-      weekly.map((w: any) =>
-        new Date(w.week).toLocaleDateString("en-US", {
-          month: "short",
-          day: "numeric",
-        })
-      )
-    );
+      setLineLabels(
+        weekly.map((w: WeeklySale) =>
+          new Date(w.week).toLocaleDateString("en-US", {
+            month: "short",
+            day: "numeric",
+          })
+        )
+      );
 
-    setLineData(
-      weekly.map((w: any) => w.revenue)
-    );
+      setLineData(weekly.map((w: WeeklySale) => w.revenue));
 
-    /* BAR CHART (Top products) */
-    const products = await getTopProducts(5);
+      
+      const products = await getTopProducts(5);
 
-    setBarLabels(
-      products.map((p: any) => p.name)
-    );
+      setBarLabels(products.map((p: TopProduct) => p.name));
 
-    setBarData(
-      products.map((p: any) => p.total_sold)
-    );
-  }
+      setBarData(products.map((p: TopProduct) => p.total_sold));
+    }
 
-  loadCharts();
-}, []);
-
+    loadCharts();
+  }, []);
 
   return (
     <div>
@@ -122,10 +114,10 @@ const [barData, setBarData] = useState<number[]>([]);
       </div>
       <div className="grid grid-cols-2 mt-2 gap-0 p-15">
         <article className="bg-white w-160 rounded-xl shadow-xl p-6">
-         <LineChart labels={lineLabels} data={lineData} />
+          <LineChart labels={lineLabels} data={lineData} />
         </article>
         <article className="bg-white rounded-xl shadow-xl p-4">
-         <BarChart labels={barLabels} data={barData} />
+          <BarChart labels={barLabels} data={barData} />
         </article>
       </div>
     </div>

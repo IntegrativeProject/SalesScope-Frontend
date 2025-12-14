@@ -9,23 +9,19 @@ export default function RootLayout({
 }) {
   return (
     <div className="flex min-h-screen w-full bg-linear-to-r from-slate-300 to-slate-500 ">
-      {/* SIDEBAR FIJO */}
       <aside className="fixed left-0 top-0 h-full w-64 bg-[#FFFFFF]   shadow-lg">
         <Sidebar />
       </aside>
 
-      {/* CONTENEDOR DERECHO */}
       <div className="flex flex-col flex-1 ml-64">
-        {/* NAVBAR FIJO */}
         <header className="fixed top-0 left-64 right-0 z-50 bg-white h-16 shadow">
           <Navbar />
         </header>
 
-        {/* CONTENIDO SCROLLABLE */}
         <main className="mt-16 p-6 overflow-y-auto min-h-screen">
           {children}
         </main>
-      <Footer/>
+        <Footer />
       </div>
     </div>
   );

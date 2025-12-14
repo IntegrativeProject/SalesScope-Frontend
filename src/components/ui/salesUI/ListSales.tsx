@@ -14,7 +14,7 @@ export default function ListSales({ sales }: ListProps) {
         {sales?.map((sale: Order) => (
           <li key={sale.order_id} className="bg-gray-200 p-3 rounded-lg">
             <div className="flex justify-between">
-              <span># {sale.order_id}</span>
+              <span># {sale.created_at}</span>
               <span className="font-semibold">
                 ${sale.total_amount.toFixed(2)}
               </span>

@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function StatisticsCard() {
   return (
     <section className="bg-white w-155  h-130 rounded-xl p-4 space-y-5 shadow-xl border border-gray-200 mb-5 overflow-y-auto">

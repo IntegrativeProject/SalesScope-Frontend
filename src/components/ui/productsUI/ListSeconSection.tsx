@@ -10,11 +10,7 @@ type Props = {
   onCancel: () => void;
 };
 
-export default function ListSeconSection({
-  product,
-  onSave,
-  onCancel,
-}: Props) {
+export default function ListSeconSection({ product, onSave, onCancel }: Props) {
   const { register, handleSubmit, reset } = useForm<Product>();
 
   useEffect(() => {
@@ -23,9 +19,7 @@ export default function ListSeconSection({
 
   if (!product) {
     return (
-      <div className="w-100 p-5 text-gray-500">
-        Select a product to edit
-      </div>
+      <div className="w-100 p-5 text-gray-500">Select a product to edit</div>
     );
   }
 

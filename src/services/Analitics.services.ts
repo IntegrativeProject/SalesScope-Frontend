@@ -1,12 +1,7 @@
-
+import { WeeklySale } from "@/types/analytics";
+import { Order, OrderItem } from "@/types/OrdersType";
 
 export const BASE_URL = "https://integrative-salescope.onrender.com";
-
-type WeeklySale = {
-  week: string;
-  units_sold: number;
-  revenue: number;
-};
 
 export async function getTotalSales(): Promise<number> {
   const res = await fetch(`${BASE_URL}/analytics/weekly-sales`, {
@@ -66,7 +61,6 @@ export async function getTransactions(): Promise<number> {
   return totalOrders;
 }
 
-/* 📈 Ventas semanales */
 export async function getWeeklySales() {
   const res = await fetch(`${BASE_URL}/analytics/weekly-sales`, {
     cache: "no-store",
@@ -75,10 +69,9 @@ export async function getWeeklySales() {
   if (!res.ok) throw new Error("Error weekly sales");
 
   const json = await res.json();
-  return json.data; // 👈 CLAVE
+  return json.data; //
 }
 
-/* 📊 Top productos */
 export async function getTopProducts(limit = 5) {
   const res = await fetch(`${BASE_URL}/analytics/top-products?limit=${limit}`, {
     cache: "no-store",
@@ -87,16 +80,8 @@ export async function getTopProducts(limit = 5) {
   if (!res.ok) throw new Error("Error top products");
 
   const json = await res.json();
-  return json.data; // 👈 CLAVE
+  return json.data;
 }
-type Order = {
-  order_id: number;
-  created_at: string;
-};
-
-type OrderItem = {
-  quantity: number;
-};
 
 export async function getSalesByWeekday() {
   try {
@@ -128,7 +113,6 @@ export async function getSalesByWeekday() {
       daysMap[day] += units;
     }
 
-    // 🔥 SI NO HAY DATOS → MOCK VISUAL
     const hasData = daysMap.some((v) => v > 0);
 
     if (!hasData) {
@@ -138,7 +122,6 @@ export async function getSalesByWeekday() {
       };
     }
 
-    // ✅ Datos reales
     return {
       labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
       data: daysMap,
@@ -146,15 +129,12 @@ export async function getSalesByWeekday() {
   } catch (error) {
     console.error("Error loading weekday sales", error);
 
-    // ⚠️ fallback total
     return {
       labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
       data: [10, 20, 15, 30, 45, 50, 35],
     };
   }
 }
-
-
 
 export async function getWeeklySalesChart() {
   const res = await fetch(`${BASE_URL}/analytics/weekly-sales`, {
@@ -166,13 +146,10 @@ export async function getWeeklySalesChart() {
   const json = await res.json();
   const data: WeeklySale[] = json.data ?? [];
 
-  // 🔹 labels tipo: Sem 1, Sem 2...
   const labels = data.map((_, i) => `Week ${i + 1}`);
 
-  // 🔹 valores de ventas
   const values = data.map((w) => w.revenue);
 
-  // 🔥 MOCK visual si backend aún tiene pocos datos
   if (values.length < 3) {
     return {
       labels: [
@@ -188,8 +165,7 @@ export async function getWeeklySalesChart() {
         "Week 10 (pred)",
       ],
       data: [
-        18000, 22000, 19500, 24500, 27000,
-        29500, 31500, 29000, 28500, 34000,
+        18000, 22000, 19500, 24500, 27000, 29500, 31500, 29000, 28500, 34000,
       ],
     };
   }
