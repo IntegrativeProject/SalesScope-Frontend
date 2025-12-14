@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 import { getSalesByWeekday } from "@/services/Analitics.services";
-import WeekdayBarChart from "../charts/WeekdayBarChart";
+import WeekdayBarChart from "../../charts/WeekdayBarChart";
 
 type Props = {
   average: number;

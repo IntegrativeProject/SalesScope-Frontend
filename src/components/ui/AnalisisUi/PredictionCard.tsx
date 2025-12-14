@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import LineChart from "../charts/LineChart";
+import LineChart from "../../charts/LineChart";
 import { getWeeklySalesChart } from "@/services/Analitics.services";
 
 export default function PredictionCard() {

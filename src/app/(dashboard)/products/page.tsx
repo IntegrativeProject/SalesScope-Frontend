@@ -1,7 +1,9 @@
-import ProductsClient from "@/components/ui/productsUI/ProductsClient";
+
 import Card from "@/components/ui/Card";
 import { Product } from "@/types/ProductType";
 import { getProducts } from "@/services/products.services";
+import ProductsClient from "@/components/ui/productsUI/ProductsClient";
+
 
 export default async function Page() {
   const products: Product[] = await getProducts();

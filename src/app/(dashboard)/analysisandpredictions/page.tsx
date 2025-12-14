@@ -1,9 +1,9 @@
-import AnalysisCards from "@/components/ui/AnalysisCards";
-import RecommendationsCard from "@/components/ui/RecommendationsCard";
-import StatisticsCard from "@/components/ui/StatisticsCard";
+import AnalysisCards from "@/components/ui/AnalisisUi/AnalysisCards";
+import RecommendationsCard from "@/components/ui/AnalisisUi/RecommendationsCard";
+import StatisticsCard from "@/components/ui/AnalisisUi/StatisticsCard";
 
-import BestDayCard from "../../../components/ui/BestDayCard";
-import PredictionCard from "@/components/ui/PredictionCard";
+import BestDayCard from "../../../components/ui/AnalisisUi/BestDayCard";
+import PredictionCard from "@/components/ui/AnalisisUi/PredictionCard";
 
 export default function Page() {
   return (
