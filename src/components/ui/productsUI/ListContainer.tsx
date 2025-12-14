@@ -42,14 +42,14 @@ export default function ListContainer({
 
               <button
                 onClick={() => onEdit(item)}
-                className="p-2 rounded-lg hover:bg-gray-100"
+                className="p-2 rounded-lg hover:bg-gray-100 cursor-pointer"
               >
                 <img src="icons/edit.png" className="w-5" />
               </button>
 
               <button
                 onClick={() => onDelete(item.product_id)}
-                className="p-2 rounded-lg hover:bg-red-100"
+                className="p-2 rounded-lg hover:bg-red-100 cursor-pointer"
               >
                 <img src="icons/delete.png" className="w-5" />
               </button>
