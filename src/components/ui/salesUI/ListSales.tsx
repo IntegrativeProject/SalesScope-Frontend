@@ -1,22 +1,26 @@
 "use client";
 import { Product } from "@/types/ProductType";
-import React from "react";
+
 
 
 type ListProps = {
-  mainTitle?: string;
-  price?: number;
+  
   products?: Product[];
+  onEdit: (product: Product) => void;
+  onDelete: (id: number) => void;
 };
 
-export default function ListContainer({ mainTitle, products }: ListProps) {
+export default function ListSales({
+
+  products,
+  onDelete,
+  onEdit,
+}: ListProps) {
   return (
     <div>
-      <div className=" flex sticky top-0 z-5 space-x-20 text-xl font-bold text-black rounded-t-md h-11 shadow- border border-gray-200 bg-white p-2 ">
-        <h1>{mainTitle}</h1>
-       
-      </div>
-      <section className=" p-4 bg-white w-150 h-140 rounded-xl rounded-t-none  space-y-5 shadow-xl border border-gray-200 overflow-y-scroll ">
+     
+
+      <section className=" p-4 bg-white w-150 h-133 rounded-xl rounded-t-none  space-y-5 shadow-xl border border-gray-200  overflow-y-scroll ">
         {products?.map((item) => (
           <article
             key={item.product_id}
@@ -36,20 +40,18 @@ export default function ListContainer({ mainTitle, products }: ListProps) {
             <div className="flex items-center  px-2 py-1 gap-2 rounded-lg">
               <p className="font-bold text-lg text-black">${item.price}</p>
 
-              <button className="p-2 rounded-lg hover:bg-gray-100 transition">
-                <img
-                  src="icons/edit.png"
-                  alt="edit_icon"
-                  className="w-5 cursor-pointer"
-                />
+              <button
+                onClick={() => onEdit(item)}
+                className="p-2 rounded-lg hover:bg-gray-100"
+              >
+                <img src="icons/edit.png" className="w-5" />
               </button>
 
-              <button className="p-2 rounded-lg hover:bg-red-100 transition">
-                <img
-                  src="icons/delete.png"
-                  alt="delete_icon"
-                  className="w-5 cursor-pointer"
-                />
+              <button
+                onClick={() => onDelete(item.product_id)}
+                className="p-2 rounded-lg hover:bg-red-100"
+              >
+                <img src="icons/delete.png" className="w-5" />
               </button>
             </div>
           </article>
