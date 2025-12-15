@@ -34,12 +34,10 @@ export default function Sidebar({ className }: SidebarProps) {
 
   return (
     <aside className={`${className} bg-base-200 w-64 min-h-screen shadow-md`}>
-      {/* Logo */}
       <div className="h-20 flex items-center justify-center">
         <img src="/img/Logo.png" alt="logo" className="w-65" />
       </div>
 
-      {/* Navigation */}
       <nav className="flex-1 p-6 space-y-2">
         {links.map(({ href, label, Icon }, index) => {
           const isActive = pathname === href;
@@ -57,14 +55,13 @@ export default function Sidebar({ className }: SidebarProps) {
             >
               <Link
                 href={href}
-                className="relative flex items-center gap-3 px-6 py-3 rounded-lg font-semibold text-md overflow-hidden"
+                className="relative flex items-center gap-3 px-6 py-3 rounded-lg font-semibold text-md overflow-hidden hover:bg-base-100 hover:text-white transition-colors duration-200"
               >
-                {/* Active background */}
                 <AnimatePresence>
                   {isActive && (
                     <motion.span
                       layoutId="sidebar-highlight"
-                      className="absolute inset-0 bg-base-200 rounded-lg"
+                      className="absolute inset-0 bg-base-100 rounded-lg"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
@@ -77,14 +74,12 @@ export default function Sidebar({ className }: SidebarProps) {
                   )}
                 </AnimatePresence>
 
-                {/* Icon */}
                 <Icon
                   className={`w-5 h-5 z-10 ${
                     isActive ? "text-white" : "text-gray-700"
                   }`}
                 />
 
-                {/* Label */}
                 <span className="z-10">{label}</span>
               </Link>
             </motion.div>
