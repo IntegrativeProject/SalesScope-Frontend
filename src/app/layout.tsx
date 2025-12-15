@@ -1,4 +1,4 @@
-import { nunito, RubikFont } from "@/fonts/font";
+import { AntonFont, Bebas, nunito, RubikFont } from "@/fonts/font";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
 
@@ -18,6 +18,7 @@ export default function RootLayout({
     <html data-theme="abyss" lang="es">
       <body className={`${nunito.className}`} > 
         <Toaster position="top-center"/>
+      
         {children}
         </body>
     </html>
