@@ -47,7 +47,7 @@ export default function RegisterForm({
       reset();
     } catch (error) {
       console.error(error);
-      toast.error("Error creating product");
+      toast.error("Error creating product", { icon:"⚠️", duration:4000})
     }
   };
 

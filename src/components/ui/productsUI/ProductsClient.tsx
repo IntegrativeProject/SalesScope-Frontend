@@ -21,23 +21,23 @@ export default function ProductsClient({ initialProducts }: Props) {
 
   const handleProductCreated = (newProduct: Product) => {
     setProducts((prev) => [newProduct, ...prev]);
-    toast.success("Product created succesfully")
+    toast.success("Product created succesfully", {icon:"✅"})
   };
 
   const handleDelete = async (id: number) => {
     try {
       await deleteProduct(id);
       setProducts((prev) => prev.filter((p) => p.product_id !== id));
-      toast.success("Product successfully removed")
+      toast.success("Product successfully removed", {icon:"✔️"})
     } catch {
-      toast.error("Error deleting product");
+      toast.error("Error deleting product", {icon:"❌"});
     }
   };
 
   const confirmDelete = (id: number) => {
     toast.custom((t) => (
       <div className="bg-white shadow-xl border rounded-lg p-4 flex flex-col gap-3 w-80">
-        <p className="font-semibold text-gray-800">
+        <p className="font-semibold text-gray-800 text-xl">
           ¿Are you sure to remove this product? 
         </p>
         
@@ -45,9 +45,9 @@ export default function ProductsClient({ initialProducts }: Props) {
         <div className="flex justify-end gap-2">
           <button
             onClick={() => toast.dismiss(t.id)}
-            className="px-3 py-1 rounded-md bg-gray-100 hover:bg-gray-200 cursor-pointer"
+            className="px-3 py-1 rounded-md bg-gray-300 hover:bg-gray-400 cursor-pointer"
           >
-            Cancel
+            Cancel ❌
           </button>
 
           <button
@@ -57,7 +57,7 @@ export default function ProductsClient({ initialProducts }: Props) {
             }}
             className="px-3 py-1 rounded-md bg-red-500 text-white hover:bg-red-600 cursor-pointer"
           >
-            Yes, delete
+            Yes, delete 🗑️
           </button>
           
         </div>
@@ -72,10 +72,10 @@ export default function ProductsClient({ initialProducts }: Props) {
       setProducts((prev) =>
         prev.map((p) => (p.product_id === product.product_id ? product : p))
       );
-      toast.success("Updated Product", { icon:"✅" })
+      toast.success("Updated Product", { icon:"✅", duration:3000 })
       setSelectedProduct(null);
     } catch {
-      toast.error("Error updating product", { icon: "🚨"});
+      toast.error("Error updating product", { icon: "🚨", duration:3000});
     }
   };
 
