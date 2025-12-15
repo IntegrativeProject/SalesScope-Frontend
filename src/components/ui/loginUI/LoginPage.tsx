@@ -1,57 +1,48 @@
 import Link from "next/link";
 import Image from "next/image";
+import Button from "../Button";
 
 export default function LoginPage() {
   return (
     <div className="flex justify-center ">
       <div className="grid grid-cols-2 w-300 h-screen ">
-        <div className="flex items-center justify-center">
-          <form className="max-w-md mx-auto p-2  flex justify-center flex-col ">
+        <div className="flex items-center justify-center  ">
+          <form className="max-w-md mx-auto p-2  flex justify-center flex-col">
             <Image
-              src="/img/logo.png"
+              src="/img/Logo.png"
               alt="Logo"
-              width={250}
+              width={350}
               height={250}
               className=" flex items-center mx-auto"
             />
-            <p className="text-gray-600 font-semibold p-4 mb-8">
-              Today is a new day. Its your day. You shape it. Sign in to start
-              managing your sales.
+            <p className="font-semibold p-4 mb-8">
+              Its your day. You shape it. Sign in to start managing your sales.
             </p>
 
-            <div className="mb-4 space-y-5">
+            <div className="mb-4 space-y-6">
               <label id="email">Email</label>
               <input
                 type="text"
                 placeholder="example@example.com"
-                className="w-full p-3 border rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#4880FF] "
+                className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secundary "
               />
 
               <label id="password">Password</label>
               <input
                 type="password"
                 placeholder="********"
-                className="w-full p-3 border rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#4880FF] "
+                className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:secundary "
               />
 
-              <button className="bg-blue-600 w-full border p-3 rounded-xl cursor-pointer hover:bg-[#4880FF] text-white font-bold mt-4 transform-border hover:scale-95">
+              <Button className="bg-base-100 w-full border p-3 rounded-xl cursor-pointer hover:bg-base-200  font-bold mt-4 transform-border hover:scale-95">
                 Sign-in
-              </button>
-
-              <div className="text-right mb-4">
-                <Link
-                  href="/register"
-                  className="text-blue-500 text-sm hover:underline"
-                >
-                  Forgot Password?
-                </Link>
-              </div>
+              </Button>
 
               <p className="text-center text-sm mt-5">
                 Don’t you have an account?{" "}
                 <Link
                   href="/register"
-                  className="text-blue-500 hover:underline"
+                  className=" hover:underline text-primary"
                 >
                   Sign up
                 </Link>
@@ -62,7 +53,7 @@ export default function LoginPage() {
 
         <div className=" flex items-center justify-center rounded-lg ">
           <Image
-            src="/img/login-image.png"
+            src="/img/login.png"
             alt="Login illustration"
             width={500}
             height={700}

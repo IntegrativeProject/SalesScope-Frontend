@@ -7,7 +7,7 @@ export default function RegisterPage() {
       <div className="grid grid-cols-2 p-1 w-300 h-screen">
         <div className=" flex items-center justify-center">
           <Image
-            src="/img/register-image.png"
+            src="/img/register.png"
             alt="Login illustration"
             width={500}
             height={700}
@@ -15,11 +15,11 @@ export default function RegisterPage() {
           />
         </div>
 
-        <div className="bg-white flex items-center justify-center rounded-md ">
-          <form className="max-w-md mx-auto mt-15 p-2 flex justify-center flex-col ">
+        <div className=" flex items-center justify-center rounded-md ">
+          <form className="max-w-md mx-auto mt-5 p-2 flex justify-center flex-col ">
             <Image
-              src="/img/logo.png"
-              width={200}
+              src="/img/Logo.png"
+              width={300}
               height={200}
               alt="SaleScope Logo"
               className="mb-3 flex items-center mx-auto"
@@ -33,35 +33,35 @@ export default function RegisterPage() {
               <input
                 type="text"
                 placeholder="Full name"
-                className="w-full p-3 border rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#4880FF]"
+                className="w-full p-3 border rounded-lg  focus:outline-none focus:ring-2 focus:ring-[#4880FF]"
               />
               <label id="email"> Email</label>
               <input
                 type="text"
                 placeholder="example@example.com"
-                className="w-full p-3 border rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#4880FF]"
+                className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:secundary"
               />
 
               <label id="password">Password</label>
               <input
                 type="password"
                 placeholder="********"
-                className="w-full p-3 border rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#4880FF]"
+                className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:secundary"
               />
               <label id="confirm-password">Confirm Password</label>
               <input
                 type="password"
                 placeholder="********"
-                className="w-full p-3 border rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#4880FF]"
+                className="w-full p-3 border rounded-lg  focus:outline-none focus:ring-2 focus:ring-secundary"
               />
 
-              <button className="bg-blue-600 w-full border p-3 rounded-xl text-white font-bold mt-8 cursor-pointer hover:bg-[#4880FF] transform-border hover:scale-95">
+              <button className="bg-base-100 w-full border p-3 rounded-xl cursor-pointer hover:bg-base-200  font-bold mt-4 transform-border hover:scale-95">
                 Register
               </button>
 
               <p className="text-center mt-5">
                 Do you already have an account?{" "}
-                <Link href="/login" className="text-blue-500 hover:underline">
+                <Link href="/login" className="text-primary hover:underline">
                   Sign in
                 </Link>
               </p>
