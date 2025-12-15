@@ -3,20 +3,22 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="">
-      <div className="max-w-screen mx-auto grid md:grid-cols-3 gap-6 border-t ">
+    <footer className="bg-base-200 ">
+      <div className="max-w-screen mx-auto grid md:grid-cols-3 gap-6 mt-4 ">
         <div className="flex items-end">
           <Image
-            src="/img/logo.png"
+            src="/img/logo-white.png"
             alt="SaleScope Logo"
-            width={200}
-            height={200}
+            width={300}
+            height={100}
             className="mx-auto"
           />
+       
+          
         </div>
 
         <div>
-          <h3 className="text-base font-bold flex justify-center">
+          <h3 className="font-bold flex justify-center ">
             Navigation
           </h3>
           <ul className="space-y-2 text-sm opacity-90 mt-2 flex items-center flex-col">
@@ -46,22 +48,22 @@ export default function Footer() {
         </div>
 
         <div className="text-sm">
-          <h3 className="text-base font-semibold">Legal Information</h3>
+          <h3 className="font-semibold">Legal Information</h3>
           <ul className="space-y-2 text-sm opacity-90 mt-2">
             <li>
               <Link href="" className="hover:underline">
-                Terms and Conditions(example)
+                Terms and Conditions
               </Link>
             </li>
             <li>
               <Link href="" className="hover:underline">
-                Privacy Policy(example)
+                Privacy Policy
               </Link>
             </li>
           </ul>
         </div>
       </div>
-      <div className="my-5  flex justify-center text-xs">
+      <div className="my-5 flex justify-center text-xs">
         <p>
           &copy; {new Date().getFullYear()} SalesScope. All rights reserved.
         </p>
