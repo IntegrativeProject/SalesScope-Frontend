@@ -1,5 +1,6 @@
 import { nunito, RubikFont } from "@/fonts/font";
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
 
 import type { Metadata } from "next";
 
@@ -15,7 +16,10 @@ export default function RootLayout({
 }) {
   return (
     <html data-theme="cupcake" lang="es">
-      <body className={`${nunito.className}`} >{children}</body>
+      <body className={`${nunito.className}`}>
+        <Toaster position="top-center" />
+        {children}
+      </body>
     </html>
   );
 }

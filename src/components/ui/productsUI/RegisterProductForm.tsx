@@ -3,6 +3,7 @@
 import { createProduct } from "@/services/products.services";
 import { Product } from "@/types/ProductType";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 type FormData = {
   name: string;
@@ -46,7 +47,7 @@ export default function RegisterForm({
       reset();
     } catch (error) {
       console.error(error);
-      alert("Error creating product");
+      toast.error("Error creating product");
     }
   };
 
