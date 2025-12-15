@@ -70,7 +70,7 @@ export default function RegisterSaleForm({
         <button
           type="button"
           onClick={() => setOpenSelect((prev) => !prev)}
-          className="w-full border border-gray-300  p-3 rounded-md flex justify-between items-center text-black"
+          className="w-full border border-gray-300  p-3 rounded-md flex justify-between items-center cursor-pointer"
         >
           <span className={selectedProduct ? "" : ""}>
             {selectedProduct
@@ -100,11 +100,11 @@ export default function RegisterSaleForm({
                     setSelectedProduct(product);
                     setOpenSelect(false);
                   }}
-                  className={`p-3 cursor-pointer  flex justify-between items-center
+                  className={`p-3 cursor-pointer flex justify-between items-center bg-base-100
                     ${
                       isSelected
                         ? "bg-blue-100 font-medium"
-                        : "hover:bg-gray-200"
+                        : "hover:bg-base-200"
                     }`}
                 >
                   {product.name} - ${product.price}

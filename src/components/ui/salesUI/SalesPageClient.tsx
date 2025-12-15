@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import RegisterSaleForm from "@/components/ui/salesUI/RegisterSaleForm";
 import ListSales from "@/components/ui/salesUI/ListSales";
 import { getLastSales } from "@/services/orders.services";
