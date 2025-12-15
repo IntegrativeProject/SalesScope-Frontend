@@ -21,31 +21,30 @@ export default function ProductsClient({ initialProducts }: Props) {
 
   const handleProductCreated = (newProduct: Product) => {
     setProducts((prev) => [newProduct, ...prev]);
-    toast.success("Product created succesfully", {icon:"✅"})
+    toast.success("Product created succesfully", { icon: "✅" });
   };
 
   const handleDelete = async (id: number) => {
     try {
       await deleteProduct(id);
       setProducts((prev) => prev.filter((p) => p.product_id !== id));
-      toast.success("Product successfully removed", {icon:"✔️"})
+      toast.success("Product successfully removed", { icon: "✅"});
     } catch {
-      toast.error("Error deleting product", {icon:"❌"});
+      toast.error("Error deleting product", { icon: "❌" });
     }
   };
 
   const confirmDelete = (id: number) => {
     toast.custom((t) => (
-      <div className="bg-white shadow-xl border rounded-lg p-4 flex flex-col gap-3 w-80">
-        <p className="font-semibold text-gray-800 text-xl">
-          ¿Are you sure to remove this product? 
+      <div className="bg-base-300 shadow-xl rounded-lg p-4 flex flex-col gap-3 w-80">
+        <p className="font-semibold  text-xl">
+          ¿Are you sure to remove this product?
         </p>
-        
 
         <div className="flex justify-end gap-2">
           <button
             onClick={() => toast.dismiss(t.id)}
-            className="px-3 py-1 rounded-md bg-gray-300 hover:bg-gray-400 cursor-pointer"
+            className="px-3 py-1 rounded-md bg-base-100 hover:brightness-200 cursor-pointer"
           >
             Cancel ❌
           </button>
@@ -55,16 +54,14 @@ export default function ProductsClient({ initialProducts }: Props) {
               toast.dismiss(t.id);
               await handleDelete(id);
             }}
-            className="px-3 py-1 rounded-md bg-red-500 text-white hover:bg-red-600 cursor-pointer"
+            className="px-3 py-1 rounded-md bg-red-500 text-white hover:brightness-150 cursor-pointer"
           >
             Yes, delete 🗑️
           </button>
-          
         </div>
       </div>
     ));
   };
-
 
   const handleUpdate = async (product: Product) => {
     try {
@@ -72,10 +69,15 @@ export default function ProductsClient({ initialProducts }: Props) {
       setProducts((prev) =>
         prev.map((p) => (p.product_id === product.product_id ? product : p))
       );
-      toast.success("Updated Product", { icon:"✅", duration:3000 })
+      toast.success("Updated Product", {
+        icon: "✅",
+        duration: 3000,
+        className:
+          "bg-base-200 text-base-content border border-base-300 rounded-xl shadow-lg",
+      });
       setSelectedProduct(null);
     } catch {
-      toast.error("Error updating product", { icon: "🚨", duration:3000});
+      toast.error("Error updating product", { icon: "🚨", duration: 3000 });
     }
   };
 

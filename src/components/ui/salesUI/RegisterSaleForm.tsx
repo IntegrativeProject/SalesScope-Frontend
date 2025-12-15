@@ -64,7 +64,7 @@ export default function RegisterSaleForm({
       <h2 className="text-xl font-bold ">New Sale</h2>
       <p className=" -mt-3">Complete the details of the sale made</p>
 
-      <label className="font-semibold ">Producto</label>
+      <label className="font-semibold ">Product</label>
 
       <div className="relative" ref={selectRef}>
         <button

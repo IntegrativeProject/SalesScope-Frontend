@@ -18,7 +18,7 @@ export default function RegisterPage() {
         <div className="bg-white flex items-center justify-center rounded-md ">
           <form className="max-w-md mx-auto mt-15 p-2 flex justify-center flex-col ">
             <Image
-              src="/img/logofinal.png"
+              src="/img/logo.png"
               width={200}
               height={200}
               alt="SaleScope Logo"
