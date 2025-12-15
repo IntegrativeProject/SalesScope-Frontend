@@ -29,7 +29,7 @@ export default function BestDayCard({ average, day }: Props) {
       <p className=" -mt-3">Identify the days with the highest demand</p>
         <WeekdayBarChart data={data} labels={labels} />
       </article>
-      <article className="p-4 mt-10  rounded-xl shadow border border-green-400 ">
+      <article className="p-3 mt-18 h-20  rounded-xl shadow border border-green-400 ">
         <h2 className="text-lg font-semibold">
           Best Day: <strong className="text-green-400">{day}</strong>
         </h2>
