@@ -6,6 +6,7 @@ import ListContainer from "./ListContainer";
 import ListSeconSection from "./ListSeconSection";
 import RegisterForm from "./RegisterProductForm";
 import { deleteProduct, updateProduct } from "@/services/products.services";
+import toast from "react-hot-toast";
 
 type Props = {
   initialProducts: Product[];
@@ -20,18 +21,50 @@ export default function ProductsClient({ initialProducts }: Props) {
 
   const handleProductCreated = (newProduct: Product) => {
     setProducts((prev) => [newProduct, ...prev]);
+    toast.success("Product created succesfully", {icon:"✅"})
   };
 
   const handleDelete = async (id: number) => {
-    if (!confirm("¿Eliminar producto?")) return;
-
     try {
       await deleteProduct(id);
       setProducts((prev) => prev.filter((p) => p.product_id !== id));
+      toast.success("Product successfully removed", {icon:"✔️"})
     } catch {
-      alert("Error eliminando producto");
+      toast.error("Error deleting product", {icon:"❌"});
     }
   };
+
+  const confirmDelete = (id: number) => {
+    toast.custom((t) => (
+      <div className="bg-white shadow-xl border rounded-lg p-4 flex flex-col gap-3 w-80">
+        <p className="font-semibold text-gray-800 text-xl">
+          ¿Are you sure to remove this product? 
+        </p>
+        
+
+        <div className="flex justify-end gap-2">
+          <button
+            onClick={() => toast.dismiss(t.id)}
+            className="px-3 py-1 rounded-md bg-gray-300 hover:bg-gray-400 cursor-pointer"
+          >
+            Cancel ❌
+          </button>
+
+          <button
+            onClick={async () => {
+              toast.dismiss(t.id);
+              await handleDelete(id);
+            }}
+            className="px-3 py-1 rounded-md bg-red-500 text-white hover:bg-red-600 cursor-pointer"
+          >
+            Yes, delete 🗑️
+          </button>
+          
+        </div>
+      </div>
+    ));
+  };
+
 
   const handleUpdate = async (product: Product) => {
     try {
@@ -39,9 +72,10 @@ export default function ProductsClient({ initialProducts }: Props) {
       setProducts((prev) =>
         prev.map((p) => (p.product_id === product.product_id ? product : p))
       );
+      toast.success("Updated Product", { icon:"✅", duration:3000 })
       setSelectedProduct(null);
     } catch {
-      alert("Error actualizando producto");
+      toast.error("Error updating product", { icon: "🚨", duration:3000});
     }
   };
 
@@ -113,7 +147,7 @@ export default function ProductsClient({ initialProducts }: Props) {
         <ListContainer
           products={filteredProducts}
           onEdit={setSelectedProduct}
-          onDelete={handleDelete}
+          onDelete={confirmDelete}
         />
       </div>
 

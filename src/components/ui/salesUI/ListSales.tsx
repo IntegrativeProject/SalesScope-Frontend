@@ -7,7 +7,7 @@ type ListProps = {
 
 export default function ListSales({ sales }: ListProps) {
   return (
-    <div className=" bg-base-200 p-4 rounded-xl">
+    <div className="bg-white p-4 rounded-xl">
       <h2 className="text-lg font-semibold mb-4">Últimas ventas</h2>
 
       <ul className="space-y-3">

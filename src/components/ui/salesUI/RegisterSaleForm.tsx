@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react";
 import { MdExpandMore, MdCheck } from "react-icons/md";
-
+import toast from "react-hot-toast";
 import { Product } from "@/types/ProductType";
 import { createOrder } from "@/services/orders.services";
 
@@ -46,10 +46,10 @@ export default function RegisterSaleForm({
 
       await onSaleCreated();
 
-      alert("Venta registrada correctamente ");
+      toast.success("Sale registered correctly ");
     } catch (error) {
       console.error(error);
-      alert("Error registrando la venta");
+      toast.error("Error registering the sale");
     } finally {
       setIsSubmitting(false);
     }
@@ -76,7 +76,7 @@ export default function RegisterSaleForm({
           <span className={selectedProduct ? "" : ""}>
             {selectedProduct
               ? `${selectedProduct.name} - $${selectedProduct.price}`
-              : "Selecciona un producto"}
+              : "Select a product"}
           </span>
 
           <span
@@ -129,7 +129,7 @@ export default function RegisterSaleForm({
       <button
         type="submit"
         disabled={isSubmitting}
-        className={`w-full p-3 rounded-lg font-bold flex justify-center items-center
+        className={`w-full p-3 rounded-lg font-bold flex justify-center items-center cursor-pointer
           ${
             isSubmitting
               ? "bg-gray-400 cursor-not-allowed"

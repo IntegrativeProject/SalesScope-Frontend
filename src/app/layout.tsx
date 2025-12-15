@@ -1,5 +1,6 @@
 import { nunito, RubikFont } from "@/fonts/font";
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
 
 import type { Metadata } from "next";
 
@@ -14,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html data-theme="abyss" lang="es">
+    <html data-theme="cupcake" lang="es">
       <body className={`${nunito.className}`} >{children}</body>
     </html>
   );
