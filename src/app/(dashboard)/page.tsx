@@ -111,12 +111,15 @@ export default function Page() {
           iconRoute="/icons/money.png"
         />
       </div>
-      <div className="grid grid-cols-2 mt-2 gap-0 p-15">
-        <article className="bg-base-200 w-160 rounded-xl shadow-xl p-9 ">
+      <div className="grid grid-cols-2  p-15">
+        <article className="bg-base-200 w-160 rounded-xl shadow-xl p-8 space-y-3 grid grid-cols-1 ">
           <h1 className="text-xl ">Weekly Sales</h1>
+          <p className=" -mt-3">Evolution of daily sales in pesos</p>
           <LineChart labels={lineLabels} data={lineData} />
         </article>
-        <article className="bg-base-200 rounded-xl shadow-xl p-4">
+        <article className="bg-base-200 w-160 rounded-xl shadow-xl p-8 space-y-3 grid grid-cols-1">
+        <h1 className="text-xl ">Best Selling Products</h1>
+        <p className=" -mt-3">Top 5 products by quantity sold</p>
           <BarChart labels={barLabels} data={barData} />
         </article>
       </div>

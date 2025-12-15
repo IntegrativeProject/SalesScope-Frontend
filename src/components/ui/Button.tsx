@@ -26,7 +26,7 @@ export default function Button({
     <button
       disabled={isDisabled}
       className={clsx(
-        "inline-flex items-center justify-center gap-2 rounded-lg font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-offset-2",
+        "inline-flex items-center justify-center gap-2 rounded-lg font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer",
         baseStyles,
         variantStyles[variant],
         sizeStyles[size],
