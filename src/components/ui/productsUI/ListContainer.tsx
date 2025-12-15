@@ -13,8 +13,8 @@ export default function ListContainer({
   onEdit,
 }: ListProps) {
   return (
-    <div>
-      <section className=" bg-base-200 p-4  w-150 h-133 rounded-xl rounded-t-none  space-y-5 shadow-xl border   overflow-y-scroll ">
+    <div >
+      <section className=" bg-base-200 p-4  w-150 h-133 rounded-xl   space-y-5 shadow-xl    overflow-y-scroll ">
         {products?.map((item) => (
           <article
             key={item.product_id}

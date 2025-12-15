@@ -3,6 +3,7 @@
 import { Product } from "@/types/ProductType";
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
+import Button from "../Button";
 
 type Props = {
   product: Product | null;
@@ -26,26 +27,31 @@ export default function ListSeconSection({ product, onSave, onCancel }: Props) {
   return (
     <form
       onSubmit={handleSubmit(onSave)}
-      className="bg-base-200 rounded-xl w-100 p-5 space-y-3 border border-gray-200"
+      className="bg-base-200 rounded-xl w-100 p-5 space-y-3 grid grid-col-1 "
     >
       <h2 className="font-bold text-lg">Edit Product</h2>
 
-      <input {...register("name")} className="input" />
-      <input {...register("category")} className="input" />
-      <input type="number" {...register("price", { valueAsNumber: true })} />
-      <input type="number" {...register("stock", { valueAsNumber: true })} />
+      <input {...register("name")} className="p-2 rounded bg-base-100 border border-bg-gray-200" />
+      <input {...register("category")} className="p-2 rounded bg-base-100 border border-bg-gray-200" />
+      <label htmlFor=""> precio </label>
+      <input type="number" {...register("price", { valueAsNumber: true })} className=" p-2 rounded bg-base-100 border " />
+      <label htmlFor=""> cantidad </label>
 
-      <div className="flex gap-2">
-        <button className="bg-blue-500 text-white px-4 py-2 rounded cursor-pointer hover:bg-blue-600">
+      <input type="number" {...register("stock", { valueAsNumber: true })}  className=" p-2 rounded bg-base-100 border " />
+
+      <div className="flex h-12 justify-center space-x-3" >
+        <Button className=" ">
           Save
-        </button>
-        <button
+        </Button>
+        <Button
+        size="sm"
+          variant="danger"
           type="button"
           onClick={onCancel}
-          className="bg-gray-200 px-4 py-2 rounded cursor-pointer hover:bg-gray-300"
+         
         >
           Cancel
-        </button>
+        </Button>
       </div>
     </form>
   );

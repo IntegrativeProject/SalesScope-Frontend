@@ -112,7 +112,7 @@ export default function ProductsClient({ initialProducts }: Props) {
         onCreated={handleProductCreated}
       />
 
-      <div className="bg-base-200 flex flex-col gap-0 ">
+      <div className="bg-base-200 flex flex-col gap-0 rounded-xl ">
         <div className="flex gap-3  p-3 rounded-xl rounded-b-none">
           <input
             type="text"

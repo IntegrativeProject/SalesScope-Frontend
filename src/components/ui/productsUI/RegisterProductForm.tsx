@@ -80,7 +80,7 @@ export default function RegisterForm({
           valueAsNumber: true,
           min: { value: 1, message: "Must be greater than 0" },
         })}
-        className="  p-2 rounded bg-base-100 border border-bg-base-content"
+        className="  p-2 rounded bg-base-100 border border-bg-gray-200 "
       />
       {errors.price && (
         <span className="text-red-500 text-sm">{errors.price.message}</span>
