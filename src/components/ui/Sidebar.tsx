@@ -33,7 +33,7 @@ export default function Sidebar({ className }: SidebarProps) {
   ];
 
   return (
-    <aside className={`${className} bg-base-100 w-64 min-h-screen shadow-md`}>
+    <aside className={`${className} bg-base-200 w-64 min-h-screen shadow-md`}>
       {/* Logo */}
       <div className="h-20 flex items-center justify-center">
         <img src="/img/logo-white.png" alt="logo" className="w-65" />

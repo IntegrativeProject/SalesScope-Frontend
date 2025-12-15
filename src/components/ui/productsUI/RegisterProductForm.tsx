@@ -55,17 +55,18 @@ export default function RegisterForm({
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="p-5 bg-base-200 rounded-xl h-auto flex flex-col gap-2 w-[400px] shadow-xl "
+      className="p-8 bg-base-200 rounded-xl h-auto flex flex-col gap-2 w-[400px] shadow-xl "
     >
-      <h2 className="text-center text-xl font-bold ">{mainName}</h2>
-
+ 
+      <h1 className="text-xl font-bold">New Product</h1>
+      <p className=" -mt-3">Add a product to your inventory</p>
       <label className="font-semibold">{firstField}</label>
       <input
         {...register("name", {
           required: "The name is required",
           minLength: { value: 3, message: "Must be at least 3 characters" },
         })}
-        className=" p-2 rounded"
+        className=" p-2 rounded bg-base-100 border border-bg-base-content"
       />
       {errors.name && (
         <span className="text-red-500 text-sm">{errors.name.message}</span>
@@ -79,7 +80,7 @@ export default function RegisterForm({
           valueAsNumber: true,
           min: { value: 1, message: "Must be greater than 0" },
         })}
-        className="  p-2 rounded"
+        className="  p-2 rounded bg-base-100 border border-bg-base-content"
       />
       {errors.price && (
         <span className="text-red-500 text-sm">{errors.price.message}</span>
@@ -93,7 +94,7 @@ export default function RegisterForm({
           valueAsNumber: true,
           min: { value: 0, message: "It can't be negative" },
         })}
-        className=" p-2 rounded"
+        className=" p-2 rounded bg-base-100 border border-bg-base-content"
       />
       {errors.stock && (
         <span className="text-red-500 text-sm">{errors.stock.message}</span>
@@ -104,7 +105,7 @@ export default function RegisterForm({
         {...register("category", {
           required: "The category is required",
         })}
-        className=" p-2 rounded"
+        className=" p-2 rounded bg-base-100 border border-bg-base-content"
       />
       
       {errors.category && (
