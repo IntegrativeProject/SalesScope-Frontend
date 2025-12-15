@@ -18,15 +18,15 @@ export default function Sidebar({ className }: SidebarProps) {
   const pathname = usePathname();
 
   const links = [
-    { href: "/", label: "Dashboard", Icon: HomeIcon },
+    { href: "/dashboard", label: "Dashboard", Icon: HomeIcon },
     {
-      href: "/registersale",
+      href: "/dashboard/registersale",
       label: "Register sale",
       Icon: ClipboardDocumentListIcon,
     },
-    { href: "/products", label: "Products", Icon: QueueListIcon },
+    { href: "/dashboard/products", label: "Products", Icon: QueueListIcon },
     {
-      href: "/analysisandpredictions",
+      href: "/dashboard/analysisandpredictions",
       label: "Analysis and Predictions",
       Icon: PresentationChartBarIcon,
     },

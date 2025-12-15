@@ -118,7 +118,7 @@ export default function Navbar() {
           className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 mt-3 cursor-pointer"
         >
           <li>
-            <Link href="/login" className="">
+            <Link href="/" className="">
               Logout
             </Link>
           </li>

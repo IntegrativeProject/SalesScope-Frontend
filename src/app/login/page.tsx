@@ -1,6 +1,11 @@
+import AnimatedPage from "@/components/AnimatedPage";
 import LoginPage from "@/components/ui/loginUI/LoginPage";
 
 
 export default function Page() {
-  return <LoginPage />;
+  return (
+   <AnimatedPage>
+
+    <LoginPage />
+   </AnimatedPage>)
 }
