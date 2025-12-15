@@ -3,7 +3,7 @@ export default function RecommendationsCard() {
     <div className="bg-base-200 w-300 h-80 rounded-2xl border-l-7 border-[#ff6f00b0]">
       <div>
         <h1 className="mt-4 ml-4 text-2xl font-bold ">Recommendations</h1>
-        <p className="text-[#202224ce] ml-4 font-semibold ">
+        <p className=" ml-4 font-semibold ">
           Suggested actions based on the analysis
         </p>
       </div>
@@ -16,7 +16,7 @@ export default function RecommendationsCard() {
             <h1 className="font-semibold text-left">
               Increase stock for the weekend
             </h1>
-            <h1 className="text-[#202224b6]">
+            <h1 className="">
               Fridays and Saturdays show sales 40% higher than average
             </h1>
           </div>
@@ -29,7 +29,7 @@ export default function RecommendationsCard() {
             <h1 className="font-semibold text-left">
               Increase stock for the weekend
             </h1>
-            <h1 className="text-[#202224b6]">
+            <h1 className="">
               Fridays and Saturdays show sales 40% higher than average
             </h1>
           </div>
@@ -42,7 +42,7 @@ export default function RecommendationsCard() {
             <h1 className="font-semibold text-left">
               Increase stock for the weekend
             </h1>
-            <h1 className="text-[#202224b6]">
+            <h1 className="">
               Fridays and Saturdays show sales 40% higher than average
             </h1>
           </div>
