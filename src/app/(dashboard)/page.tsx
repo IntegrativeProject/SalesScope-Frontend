@@ -66,7 +66,7 @@ export default function Page() {
 
   return (
     <div>
-      <h1 className="p-1 ml-9 font-bold  text-4xl">Dashboard</h1>
+      <h1 className="p-1 ml-9 font-bold  text-4xl ">Dashboard</h1>
       <h2 className="p-1 ml-9 font-semibold  text-xl">
         Summary of your sales and key metrics
       </h2>
@@ -79,7 +79,7 @@ export default function Page() {
           worth={totalSales}
           percentage="12.5%"
           endText=" vs previous week"
-          iconRoute="/icons/sales.png"
+          iconRoute="/icons/ventas.png"
           simbol={true}
         />
         <Card
@@ -113,12 +113,12 @@ export default function Page() {
       </div>
       <div className="grid grid-cols-2  p-15">
         <article className="bg-base-200 w-160 rounded-xl shadow-xl p-8 space-y-3 grid grid-cols-1 ">
-          <h1 className="text-xl ">Weekly Sales</h1>
+          <h1 className="text-xl font-bold">Weekly Sales</h1>
           <p className=" -mt-3">Evolution of daily sales in pesos</p>
           <LineChart labels={lineLabels} data={lineData} />
         </article>
         <article className="bg-base-200 w-160 rounded-xl shadow-xl p-8 space-y-3 grid grid-cols-1">
-        <h1 className="text-xl ">Best Selling Products</h1>
+        <h1 className="text-xl font-bold ">Best Selling Products</h1>
         <p className=" -mt-3">Top 5 products by quantity sold</p>
           <BarChart labels={barLabels} data={barData} />
         </article>

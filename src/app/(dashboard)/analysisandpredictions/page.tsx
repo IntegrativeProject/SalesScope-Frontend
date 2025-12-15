@@ -23,13 +23,13 @@ export default function Page() {
           footerText="Prediction based on the last 3 weeks"
           price={28.4}
           mainText="Moving Average (5 weeks)"
-          borderColor="border-[#00D824]"
+          borderColor="border-[#35F824B3]"
         />
         <AnalysisCards
           footerText="Prediction based on the last 3 weeks"
           price={33.436}
           mainText="Linear Regression"
-          borderColor="border-[#CD07E3]"
+          borderColor="border-[#CF6CFF47]"
         />
       </div>
       <div className="mt-10  flex justify-center">

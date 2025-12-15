@@ -22,7 +22,7 @@ export default function BarChart({ labels, data }: BarChartProps) {
     datasets: [
       {
         data,
-        backgroundColor: "#34D399",
+        backgroundColor: "#CF6CFF47",
         borderRadius: 8,
       },
     ],

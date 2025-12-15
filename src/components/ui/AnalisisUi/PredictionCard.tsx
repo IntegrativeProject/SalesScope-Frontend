@@ -20,8 +20,11 @@ export default function PredictionCard() {
       <h2 className="text-xl font-bold ">
         Historical Sales & Prediction
       </h2>
+      <p className=" -mt-3">Trend analysis and future sales projections</p>
+      <div className="p-5">
 
-      <LineChart labels={labels} data={data} h="350px" w="1200px" />
+        <LineChart labels={labels} data={data} h="350px" w="1200px" />
+      </div>
 
       <article className="p-3  rounded-xl shadow border border-blue-300">
         <h3 className="text-lg font-semibold">

@@ -22,11 +22,11 @@ export default function BestDayCard({ average, day }: Props) {
     });
   }, []);
   return (
-    <section className=" bg-base-200   w-155 h-130  rounded-xl p-6 shadow-xl  flex flex-col ">
-      <h1 className="text-center text-xl font-bold ">
-        Sales by Day of the Week
-      </h1>
-      <article className=" mt-5 h-[300px] ">
+    <section className=" bg-base-200   w-155 h-130  rounded-xl p-6 shadow-xl  grid grid-cols-1 ">
+     
+      <article className=" space-y-3 h-[300px]">
+      <h1 className="text-xl font-bold">Sales by Day of the Week</h1>
+      <p className=" -mt-3">Identify the days with the highest demand</p>
         <WeekdayBarChart data={data} labels={labels} />
       </article>
       <article className="p-4 mt-10  rounded-xl shadow border border-green-400 ">
