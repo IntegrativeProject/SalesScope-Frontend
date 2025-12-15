@@ -4,6 +4,7 @@ import { createProduct } from "@/services/products.services";
 import { Product } from "@/types/ProductType";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import Button from "../Button";
 
 type FormData = {
   name: string;
@@ -105,16 +106,18 @@ export default function RegisterForm({
         })}
         className=" p-2 rounded"
       />
+      
       {errors.category && (
         <span className="text-red-500 text-sm">{errors.category.message}</span>
       )}
 
-      <button
+      <Button
+        variant="primary"
         disabled={isSubmitting}
-        className="w-full bg-primary mt-5  p-3 rounded-lg font-bold disabled:opacity-50 cursor-pointer"
+        className="w-full  mt-5  p-3 rounded-lg font-bold disabled:opacity-50 cursor-pointer"
       >
         {isSubmitting ? "Saving..." : buttonLabel}
-      </button>
+      </Button>
     </form>
   );
 }

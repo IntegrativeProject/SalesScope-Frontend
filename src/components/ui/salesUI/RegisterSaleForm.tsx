@@ -5,6 +5,7 @@ import { MdExpandMore, MdCheck } from "react-icons/md";
 import toast from "react-hot-toast";
 import { Product } from "@/types/ProductType";
 import { createOrder } from "@/services/orders.services";
+import Button from "../Button";
 
 type RegisterSaleFormProps = {
   initialProducts: Product[];
@@ -58,12 +59,10 @@ export default function RegisterSaleForm({
   return (
     <form
       onSubmit={handleSubmit}
-      className="p-6 bg-base-200 shadow rounded-md  max-w-[450px] flex flex-col gap-5"
+      className="p-6 bg-base-200 shadow rounded-md   flex flex-col gap-5"
     >
       <h2 className="text-xl font-bold ">New Sale</h2>
-      <p className=" -mt-3">
-        Complete the details of the sale made
-      </p>
+      <p className=" -mt-3">Complete the details of the sale made</p>
 
       <label className="font-semibold ">Producto</label>
 
@@ -126,18 +125,14 @@ export default function RegisterSaleForm({
         className="border border-gray-300  p-3 rounded-md "
       />
 
-      <button
+      <Button
+        variant="primary"
         type="submit"
         disabled={isSubmitting}
-        className={`w-full p-3 rounded-lg font-bold flex justify-center items-center cursor-pointer
-          ${
-            isSubmitting
-              ? "bg-gray-400 cursor-not-allowed"
-              : "bg-blue-400 hover:bg-gray-500 text-white"
-          }`}
+        
       >
         {isSubmitting ? "Registering..." : "Register sale"}
-      </button>
+      </Button>
     </form>
   );
 }

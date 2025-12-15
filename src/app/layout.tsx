@@ -16,7 +16,10 @@ export default function RootLayout({
 }) {
   return (
     <html data-theme="abyss" lang="es">
-      <body className={`${nunito.className}`} >{children}</body>
+      <body className={`${nunito.className}`} > 
+        <Toaster position="top-center"/>
+        {children}
+        </body>
     </html>
   );
 }

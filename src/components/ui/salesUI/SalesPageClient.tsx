@@ -24,7 +24,7 @@ export default function SalesPageClient({
   };
 
   return (
-    <div className="grid grid-cols-2 p-2 mt-5 rounded-2xl">
+    <div className="grid grid-cols-2 p-2 mt-5 mx-15 space-x-15 rounded-2xl">
       <RegisterSaleForm
         initialProducts={initialProducts}
         onSaleCreated={refreshSales}

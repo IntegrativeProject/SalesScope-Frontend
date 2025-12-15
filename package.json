@@ -11,8 +11,11 @@
   "dependencies": {
     "@heroicons/react": "^2.2.0",
     "chart.js": "^4.5.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.23.26",
     "fs": "^0.0.1-security",
     "heroicons": "^2.2.0",
+    "motion": "^12.23.26",
     "next": "^16.0.10",
     "path": "^0.12.7",
     "react": "19.2.0",

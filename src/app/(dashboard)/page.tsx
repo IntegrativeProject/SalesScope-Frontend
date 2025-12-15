@@ -112,7 +112,8 @@ export default function Page() {
         />
       </div>
       <div className="grid grid-cols-2 mt-2 gap-0 p-15">
-        <article className="bg-base-200 w-160 rounded-xl shadow-xl p-6">
+        <article className="bg-base-200 w-160 rounded-xl shadow-xl p-9 ">
+          <h1 className="text-xl ">Weekly Sales</h1>
           <LineChart labels={lineLabels} data={lineData} />
         </article>
         <article className="bg-base-200 rounded-xl shadow-xl p-4">
