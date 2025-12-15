@@ -23,7 +23,7 @@ export default function PredictionCard() {
 
       <LineChart labels={labels} data={data} h="350px" w="1200px" />
 
-      <article className="p-3 bg-blue-100 rounded-xl shadow border border-blue-300">
+      <article className="p-3  rounded-xl shadow border border-blue-300">
         <h3 className="text-lg font-semibold">
           Prediction for the coming weeks:
         </h3>
