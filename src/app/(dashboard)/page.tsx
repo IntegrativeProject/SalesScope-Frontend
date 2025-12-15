@@ -54,7 +54,6 @@ export default function Page() {
 
       setLineData(weekly.map((w: WeeklySale) => w.revenue));
 
-      
       const products = await getTopProducts(5);
 
       setBarLabels(products.map((p: TopProduct) => p.name));
@@ -68,11 +67,11 @@ export default function Page() {
   return (
     <div>
       <h1 className="p-1 ml-9 font-bold  text-4xl">Dashboard</h1>
-      <h2 className="p-1 ml-9 font-semibold text-gray-700 text-xl">
+      <h2 className="p-1 ml-9 font-semibold  text-xl">
         Summary of your sales and key metrics
       </h2>
 
-      <div className=" ml-11 grid grid-cols-4 gap-x-3 bg-[#F5F6FA] mt-5 ">
+      <div className=" ml-11 grid grid-cols-4 gap-x-3 mt-5 ">
         <Card
           w="w-80"
           h="h-50"
@@ -113,10 +112,10 @@ export default function Page() {
         />
       </div>
       <div className="grid grid-cols-2 mt-2 gap-0 p-15">
-        <article className="bg-white w-160 rounded-xl shadow-xl p-6">
+        <article className=" w-160 rounded-xl shadow-xl p-6">
           <LineChart labels={lineLabels} data={lineData} />
         </article>
-        <article className="bg-white rounded-xl shadow-xl p-4">
+        <article className=" rounded-xl shadow-xl p-4">
           <BarChart labels={barLabels} data={barData} />
         </article>
       </div>

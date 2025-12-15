@@ -45,8 +45,8 @@ export default function Sidebar({ className }: SidebarProps) {
               href={href}
               className={`flex items-center gap-3 px-6 py-3 rounded-lg text-md font-semibold ${
                 isActive
-                  ? "bg-[#4880FF] text-white"
-                  : "hover:bg-gray-100 text-black "
+                  ? "bg-gradient-to-r from-violet-600 to-purple-600 text-white"
+                  : "hover:bg-violet-300 text-black "
               }`}
             >
               <Icon

@@ -9,7 +9,7 @@ export default function Page() {
   return (
     <div>
       <h1 className="p-1 ml-9 font-bold  text-4xl">Analysis and Predictions</h1>
-      <h2 className="p-1 ml-9 font-semibold text-gray-700 text-xl mb-7">
+      <h2 className="p-1 ml-9 font-semibold  text-xl mb-7">
         Insights and forecasts based on historical data
       </h2>
       <div className="flex space-x-20 justify-center  ">

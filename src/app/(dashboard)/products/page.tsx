@@ -28,7 +28,7 @@ export default async function Page() {
     <div>
       <div className="flex">
         <h1 className="p-1 ml-9 font-bold text-4xl">Product Management</h1>
-        <h2 className="p-1 ml-9 font-semibold text-gray-700 text-xl">
+        <h2 className="p-1 ml-9 font-semibold  text-xl">
           Manage your product inventory
         </h2>
       </div>

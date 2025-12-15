@@ -13,13 +13,13 @@ export default function AnalysisCards({
 }: CardProps) {
   return (
     <div
-      className={`relative bg-white w-95 h-50 rounded-2xl shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)] hover:scale-101 border-l-7 ${borderColor} `}
+      className={`relative  w-95 h-50 rounded-2xl shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)] hover:scale-101 border-l-7 ${borderColor} `}
     >
-      <h1 className="text-gray-500 p-4 ">{mainText}</h1>
+      <h1 className=" p-4 ">{mainText}</h1>
       <div className="flex "></div>
       <div className="  p-4 mt-10 ml-1">
         <h1 className="font-bold text-2xl mb-5 ">{`$${price}`}</h1>
-        <h1 className="text-sm text-gray-500">{footerText}</h1>
+        <h1 className="text-sm ">{footerText}</h1>
       </div>
     </div>
   );

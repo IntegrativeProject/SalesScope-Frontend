@@ -14,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html data-theme="cupcake" lang="es">
+    <html data-theme="dracula" lang="es">
       <body className={`${nunito.className}`} >{children}</body>
     </html>
   );

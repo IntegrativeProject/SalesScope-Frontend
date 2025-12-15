@@ -8,13 +8,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex min-h-screen w-full bg-linear-to-r from-cyan-200 to-purple-200 ">
-      <aside className="fixed left-0 top-0 h-full w-64 bg-[#FFFFFF]   shadow-lg">
+    <div className="flex min-h-screen w-full  ">
+      <aside className="fixed left-0 top-0 h-full w-64   shadow-lg">
         <Sidebar />
       </aside>
 
       <div className="flex flex-col flex-1 ml-64">
-        <header className="fixed top-0 left-64 right-0 z-50 bg-white h-16 shadow">
+        <header className="fixed top-0 left-64 right-0 z-50 ">
           <Navbar />
         </header>
 

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <div className="navbar bg-[#FFFFFF] shadow-sm h-16 px-4 flex items-center sticky top-0 z-50">
+    <div className="navbar   shadow-sm h-16 px-4 flex items-center sticky top-0 z-50">
       <div className="p-2 mr-7 hover:bg-gray-100 cursor-pointer rounded-md block lg:hidden">
         <svg
           xmlns="http://www.w3.org/2000/svg"
