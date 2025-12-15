@@ -33,7 +33,7 @@ export default function Sidebar({ className }: SidebarProps) {
   return (
     <aside className={`${className}`}>
       <div className="h-20 flex items-center justify-center ">
-        <img src="/img/logo.png" alt="logo" className="w-75" />
+        <img src="/img/logo-white.png" alt="logo" className="w-75" />
       </div>
 
       <nav className="flex-1 p-6 space-y-2">
@@ -44,9 +44,7 @@ export default function Sidebar({ className }: SidebarProps) {
               key={href}
               href={href}
               className={`flex items-center gap-3 px-6 py-3 rounded-lg text-md font-semibold ${
-                isActive
-                  ? "bg-base-300 "
-                  : "bg-base-200  "
+                isActive ? "bg-base-300 " : "bg-base-200  "
               }`}
             >
               <Icon
@@ -54,7 +52,6 @@ export default function Sidebar({ className }: SidebarProps) {
                   isActive ? "text-white" : ""
                 }  aria-hidden="true`}
               />
-
               {label}
             </Link>
           );
