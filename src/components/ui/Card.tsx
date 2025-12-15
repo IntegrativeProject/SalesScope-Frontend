@@ -1,6 +1,7 @@
 import React from "react";
 
 type CardProps = {
+
   w?: string;
   h?: string;
   worth?: number | string;
@@ -12,6 +13,7 @@ type CardProps = {
 };
 
 export default function Card({
+
   w,
   h,
   worth,
@@ -23,18 +25,18 @@ export default function Card({
 }: CardProps) {
   return (
     <div
-      className={`relative bg-base-200  ${w} ${h} rounded-2xl shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)] hover:scale-101 `}
+      className={`relative bg-base-200  ${w} ${h} rounded-2xl shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)] hover:scale-101  `}
     >
       <h1 className=" p-4 ">{mainText}</h1>
-      <div className="flex ">
-        <h1 className="font-bold  text-4xl ml-15 mt-4 ">
-          {simbol ? "$" : ""}
+      <div className="flex justify-center  ">
+        <h1 className="font-bold  text-4xl  text-center mt-5 ">
+         
           {worth}
         </h1>
         <img
           src={`${iconRoute}`}
           alt="icon"
-          className="w-10 h-10 absolute top-4 right-4 mr-4 mt-2"
+          className="w-10 h-10 absolute top-4 right-4 mr- mt-"
         />
       </div>
       <h3 className="  p-4 mt-8 ml-8">

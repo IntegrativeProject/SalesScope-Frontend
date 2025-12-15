@@ -26,6 +26,15 @@ export default function Page() {
   const [productsSold, setProductsSold] = useState(0);
   const [transactions, setTransactions] = useState(0);
 
+ function formatCOP(value: number): string {
+    return new Intl.NumberFormat("es-CO", {
+      style: "currency",
+      currency: "COP",
+      maximumFractionDigits: 0, // COP no usa centavos
+    }).format(value);
+  }
+  
+
   useEffect(() => {
     Promise.all([
       getTotalSales(),
@@ -76,7 +85,7 @@ export default function Page() {
           w="w-80"
           h="h-50"
           mainText="Total Sales"
-          worth={totalSales}
+          worth={formatCOP(totalSales)}
           percentage="12.5%"
           endText=" vs previous week"
           iconRoute="/icons/ventas.png"
@@ -86,7 +95,7 @@ export default function Page() {
           w="w-80"
           h="h-50"
           mainText="Daily Avarage"
-          worth={dailyAvg}
+          worth={formatCOP(dailyAvg)}
           percentage="18.3%"
           endText="vs previous week"
           iconRoute="/icons/promedio.png"
