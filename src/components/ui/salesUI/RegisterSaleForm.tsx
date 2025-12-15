@@ -58,7 +58,7 @@ export default function RegisterSaleForm({
   return (
     <form
       onSubmit={handleSubmit}
-      className="p-6 bg-base-200 shadow rounded-md border border-gray-200 max-w-[450px] flex flex-col gap-5"
+      className="p-6 bg-base-200 shadow rounded-md  max-w-[450px] flex flex-col gap-5"
     >
       <h2 className="text-xl font-bold ">New Sale</h2>
       <p className=" -mt-3">
@@ -89,7 +89,7 @@ export default function RegisterSaleForm({
         </button>
 
         {openSelect && (
-          <div className="absolute left-0 mt-1 w-full  border border-gray-300 rounded-md shadow-lg z-50 max-h-60 overflow-y-auto">
+          <div className="absolute left-0 mt-1 w-full  border  rounded-md shadow-lg z-50 max-h-60 overflow-y-auto">
             {initialProducts.map((product) => {
               const isSelected =
                 selectedProduct?.product_id === product.product_id;

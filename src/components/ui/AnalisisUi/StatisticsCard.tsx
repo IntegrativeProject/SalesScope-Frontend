@@ -1,6 +1,6 @@
 export default function StatisticsCard() {
   return (
-    <section className=" bg-base-200  w-155  h-130 rounded-xl p-4 space-y-5 shadow-xl border border-gray-200 mb-5 overflow-y-auto">
+    <section className=" bg-base-200  w-155  h-130 rounded-xl p-4 space-y-5 shadow-xl mb-5 overflow-y-auto">
       <h1 className="text-center text-xl font-bold k">Latest Sales</h1>
 
       <article className="bg-base-200] flex  h-auto border border-[#D5D5D5] rounded-xl p-2">
