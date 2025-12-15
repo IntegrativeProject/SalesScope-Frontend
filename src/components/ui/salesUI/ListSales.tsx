@@ -30,7 +30,7 @@ export default function ListSales({ sales }: ListProps) {
               <ul className="mt-2 text-sm">
                 {sale.items.map((item: OrderItem) => (
                   <li key={item.order_item_id}>
-                    Producto {item.product_id} × {item.quantity}
+                    Product: {item.product_id} · Quantity: {item.quantity}
                   </li>
                 ))}
               </ul>
