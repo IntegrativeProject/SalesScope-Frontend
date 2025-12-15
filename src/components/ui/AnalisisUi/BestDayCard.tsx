@@ -22,7 +22,7 @@ export default function BestDayCard({ average, day }: Props) {
     });
   }, []);
   return (
-    <section className="   w-155 h-130  rounded-xl p-6 shadow-xl border border-gray-200 flex flex-col ">
+    <section className=" bg-base-200   w-155 h-130  rounded-xl p-6 shadow-xl border border-gray-200 flex flex-col ">
       <h1 className="text-center text-xl font-bold text-black">
         Sales by Day of the Week
       </h1>

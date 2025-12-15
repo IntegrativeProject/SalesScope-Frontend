@@ -2,11 +2,11 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <div className="navbar   shadow-sm h-16 px-4 flex items-center sticky top-0 z-50">
+    <div className="navbar bg-base-200 text-base-content shadow-sm h-16 px-4 flex items-center sticky top-0 z-50">
       <div className="p-2 mr-7 hover:bg-gray-100 cursor-pointer rounded-md block lg:hidden">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 text-gray-700"
+          className="h-6 w-6 "
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -36,7 +36,7 @@ export default function Navbar() {
 
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4 text-gray-500 ml-1"
+            className="h-4 w-4  ml-1"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -94,12 +94,12 @@ export default function Navbar() {
 
           <div className="flex flex-col leading-tight">
             <span className="font-semibold text-[15px]">Moni Roy</span>
-            <span className="text-sm text-gray-500 -mt-0.5">Admin</span>
+            <span className="text-sm  -mt-0.5">Admin</span>
           </div>
 
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4 text-gray-500 ml-1"
+            className="h-4 w-4 0 ml-1"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -118,7 +118,7 @@ export default function Navbar() {
           className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 mt-3 cursor-pointer"
         >
           <li>
-            <Link href="/login" className="text-red-600">
+            <Link href="/login" className="">
               Logout
             </Link>
           </li>

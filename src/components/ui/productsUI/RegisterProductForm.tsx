@@ -53,9 +53,9 @@ export default function RegisterForm({
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="p-5 bg-white rounded-xl h-auto flex flex-col gap-2 w-[400px] shadow-xl border border-gray-200"
+      className="p-5 bg-base-200 rounded-xl h-auto flex flex-col gap-2 w-[400px] shadow-xl "
     >
-      <h2 className="text-center text-xl font-bold text-black">{mainName}</h2>
+      <h2 className="text-center text-xl font-bold ">{mainName}</h2>
 
       <label className="font-semibold">{firstField}</label>
       <input
@@ -63,7 +63,7 @@ export default function RegisterForm({
           required: "The name is required",
           minLength: { value: 3, message: "Must be at least 3 characters" },
         })}
-        className="border border-gray-300 p-2 rounded"
+        className=" p-2 rounded"
       />
       {errors.name && (
         <span className="text-red-500 text-sm">{errors.name.message}</span>
@@ -77,7 +77,7 @@ export default function RegisterForm({
           valueAsNumber: true,
           min: { value: 1, message: "Must be greater than 0" },
         })}
-        className="border border-gray-300 p-2 rounded"
+        className="  p-2 rounded"
       />
       {errors.price && (
         <span className="text-red-500 text-sm">{errors.price.message}</span>
@@ -91,7 +91,7 @@ export default function RegisterForm({
           valueAsNumber: true,
           min: { value: 0, message: "It can't be negative" },
         })}
-        className="border border-gray-300 p-2 rounded"
+        className=" p-2 rounded"
       />
       {errors.stock && (
         <span className="text-red-500 text-sm">{errors.stock.message}</span>
@@ -102,7 +102,7 @@ export default function RegisterForm({
         {...register("category", {
           required: "The category is required",
         })}
-        className="border border-gray-300 p-2 rounded"
+        className=" p-2 rounded"
       />
       {errors.category && (
         <span className="text-red-500 text-sm">{errors.category.message}</span>
@@ -110,7 +110,7 @@ export default function RegisterForm({
 
       <button
         disabled={isSubmitting}
-        className="w-full bg-[#4880FF] hover:bg-blue-400 mt-5 text-white p-3 rounded-lg font-bold disabled:opacity-50 cursor-pointer"
+        className="w-full bg-primary mt-5  p-3 rounded-lg font-bold disabled:opacity-50 cursor-pointer"
       >
         {isSubmitting ? "Saving..." : buttonLabel}
       </button>

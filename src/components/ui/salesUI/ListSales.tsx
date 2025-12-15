@@ -7,12 +7,12 @@ type ListProps = {
 
 export default function ListSales({ sales }: ListProps) {
   return (
-    <div className="bg-white p-4 rounded-xl">
+    <div className=" bg-base-200 p-4 rounded-xl">
       <h2 className="text-lg font-semibold mb-4">Últimas ventas</h2>
 
       <ul className="space-y-3">
         {sales?.map((sale: Order) => (
-          <li key={sale.order_id} className="bg-gray-200 p-3 rounded-lg">
+          <li key={sale.order_id} className="0 p-3 rounded-lg">
             <div className="flex justify-between">
               <span># {sale.created_at}</span>
               <span className="font-semibold">
@@ -20,7 +20,7 @@ export default function ListSales({ sales }: ListProps) {
               </span>
             </div>
 
-            <div className="text-sm text-zinc-400">
+            <div className="text-sm ">
               {new Date(sale.created_at).toLocaleDateString()}
               {" · "}
               {sale.status}

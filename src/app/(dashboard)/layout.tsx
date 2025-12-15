@@ -8,8 +8,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex min-h-screen w-full  ">
-      <aside className="fixed left-0 top-0 h-full w-64   shadow-lg">
+    <div className="flex min-h-screen w-full text-base-content ">
+      <aside className=" bg-base-200 fixed left-0 top-0 h-full w-64   shadow-lg">
         <Sidebar />
       </aside>
 

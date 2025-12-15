@@ -58,22 +58,22 @@ export default function RegisterSaleForm({
   return (
     <form
       onSubmit={handleSubmit}
-      className="p-6 bg-white shadow rounded-md border border-gray-200 max-w-[450px] flex flex-col gap-5"
+      className="p-6 bg-base-200 shadow rounded-md border border-gray-200 max-w-[450px] flex flex-col gap-5"
     >
-      <h2 className="text-xl font-bold text-black">New Sale</h2>
-      <p className="text-gray-500 -mt-3">
+      <h2 className="text-xl font-bold ">New Sale</h2>
+      <p className=" -mt-3">
         Complete the details of the sale made
       </p>
 
-      <label className="font-semibold text-black">Producto</label>
+      <label className="font-semibold ">Producto</label>
 
       <div className="relative" ref={selectRef}>
         <button
           type="button"
           onClick={() => setOpenSelect((prev) => !prev)}
-          className="w-full border border-gray-300 bg-gray-50 p-3 rounded-md flex justify-between items-center text-black"
+          className="w-full border border-gray-300  p-3 rounded-md flex justify-between items-center text-black"
         >
-          <span className={selectedProduct ? "text-black" : "text-gray-500"}>
+          <span className={selectedProduct ? "" : ""}>
             {selectedProduct
               ? `${selectedProduct.name} - $${selectedProduct.price}`
               : "Selecciona un producto"}
@@ -89,7 +89,7 @@ export default function RegisterSaleForm({
         </button>
 
         {openSelect && (
-          <div className="absolute left-0 mt-1 w-full bg-white border border-gray-300 rounded-md shadow-lg z-50 max-h-60 overflow-y-auto">
+          <div className="absolute left-0 mt-1 w-full  border border-gray-300 rounded-md shadow-lg z-50 max-h-60 overflow-y-auto">
             {initialProducts.map((product) => {
               const isSelected =
                 selectedProduct?.product_id === product.product_id;
@@ -101,7 +101,7 @@ export default function RegisterSaleForm({
                     setSelectedProduct(product);
                     setOpenSelect(false);
                   }}
-                  className={`p-3 cursor-pointer text-black flex justify-between items-center
+                  className={`p-3 cursor-pointer  flex justify-between items-center
                     ${
                       isSelected
                         ? "bg-blue-100 font-medium"
@@ -117,13 +117,13 @@ export default function RegisterSaleForm({
         )}
       </div>
 
-      <label className="font-semibold text-black">Quantity</label>
+      <label className="font-semibold ">Quantity</label>
       <input
         type="number"
         min={1}
         value={quantity}
         onChange={(e) => setQuantity(Number(e.target.value))}
-        className="border border-gray-300 bg-gray-50 p-3 rounded-md text-black"
+        className="border border-gray-300  p-3 rounded-md "
       />
 
       <button

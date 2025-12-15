@@ -76,8 +76,8 @@ export default function ProductsClient({ initialProducts }: Props) {
         onCreated={handleProductCreated}
       />
 
-      <div className="flex flex-col gap-0 ">
-        <div className="flex gap-3 bg-white p-3 rounded-xl rounded-b-none">
+      <div className="bg-base-200 flex flex-col gap-0 ">
+        <div className="flex gap-3  p-3 rounded-xl rounded-b-none">
           <input
             type="text"
             placeholder="Search..."

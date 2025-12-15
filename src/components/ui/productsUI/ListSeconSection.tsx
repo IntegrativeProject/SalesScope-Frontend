@@ -26,7 +26,7 @@ export default function ListSeconSection({ product, onSave, onCancel }: Props) {
   return (
     <form
       onSubmit={handleSubmit(onSave)}
-      className="rounded-xl w-100 p-5 space-y-3 border border-gray-200"
+      className="bg-base-200 rounded-xl w-100 p-5 space-y-3 border border-gray-200"
     >
       <h2 className="font-bold text-lg">Edit Product</h2>
 

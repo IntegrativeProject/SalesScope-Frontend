@@ -16,7 +16,7 @@ export default function PredictionCard() {
   }, []);
 
   return (
-    <section className=" w-7xl rounded-xl p-6 shadow-sm border border-gray-200 flex flex-col gap-4">
+    <section className=" bg-base-200 w-7xl rounded-xl p-6 shadow-sm border border-gray-200 flex flex-col gap-4">
       <h2 className="text-xl font-bold text-gray-800">
         Historical Sales & Prediction
       </h2>
