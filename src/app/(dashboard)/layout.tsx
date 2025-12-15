@@ -1,3 +1,4 @@
+import AnimatedPage from "@/components/AnimatedPage";
 import Footer from "@/components/ui/Footer";
 import Navbar from "@/components/ui/Navbar";
 import Sidebar from "@/components/ui/Sidebar";

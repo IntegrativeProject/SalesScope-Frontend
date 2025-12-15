@@ -16,17 +16,13 @@ export default function PredictionCard() {
   }, []);
 
   return (
-    <section className=" bg-base-200 w-7xl rounded-xl p-6 shadow-sm  flex flex-col gap-4">
-      <h2 className="text-xl font-bold ">
-        Historical Sales & Prediction
-      </h2>
-      <p className=" -mt-3">Trend analysis and future sales projections</p>
-      <div className="p-5">
+    <div className="">
+      <div className="bg-base-200 w-270  rounded-xl shadow-xl p-8 space-y-3 grid grid-cols-1">
+        <h2 className="text-xl font-bold ">Historical Sales & Prediction</h2>
+        <p className=" -mt-3">Trend analysis and future sales projections</p>
 
-        <LineChart labels={labels} data={data} h="350px" w="1200px" />
-      </div>
-
-      <article className="p-3  rounded-xl shadow border border-blue-300">
+        <LineChart labels={labels} data={data} />
+        <article className="p-3 bg-base-200 rounded-xl shadow border border-blue-300 w-auto">
         <h3 className="text-lg font-semibold">
           Prediction for the coming weeks:
         </h3>
@@ -35,6 +31,8 @@ export default function PredictionCard() {
           increase stock levels of best-selling products.
         </p>
       </article>
-    </section>
+      </div>
+     
+    </div>
   );
 }

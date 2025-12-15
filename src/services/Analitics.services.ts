@@ -118,7 +118,7 @@ export async function getSalesByWeekday() {
     if (!hasData) {
       return {
         labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-        data: [12, 35, 28, 40, 55, 62, 48], // 👈 datos fake
+        data: [12, 35, 28, 40, 55, 62, 48], 
       };
     }
 
@@ -162,7 +162,9 @@ export async function getWeeklySalesChart() {
         "Week 7",
         "Week 8",
         "Week 9",
-        "Week 10 (pred)",
+        "Week 10",
+        
+       
       ],
       data: [
         18000, 22000, 19500, 24500, 27000, 29500, 31500, 29000, 28500, 34000,
