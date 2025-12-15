@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -33,13 +34,12 @@ export default function Sidebar({ className }: SidebarProps) {
 
   return (
     <aside className={`${className} bg-base-100 w-64 min-h-screen shadow-md`}>
+      {/* Logo */}
       <div className="h-20 flex items-center justify-center">
-        <img src="/img/logo.png" alt="logo" className="w-40" />
-    <aside className={`${className}`}>
-      <div className="h-20 flex items-center justify-center ">
-        <img src="/img/logo-white.png" alt="logo" className="w-75" />
+        <img src="/img/logo-white.png" alt="logo" className="w-65" />
       </div>
 
+      {/* Navigation */}
       <nav className="flex-1 p-6 space-y-2">
         {links.map(({ href, label, Icon }, index) => {
           const isActive = pathname === href;
@@ -52,13 +52,14 @@ export default function Sidebar({ className }: SidebarProps) {
               transition={{
                 delay: index * 0.05,
                 type: "spring",
-                stiffness: 100,
+                stiffness: 120,
               }}
             >
               <Link
                 href={href}
                 className="relative flex items-center gap-3 px-6 py-3 rounded-lg font-semibold text-md overflow-hidden"
               >
+                {/* Active background */}
                 <AnimatePresence>
                   {isActive && (
                     <motion.span
@@ -76,26 +77,17 @@ export default function Sidebar({ className }: SidebarProps) {
                   )}
                 </AnimatePresence>
 
+                {/* Icon */}
                 <Icon
                   className={`w-5 h-5 z-10 ${
                     isActive ? "text-white" : "text-gray-700"
                   }`}
                 />
+
+                {/* Label */}
                 <span className="z-10">{label}</span>
               </Link>
             </motion.div>
-              href={href}
-              className={`flex items-center gap-3 px-6 py-3 rounded-lg text-md font-semibold ${
-                isActive ? "bg-base-300 " : "bg-base-200  "
-              }`}
-            >
-              <Icon
-                className={`w-5 h-5 ${
-                  isActive ? "text-white" : ""
-                }  aria-hidden="true`}
-              />
-              {label}
-            </Link>
           );
         })}
       </nav>
