@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="max-w-screen mx-auto grid md:grid-cols-3 gap-6 mt-4 ">
         <div className="flex items-end">
           <Image
-            src="/img/logo-white.png"
+            src="/img/Logo.png"
             alt="SaleScope Logo"
             width={300}
             height={100}
