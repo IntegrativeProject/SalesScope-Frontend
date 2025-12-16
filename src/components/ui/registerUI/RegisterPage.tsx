@@ -99,7 +99,7 @@ export default function RegisterPage() {
           >
             <motion.div variants={item}>
               <Image
-                src="/img/Logo.png"
+                src="/img/logo.png"
                 width={300}
                 height={200}
                 alt="SaleScope Logo"

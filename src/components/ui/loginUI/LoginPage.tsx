@@ -77,7 +77,7 @@ export default function LoginPage() {
             onSubmit={handleSubmit}
           >
             <Image
-              src="/img/Logo.png"
+              src="/img/logo.png"
               alt="Logo"
               width={300}
               height={200}

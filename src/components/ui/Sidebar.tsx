@@ -35,7 +35,7 @@ export default function Sidebar({ className }: SidebarProps) {
   return (
     <aside className={`${className} bg-base-200 w-64 min-h-screen shadow-md`}>
       <div className="h-20 flex items-center justify-center">
-        <img src="/img/Logo.png" alt="logo" className="w-65" />
+        <img src="/img/logo.png" alt="logo" className="w-65" />
       </div>
 
       <nav className="flex-1 p-6 space-y-2">

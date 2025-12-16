@@ -16,7 +16,7 @@ export default function Footer() {
       <div className="max-w-screen-xl mx-auto px-8 py-8 grid gap-6 md:grid-cols-3">
         <div className="space-y-3">
           <Image
-            src="/img/Logo.png"
+            src="/img/logo.png"
             alt="SaleScope Logo"
             width={160}
             height={50}
