@@ -3,6 +3,7 @@ import { Order, OrderItem } from "@/types/OrdersType";
 
 type ListProps = {
   sales?: Order[];
+  
 };
 
 export default function ListSales({ sales }: ListProps) {
@@ -30,7 +31,9 @@ export default function ListSales({ sales }: ListProps) {
               <ul className="mt-2 text-sm">
                 {sale.items.map((item: OrderItem) => (
                   <li key={item.order_item_id}>
-                    Product: {item.product_id} · Quantity: {item.quantity}
+                    Product: {
+                      
+                    item.product_id  } · Quantity: {item.quantity}
                   </li>
                 ))}
               </ul>

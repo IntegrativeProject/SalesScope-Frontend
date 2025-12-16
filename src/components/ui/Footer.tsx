@@ -7,44 +7,52 @@ import { motion } from "framer-motion";
 export default function Footer() {
   return (
     <motion.footer
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
       viewport={{ once: true }}
-      className=".bg-gradient-to-r from-[#020617] to-[#020617] text-base-content"
+      className="bg-base-200 text-base-content"
     >
-      <div className=".max-w-screen-xl mx-auto px-8 py-12 grid gap-8 md:grid-cols-3">
-
-        <div className="space-y-4">
+      <div className="max-w-screen-xl mx-auto px-8 py-8 grid gap-6 md:grid-cols-3">
+        <div className="space-y-3">
           <Image
             src="/img/Logo.png"
             alt="SaleScope Logo"
-            width={180}
-            height={60}
+            width={160}
+            height={50}
+            priority
           />
 
-          <p className="text-sm opacity-80">
-            <span className="font-bold">SaleScope</span> helps businesses
-            manage sales, analyze performance, and gain actionable insights
-            to make smarter decisions.
+          <p className="text-sm opacity-80 leading-relaxed">
+            <span className="font-semibold">SaleScope</span> helps businesses
+            manage products, track sales, and turn data into actionable insights
+            through analytics and predictive intelligence.
           </p>
         </div>
 
-        <div className="flex flex-col items-center mt-10">
-          <h3 className="font-bold mb-4">Navigation</h3>
-          <ul className="space-y-2 text-sm opacity-90 text-center">
+        <div className="flex flex-col items-center md:items-start">
+          <h3 className="font-semibold mb-3 text-sm tracking-wide">
+            Navigation
+          </h3>
+          <ul className="space-y-1 text-sm opacity-85">
             <li>
               <Link href="/" className="hover:text-primary transition-colors">
                 Dashboard
               </Link>
             </li>
             <li>
-              <Link href="/products" className="hover:text-primary transition-colors">
+              <Link
+                href="/products"
+                className="hover:text-primary transition-colors"
+              >
                 Products
               </Link>
             </li>
             <li>
-              <Link href="/registersale" className="hover:text-primary transition-colors">
+              <Link
+                href="/registersale"
+                className="hover:text-primary transition-colors"
+              >
                 Register Sale
               </Link>
             </li>
@@ -59,25 +67,31 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div className="text-sm opacity-75 mt-10">
-          <h3 className="font-bold mb-4">Legal Information</h3>
-          <ul className="space-y-2">
+        <div>
+          <h3 className="font-semibold mb-3 text-sm tracking-wide">Legal</h3>
+          <ul className="space-y-1 text-sm opacity-80">
             <li>
-              <Link href="/terms" className="hover:underline">
-                Terms and Conditions
+              <Link
+                href="/terms"
+                className="hover:text-primary transition-colors"
+              >
+                Terms
               </Link>
             </li>
             <li>
-              <Link href="/privacy" className="hover:underline">
-                Privacy Policy
+              <Link
+                href="/privacy"
+                className="hover:text-primary transition-colors"
+              >
+                Privacy
               </Link>
             </li>
           </ul>
         </div>
       </div>
 
-      <div className="border-t border-base-300 py-4 text-center text-xs opacity-70">
-        © {new Date().getFullYear()} SaleScope. All rights reserved.
+      <div className="border-t border-base-300/30 py-2 text-center text-[11px] opacity-65">
+        © {new Date().getFullYear()} SaleScope
       </div>
     </motion.footer>
   );

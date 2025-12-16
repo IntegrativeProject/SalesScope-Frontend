@@ -6,15 +6,18 @@ import ListSales from "@/components/ui/salesUI/ListSales";
 import { getLastSales } from "@/services/orders.services";
 import { Order } from "@/types/OrdersType";
 import { Product } from "@/types/ProductType";
+import { getProductsMap } from "@/services/products.services";
 
 type Props = {
   initialProducts: Product[];
   initialSales: Order[];
+ 
 };
 
 export default function SalesPageClient({
   initialProducts,
   initialSales,
+ 
 }: Props) {
   const [sales, setSales] = useState<Order[]>(initialSales);
 
@@ -29,7 +32,7 @@ export default function SalesPageClient({
         initialProducts={initialProducts}
         onSaleCreated={refreshSales}
       />
-      <ListSales sales={sales} />
+      <ListSales  sales={sales} />
     </div>
   );
 }

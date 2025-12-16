@@ -56,3 +56,36 @@ export async function deleteProduct(id: number) {
 
   return true;
 }
+
+// services/products.ts
+
+export async function getProductsMap(
+  token?: string
+): Promise<Record<number, string>> {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/products`,
+    {
+      headers: {
+        Authorization: token ? `Bearer ${token}` : "",
+      },
+      cache: "no-store",
+    }
+  );
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch products");
+  }
+
+  const json = await res.json();
+
+  // si viene paginado:
+  const products = json.data ?? json;
+
+  return products.reduce(
+    (acc: Record<number, string>, product: Product) => {
+      acc[product.product_id] = product.name;
+      return acc;
+    },
+    {}
+  );
+}
