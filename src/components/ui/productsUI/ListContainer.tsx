@@ -1,5 +1,6 @@
 "use client";
 import { Product } from "@/types/ProductType";
+import Image from "next/image";
 
 type ListProps = {
   products?: Product[];
@@ -13,7 +14,7 @@ export default function ListContainer({
   onEdit,
 }: ListProps) {
   return (
-    <div >
+    <div>
       <section className=" bg-base-200 p-4  w-150 h-133 rounded-xl   space-y-5 shadow-xl    overflow-y-scroll ">
         {products?.map((item) => (
           <article
@@ -21,9 +22,7 @@ export default function ListContainer({
             className="p-4  min-h-24 border  rounded-xl  shadow-sm hover:shadow-md transition-all duration-200 flex items-center"
           >
             <div className="flex flex-col justify-center flex-1">
-              <h2 className="font-semibold text-lg ">
-                {item.name}
-              </h2>
+              <h2 className="font-semibold text-lg ">{item.name}</h2>
 
               <div className="flex text-sm space-x-2 ">
                 <p className="capitalize">{item.category}</p>
@@ -38,14 +37,24 @@ export default function ListContainer({
                 onClick={() => onEdit(item)}
                 className="p-2 rounded-lg  cursor-pointer"
               >
-                <img src="icons/edit.png" className="w-5" />
+                <Image src="/icons/edit.png" 
+                 alt="Edit"
+                 width={30}
+                 height={25}
+                 className="hover:bg-primary rounded-md"
+                 />
               </button>
 
               <button
                 onClick={() => onDelete(item.product_id)}
-                className="p-2 rounded-lg hover:bg-red-200 cursor-pointer"
+                className="p-3 rounded-lg cursor-pointer"
               >
-                <img src="icons/delete.png" className="w-5" />
+                <Image src="/icons/delete.png" 
+                 alt="Delete"
+                 width={25}
+                 height={25}
+                 className="hover:bg-red-300 rounded-md"
+                 />
               </button>
             </div>
           </article>

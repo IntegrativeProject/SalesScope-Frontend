@@ -49,6 +49,7 @@ export default function ListSeconSection({ product, onSave, onCancel }: Props) {
         <label className="text-sm font-medium">Price</label>
         <input
           type="number"
+          step="0.01"
           {...register("price", { valueAsNumber: true })}
           className="p-2 rounded bg-base-100 border"
         />
