@@ -10,7 +10,7 @@ import Link from "next/link";
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-base-100 text-base-content">
-      {/* Hero */}
+      
       <section className="relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 py-24 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -19,24 +19,24 @@ export default function LandingPage() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-5xl font-bold leading-tight">
-              Controla tus ventas.
+              Take control of your sales.
               <span className="block text-primary">
-                Toma mejores decisiones.
+                Make better decisions.
               </span>
             </h1>
             <p className="mt-6 text-lg text-base-content/70">
-              SalesScope es un dashboard inteligente para analizar ventas,
-              productos y tendencias en tiempo real.
+              SalesScope is an intelligent dashboard to analyze sales,
+              products, and trends in real time.
             </p>
             <div className="mt-8 flex gap-4">
               <Link href="/login">
                 <Button size="lg" className="rounded-2xl">
-                  Comenzar ahora
+                  Get started
                 </Button>
               </Link>
               <Link href="/dashboard">
                 <Button variant="primary" size="lg" className="rounded-2xl">
-                  Ver demo
+                  View demo
                 </Button>
               </Link>
             </div>
@@ -57,6 +57,7 @@ export default function LandingPage() {
           </motion.div>
         </div>
       </section>
+
       <section className="py-24 bg-base-200">
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -65,20 +66,20 @@ export default function LandingPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl font-bold">
-              Conoce a tu asistente inteligente
+              Meet your intelligent assistant
             </h2>
             <p className="mt-4 text-base-content/70">
-              Nuestro asistente IA analiza tus ventas y te da recomendaciones
-              claras para mejorar ingresos, optimizar inventario y anticipar
-              tendencias.
+              Our AI assistant analyzes your sales and gives you clear
+              recommendations to increase revenue, optimize inventory,
+              and anticipate trends.
             </p>
             <ul className="mt-6 space-y-3 text-sm">
-              <li>✔ Consejos personalizados según tus métricas</li>
-              <li>✔ Alertas de caídas o picos de ventas</li>
-              <li>✔ Explicaciones simples, sin lenguaje técnico</li>
+              <li>✔ Personalized tips based on your metrics</li>
+              <li>✔ Alerts for sales drops or spikes</li>
+              <li>✔ Simple explanations, no technical jargon</li>
             </ul>
             <Button size="lg" className="mt-8 rounded-2xl">
-              Hablar con el asistente
+              Talk to the assistant
             </Button>
           </motion.div>
 
@@ -97,37 +98,38 @@ export default function LandingPage() {
           </motion.div>
         </div>
       </section>
-      {/* Features */}
+
+   
       <section className="py-24 bg-base-200">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-4xl font-bold text-center">
-            Todo lo que necesitas en un solo lugar
+            Everything you need in one place
           </h2>
           <p className="mt-4 text-center text-base-content/70">
-            Diseñado para equipos que necesitan claridad y velocidad.
+            Designed for teams that need clarity and speed.
           </p>
 
           <div className="mt-16 grid grid-cols-1 md:grid-cols-4 gap-6">
             {[
               {
                 icon: BarChart3,
-                title: "Análisis en tiempo real",
-                desc: "Visualiza métricas clave y ventas al instante.",
+                title: "Real-time analytics",
+                desc: "Visualize key metrics and sales instantly.",
               },
               {
                 icon: Brain,
-                title: "Predicciones con IA",
-                desc: "Anticípate a tendencias y toma decisiones inteligentes.",
+                title: "AI-powered predictions",
+                desc: "Anticipate trends and make smarter decisions.",
               },
               {
                 icon: Zap,
-                title: "Rápido y moderno",
-                desc: "Interfaz optimizada con animaciones fluidas.",
+                title: "Fast & modern",
+                desc: "Optimized interface with smooth animations.",
               },
               {
                 icon: ShieldCheck,
-                title: "Seguro",
-                desc: "Autenticación y control de roles integrados.",
+                title: "Secure",
+                desc: "Built-in authentication and role management.",
               },
             ].map((f, i) => (
               <motion.div
@@ -144,7 +146,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* CTA */}
+      
       <section className="py-24">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.h2
@@ -153,23 +155,22 @@ export default function LandingPage() {
             viewport={{ once: true }}
             className="text-4xl font-bold"
           >
-            Empieza a escalar tu negocio hoy
+            Start scaling your business today
           </motion.h2>
           <p className="mt-4 text-base-content/70">
-            Centraliza tus datos y obtén insights accionables desde el primer
-            día.
+            Centralize your data and get actionable insights from day one.
           </p>
           <Link href="/register">
             <Button size="lg" className="mt-8 rounded-2xl">
-              Crear cuenta gratis
+              Create free account
             </Button>
           </Link>
         </div>
       </section>
 
-      {/* Footer */}
+    
       <footer className="py-10 bg-base-200 text-center text-sm text-base-content/60">
-        © {new Date().getFullYear()} SalesScope. Todos los derechos reservados.
+        © {new Date().getFullYear()} SalesScope. All rights reserved.
       </footer>
     </div>
   );
