@@ -44,8 +44,8 @@ const item = {
     }
   };
   return (
-    <div className="flex justify-center p-10 ">
-      <div className="grid grid-cols-2 w-280 rounded-xl bg-base-200">
+    <div className="flex justify-center p-10  ">
+      <div className="grid grid-cols-2 w-280 rounded-xl bg-base-200 space-x-2">
         <div className="flex items-center justify-center  ">
            <motion.form
             variants={container}
@@ -57,8 +57,8 @@ const item = {
             <Image
               src="/img/Logo.png"
               alt="Logo"
-              width={350}
-              height={250}
+              width={300}
+              height={200}
               className=" flex items-center mx-auto"
             />
              <motion.p variants={item} className="font-semibold p-4 mb-8">
@@ -82,7 +82,7 @@ const item = {
                 className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:secundary "
               />
                  {error && <p className="text-error">{error}</p>}
-              <Button className="bg-base-100 w-full border p-3 rounded-xl cursor-pointer hover:bg-base-200  font-bold mt-4 transform-border hover:scale-95">
+              <Button className=" w-full p-3 rounded-xl cursor-pointer   font-bold mt-4 ">
                 Sign-in
               </Button>
 

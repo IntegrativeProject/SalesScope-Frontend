@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import Button from "../Button";
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -93,7 +94,7 @@ export default function RegisterPage() {
                 width={300}
                 height={200}
                 alt="SaleScope Logo"
-                className="mb-3 flex items-center mx-auto"
+                className=" flex items-center mx-auto"
               />
             </motion.div>
             <motion.h2
@@ -129,9 +130,9 @@ export default function RegisterPage() {
                 className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:secundary"
               />
 
-              <button className="bg-base-100 w-full border p-3 rounded-xl cursor-pointer hover:bg-base-200  font-bold mt-4 transform-border hover:scale-95">
+              <Button className=" w-full  p-3 rounded-xl   font-bold mt-4 ">
                 Register
-              </button>
+              </Button>
 
               <motion.p variants={item} className="text-center mt-5">
                 Do you already have an account?{" "}
