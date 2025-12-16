@@ -50,7 +50,7 @@ export default function LandingPage() {
           >
             <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full" />
             <img
-              src="/dashboard-preview.png"
+              src="/img/dashboardimagen.png"
               alt="Dashboard preview"
               className="relative rounded-2xl shadow-2xl"
             />
