@@ -10,7 +10,6 @@ import Link from "next/link";
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-base-100 text-base-content">
-      
       <section className="relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 py-24 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -20,13 +19,11 @@ export default function LandingPage() {
           >
             <h1 className="text-5xl font-bold leading-tight">
               Take control of your sales.
-              <span className="block text-primary">
-                Make better decisions.
-              </span>
+              <span className="block text-primary">Make better decisions.</span>
             </h1>
             <p className="mt-6 text-lg text-base-content/70">
-              SalesScope is an intelligent dashboard to analyze sales,
-              products, and trends in real time.
+              SalesScope is an intelligent dashboard to analyze sales, products,
+              and trends in real time.
             </p>
             <div className="mt-8 flex gap-4">
               <Link href="/login">
@@ -70,8 +67,8 @@ export default function LandingPage() {
             </h2>
             <p className="mt-4 text-base-content/70">
               Our AI assistant analyzes your sales and gives you clear
-              recommendations to increase revenue, optimize inventory,
-              and anticipate trends.
+              recommendations to increase revenue, optimize inventory, and
+              anticipate trends.
             </p>
             <ul className="mt-6 space-y-3 text-sm">
               <li>✔ Personalized tips based on your metrics</li>
@@ -99,7 +96,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-   
       <section className="py-24 bg-base-200">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-4xl font-bold text-center">
@@ -146,7 +142,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      
       <section className="py-24">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.h2
@@ -168,7 +163,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-    
       <footer className="py-10 bg-base-200 text-center text-sm text-base-content/60">
         © {new Date().getFullYear()} SalesScope. All rights reserved.
       </footer>
