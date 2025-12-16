@@ -19,37 +19,53 @@ export default function ListSeconSection({ product, onSave, onCancel }: Props) {
   }, [product, reset]);
 
   if (!product) {
-    return (
-      <div className="w-100 p-5 text-gray-500">Select a product to edit</div>
-    );
+    return <div className="w-100 p-5 text-gray-500"></div>;
   }
 
   return (
     <form
       onSubmit={handleSubmit(onSave)}
-      className="bg-base-200 rounded-xl w-100 p-5 space-y-3 grid grid-col-1 "
+      className="bg-base-200 rounded-xl w-100 p-5 space-y-10"
     >
-      <h2 className="font-bold text-lg">Edit Product</h2>
+      <h2 className="font-bold text-2xl">Edit Product</h2>
 
-      <input {...register("name")} className="p-2 rounded bg-base-100 border border-bg-gray-200" />
-      <input {...register("category")} className="p-2 rounded bg-base-100 border border-bg-gray-200" />
-      <label htmlFor=""> precio </label>
-      <input type="number" {...register("price", { valueAsNumber: true })} className=" p-2 rounded bg-base-100 border " />
-      <label htmlFor=""> cantidad </label>
+      <div className="flex flex-col space-y-1">
+        <label className="text-sm font-medium">Product name</label>
+        <input
+          {...register("name")}
+          className="p-2 rounded bg-base-100 border border-bg-gray-200"
+        />
+      </div>
 
-      <input type="number" {...register("stock", { valueAsNumber: true })}  className=" p-2 rounded bg-base-100 border " />
+      <div className="flex flex-col space-y-1">
+        <label className="text-sm font-medium">Category</label>
+        <input
+          {...register("category")}
+          className="p-2 rounded bg-base-100 border border-bg-gray-200"
+        />
+      </div>
 
-      <div className="flex h-12 justify-center space-x-3" >
-        <Button className=" ">
-          Save
-        </Button>
-        <Button
-        size="sm"
-          variant="danger"
-          type="button"
-          onClick={onCancel}
-         
-        >
+      <div className="flex flex-col space-y-1">
+        <label className="text-sm font-medium">Price</label>
+        <input
+          type="number"
+          {...register("price", { valueAsNumber: true })}
+          className="p-2 rounded bg-base-100 border"
+        />
+      </div>
+
+      <div className="flex flex-col space-y-1">
+        <label className="text-sm font-medium">Quantity</label>
+        <input
+          type="number"
+          {...register("stock", { valueAsNumber: true })}
+          className="p-2 rounded bg-base-100 border"
+        />
+      </div>
+
+      <div className="flex h-auto justify-center space-x-4 pt-2 ">
+        <Button>Save</Button>
+        <Button size="sm" variant="danger" type="button" onClick={onCancel}>
           Cancel
         </Button>
       </div>
