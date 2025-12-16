@@ -15,7 +15,6 @@ import {
 import { TopProduct, WeeklySale } from "@/types/analytics";
 import AnimatedPage from "@/components/AnimatedPage";
 
-// Variants para stagger
 const containerVariants = {
   hidden: {},
   show: {
@@ -29,6 +28,7 @@ const itemVariants = {
   hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0 },
 };
+
 export default function Page() {
   const [lineLabels, setLineLabels] = useState<string[]>([]);
   const [lineData, setLineData] = useState<number[]>([]);
@@ -45,10 +45,11 @@ export default function Page() {
     return new Intl.NumberFormat("es-CO", {
       style: "currency",
       currency: "COP",
-      maximumFractionDigits: 0, // COP no usa centavos
+      maximumFractionDigits: 0,
     }).format(value);
   }
 
+  // --- LÓGICA DE DATOS (SIN CAMBIOS) ---
   useEffect(() => {
     Promise.all([
       getTotalSales(),
@@ -62,6 +63,7 @@ export default function Page() {
       setTransactions(trans);
     });
   }, []);
+
   useEffect(() => {
     async function loadCharts() {
       const weekly = await getWeeklySales();
@@ -86,23 +88,42 @@ export default function Page() {
 
     loadCharts();
   }, []);
+  // -------------------------------------
 
   return (
     <AnimatedPage>
-      <div>
-        <h1 className="p-1 ml-9 font-bold  text-4xl ">Dashboard</h1>
-        <h2 className="p-1 ml-9 font-semibold  text-xl">
+      {/* El contenedor principal usa padding ajustado en móvil y no necesita p-1 */}
+      <div className="py-4"> 
+        
+        {/* TÍTULO PRINCIPAL: Usa padding horizontal (px-4) en móvil en lugar de margen fijo (ml-9) */}
+        <h1 className="px-4 p-1 lg:ml-9 font-bold text-3xl lg:text-4xl">
+          Dashboard
+        </h1>
+        
+        {/* SUBTÍTULO: Se mantiene el ajuste de margen solo en escritorio */}
+        <h2 className="px-4 p-1 lg:ml-9 font-semibold text-base lg:text-xl">
           Summary of your sales and key metrics
         </h2>
+        
+        {/* CONTENEDOR DE TARJETAS (MÉTRICAS) */}
         <motion.div
-          className="ml-11 grid grid-cols-4 gap-x-3 mt-5"
+          className="
+            px-4 lg:ml-11          /* Padding horizontal en móvil, margen fijo en escritorio */
+            grid 
+            grid-cols-2           /* Mobile por defecto: 2 columnas */
+            lg:grid-cols-4        /* Desktop: 4 columnas */
+            gap-3 lg:gap-x-3 
+            mt-5
+          "
           variants={containerVariants}
           initial="hidden"
           animate="show"
         >
+          {/* NOTA: Se cambia w="w-80" por w="w-full" para que ocupe el espacio de la columna */}
+          
           <motion.div variants={itemVariants}>
             <Card
-              w="w-80"
+              w="w-full" 
               h="h-50"
               mainText="Total Sales"
               worth={formatCOP(totalSales)}
@@ -112,9 +133,10 @@ export default function Page() {
               simbol={true}
             />
           </motion.div>
+          
           <motion.div variants={itemVariants}>
             <Card
-              w="w-80"
+              w="w-full" 
               h="h-50"
               mainText="Daily Average"
               worth={formatCOP(dailyAvg)}
@@ -124,9 +146,10 @@ export default function Page() {
               simbol={true}
             />
           </motion.div>
+          
           <motion.div variants={itemVariants}>
             <Card
-              w="w-80"
+              w="w-full" 
               h="h-50"
               mainText="Products Sold"
               worth={productsSold}
@@ -135,9 +158,10 @@ export default function Page() {
               iconRoute="/icons/box.png"
             />
           </motion.div>
+          
           <motion.div variants={itemVariants}>
             <Card
-              w="w-80"
+              w="w-full" 
               h="h-50"
               mainText="Transaction"
               worth={transactions}
@@ -148,9 +172,20 @@ export default function Page() {
           </motion.div>
         </motion.div>
 
-        <div className="grid grid-cols-2  p-15">
+        {/* CONTENEDOR DE GRÁFICOS */}
+        <div 
+            className="
+                grid 
+                grid-cols-1            /* Mobile por defecto: 1 columna */
+                lg:grid-cols-2         /* Desktop: 2 columnas */
+                gap-6                  
+                p-4 lg:p-15            /* Padding reducido en móvil, original en escritorio */
+                mt-8
+            ">
+          
+          {/* GRÁFICO 1: Weekly Sales */}
           <motion.article
-            className="bg-base-200 w-160 rounded-xl shadow-xl p-8 space-y-3"
+            className="bg-base-200 w-full rounded-xl shadow-xl p-4 sm:p-8 space-y-3" // w-160 cambiado a w-full
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.6 }}
@@ -159,8 +194,10 @@ export default function Page() {
             <p className=" -mt-3">Evolution of daily sales in pesos</p>
             <LineChart labels={lineLabels} data={lineData} />
           </motion.article>
+          
+          {/* GRÁFICO 2: Best Selling Products */}
           <motion.article
-            className="bg-base-200 w-160 rounded-xl shadow-xl p-8 space-y-3"
+            className="bg-base-200 w-full rounded-xl shadow-xl p-4 sm:p-8 space-y-3" // w-160 cambiado a w-full
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.8 }}

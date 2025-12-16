@@ -38,7 +38,6 @@ export default function LoginPage() {
     }
 
     setLoading(true);
-
     const loadingToast = toast.loading("Signing in...");
 
     try {
@@ -56,7 +55,7 @@ export default function LoginPage() {
         return;
       }
 
-      toast.success("Welcome🚀");
+      toast.success("Welcome 🚀");
       router.push("/dashboard");
     } catch {
       toast.dismiss(loadingToast);
@@ -66,82 +65,95 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex justify-center p-10">
-      <div className="grid grid-cols-2 w-280 rounded-xl bg-base-200 space-x-2">
-        <div className="flex items-center justify-center">
+    <div className="min-h-screen flex items-center justify-center px-4 bg-base-100">
+      <div className="w-full max-w-md lg:max-w-5xl bg-base-200 rounded-2xl overflow-hidden shadow-lg">
+        <div className="grid grid-cols-1 lg:grid-cols-2">
+          
+          {/* FORM */}
           <motion.form
             variants={container}
             initial="hidden"
             animate="show"
-            className="max-w-md mx-auto p-2 flex flex-col"
             onSubmit={handleSubmit}
+            className="flex flex-col justify-center px-6 py-10 sm:px-10"
           >
             <Image
               src="/img/Logo.png"
               alt="Logo"
-              width={300}
-              height={200}
-              className="mx-auto"
+              width={220}
+              height={120}
+              className="mx-auto mb-6"
             />
 
-            <motion.p variants={item} className="font-semibold p-4 mb-8">
+            <motion.p
+              variants={item}
+              className="text-sm text-base-content/70 text-center mb-8"
+            >
               It’s your day. You shape it. Sign in to start managing your sales.
             </motion.p>
 
-            <div className="space-y-6">
+            <div className="space-y-5">
               <div>
-                <label>Email</label>
+                <label className="text-sm font-medium">Email</label>
                 <input
                   type="email"
                   placeholder="example@example.com"
-                  className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="mt-1 w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-primary"
                   onChange={(e) => setEmail(e.target.value)}
                   disabled={loading}
                 />
               </div>
 
               <div>
-                <label>Password</label>
+                <label className="text-sm font-medium">Password</label>
                 <input
                   type="password"
                   placeholder="********"
-                  className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="mt-1 w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-primary"
                   onChange={(e) => setPassword(e.target.value)}
                   disabled={loading}
                 />
               </div>
 
               <Button
-                className="w-full p-3 rounded-xl font-bold mt-4"
+                className="w-full py-3 rounded-xl font-semibold"
                 disabled={loading}
               >
                 {loading ? "Signing in..." : "Sign in"}
               </Button>
 
-              <motion.p variants={item} className="text-center text-sm mt-5">
+              <motion.p
+                variants={item}
+                className="text-center text-sm mt-4"
+              >
                 Don’t you have an account?{" "}
-                <Link href="/register" className="hover:underline text-primary">
+                <Link
+                  href="/register"
+                  className="text-primary font-medium hover:underline"
+                >
                   Sign up
                 </Link>
               </motion.p>
             </div>
           </motion.form>
-        </div>
 
-        <div className="flex items-center justify-center rounded-lg">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
-          >
-            <Image
-              src="/img/login.png"
-              alt="Login illustration"
-              width={500}
-              height={700}
-              className="object-cover rounded-lg"
-            />
-          </motion.div>
+          {/* IMAGE – solo desktop */}
+          <div className="hidden lg:flex items-center justify-center  p-8">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="w-full max-w-md"
+            >
+              <Image
+                src="/img/login.png"
+                alt="Login illustration"
+                width={500}
+                height={700}
+                className="w-full h-auto object-contain"
+              />
+            </motion.div>
+          </div>
         </div>
       </div>
     </div>
