@@ -1,15 +1,27 @@
 "use client";
 
 import { signOut, useSession } from "next-auth/react";
+import { motion } from "framer-motion";
 
 export default function Navbar() {
   const { data: session } = useSession();
+
   return (
-    <div className="navbar bg-base-200 text-base-content shadow-sm h-16 px-4 flex items-center sticky top-0 z-50">
-      <div className="p-2 mr-7 hover:bg-gray-100 cursor-pointer rounded-md block lg:hidden">
+    <motion.div
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className="navbar bg-base-200 text-base-content shadow-sm h-16 px-4 flex items-center sticky top-0 z-50"
+    >
+      {/* Burger */}
+      <motion.div
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="p-2 mr-7 cursor-pointer rounded-md block lg:hidden"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 "
+          className="h-6 w-6"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -21,14 +33,18 @@ export default function Navbar() {
             d="M4 6h16M4 12h16M4 18h16"
           />
         </svg>
-      </div>
+      </motion.div>
 
-      <div className="mr-200 w-100 "></div>
+      <div className="mr-200 w-100" />
 
+      {/* Language */}
       <div className="dropdown dropdown-end mr-4">
-        <label
+        <motion.label
           tabIndex={0}
-          className="flex items-center gap-2 cursor-pointer px-2 py-1 rounded-lg hover:bg-gray-100"
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+          className="flex items-center gap-2 cursor-pointer px-2 py-1 rounded-lg
+                     hover:bg-base-100 hover:text-white transition-colors duration-200"
         >
           <img
             className="w-11 rounded-md"
@@ -39,23 +55,21 @@ export default function Navbar() {
 
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4  ml-1"
+            className="h-4 w-4 ml-1"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 9l-7 7-7-7"
-            />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </svg>
-        </label>
+        </motion.label>
 
-        <ul
+        <motion.ul
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.2 }}
           tabIndex={0}
-          className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-40 mt-3 cursor-pointer"
+          className="dropdown-content menu p-2 shadow bg-base-200 rounded-box w-40 mt-3 cursor-pointer"
         >
           <li>
             <a>
@@ -77,13 +91,17 @@ export default function Navbar() {
               English
             </a>
           </li>
-        </ul>
+        </motion.ul>
       </div>
 
+      {/* User */}
       <div className="dropdown dropdown-end ml-4">
-        <label
+        <motion.label
           tabIndex={0}
-          className="flex items-center gap-3 cursor-pointer px-2 py-1 rounded-lg hover:bg-gray-100"
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+          className="flex items-center gap-3 cursor-pointer px-2 py-1 rounded-lg
+                     hover:bg-base-100 hover:text-white transition-colors duration-200"
         >
           <div className="avatar">
             <div className="w-11 rounded-full">
@@ -95,49 +113,43 @@ export default function Navbar() {
             </div>
           </div>
 
-          <div className="flex flex-col leading-tight">
+          <div className="flex flex-col">
             <span className="font-semibold text-[15px]">
               {session?.user?.name ?? "User"}
-            </span>
-
-            <span className="text-sm -mt-0.5 capitalize">
-              {session?.user?.role ?? "user"}
             </span>
           </div>
 
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4 0 ml-1"
+            className="h-4 w-4 ml-1"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 9l-7 7-7-7"
-            />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </svg>
-        </label>
+        </motion.label>
 
-        <ul
+        <motion.ul
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.2 }}
           tabIndex={0}
-          className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 mt-3 cursor-pointer"
+          className="dropdown-content menu p-2 shadow bg-base-200 rounded-box w-52 mt-3 cursor-pointer"
         >
           <li>
             <button
               onClick={() =>
                 signOut({
-                  callbackUrl: "/login", // a dónde ir después del logout
+                  callbackUrl: "/",
                 })
               }
             >
               log out
             </button>
           </li>
-        </ul>
+        </motion.ul>
       </div>
-    </div>
+    </motion.div>
   );
 }
