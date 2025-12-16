@@ -1,7 +1,9 @@
-const config = {
+module.exports = {
   plugins: {
-    "@tailwindcss/postcss": {},
+    tailwindcss: {},
+    autoprefixer: {},
+    "postcss-preset-env": {
+      stage: 0,
+    },
   },
 };
-
-export default config;
