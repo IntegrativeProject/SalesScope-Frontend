@@ -11,9 +11,9 @@ export default function Footer() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       viewport={{ once: true }}
-      className="bg-gradient-to-r from-[#020617] to-[#020617] text-base-content"
+      className=".bg-gradient-to-r from-[#020617] to-[#020617] text-base-content"
     >
-      <div className="max-w-screen-xl mx-auto px-8 py-12 grid gap-8 md:grid-cols-3">
+      <div className=".max-w-screen-xl mx-auto px-8 py-12 grid gap-8 md:grid-cols-3">
 
         <div className="space-y-4">
           <Image
