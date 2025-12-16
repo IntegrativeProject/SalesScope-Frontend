@@ -15,7 +15,6 @@ const handler = NextAuth({
           return null;
         }
 
-        // 🔴 AQUÍ conectamos NextAuth con tu backend real
         const res = await fetch(
           `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/login`,
           {
@@ -34,8 +33,6 @@ const handler = NextAuth({
         }
 
         const data = await res.json();
-
-        // 🔑 ESTO ES CLAVE
         return {
            id: Number(data.user.user_id),
           name: data.user.full_name,
