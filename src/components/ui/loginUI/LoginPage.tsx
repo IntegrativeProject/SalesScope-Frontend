@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Button from "../Button";
 import { useState } from "react";
-
+import { motion } from "framer-motion";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
@@ -14,6 +14,20 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 15 },
+  show: { opacity: 1, y: 0 },
+};
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -33,7 +47,13 @@ export default function LoginPage() {
     <div className="flex justify-center ">
       <div className="grid grid-cols-2 w-300 h-screen ">
         <div className="flex items-center justify-center  ">
-          <form onSubmit={handleSubmit} className="max-w-md mx-auto p-2  flex justify-center flex-col">
+           <motion.form
+            variants={container}
+            initial="hidden"
+            animate="show"
+            className="max-w-md mx-auto p-2 flex justify-center flex-col"
+            onSubmit={handleSubmit}
+          >
             <Image
               src="/img/Logo.png"
               alt="Logo"
@@ -41,7 +61,7 @@ export default function LoginPage() {
               height={250}
               className=" flex items-center mx-auto"
             />
-            <p className="font-semibold p-4 mb-8">
+             <motion.p variants={item} className="font-semibold p-4 mb-8">
               Its your day. You shape it. Sign in to start managing your sales.
             </motion.p>
 
