@@ -1,10 +1,12 @@
 "use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import Button from "../Button";
+import toast from "react-hot-toast"; 
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -13,6 +15,7 @@ export default function RegisterPage() {
     email: "",
     password: "",
   });
+
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -27,8 +30,14 @@ export default function RegisterPage() {
     hidden: { opacity: 0, y: 15 },
     show: { opacity: 1, y: 0 },
   };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!form.full_name || !form.email || !form.password) {
+      toast.error("Please fill in all fields.", {icon:"❗"}); 
+      return;
+    }
 
     try {
       const res = await fetch(
@@ -49,15 +58,15 @@ export default function RegisterPage() {
       console.log("REGISTER RESPONSE:", data);
 
       if (!res.ok) {
-        alert(data.message || "Error registering user");
+        toast.error(data.message || "Error registering user", {icon:"⚠️"}); 
         return;
       }
 
-      alert("User registered successfully");
-      router.push("/login");
+    toast.success("Product created succesfully", { icon: "✅" });
+      router.push("/login"); 
     } catch (error) {
       console.error(error);
-      alert("Backend connection error");
+      toast.error("Backend connection error",{icon:"🚨"}); 
     }
   };
 

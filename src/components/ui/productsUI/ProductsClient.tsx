@@ -69,8 +69,8 @@ export default function ProductsClient({ initialProducts }: Props) {
       setProducts((prev) =>
         prev.map((p) => (p.product_id === product.product_id ? product : p))
       );
-      toast.success("Updated Product", {
-        icon: "✅",
+      toast.success("Product updated", {
+        icon: "💾",
         duration: 3000,
         className:
           "bg-base-200 text-base-content border border-base-300 rounded-xl shadow-lg",
