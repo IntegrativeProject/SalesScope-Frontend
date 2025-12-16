@@ -1,4 +1,6 @@
-import Link from "next/link";
+"use client";
+
+import { signOut } from "next-auth/react";
 
 export default function Navbar() {
   return (
@@ -118,9 +120,15 @@ export default function Navbar() {
           className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 mt-3 cursor-pointer"
         >
           <li>
-            <Link href="/" className="">
-              Logout
-            </Link>
+            <button
+              onClick={() =>
+                signOut({
+                  callbackUrl: "/login", // a dónde ir después del logout
+                })
+              }
+            >
+              log out
+            </button>
           </li>
         </ul>
       </div>
