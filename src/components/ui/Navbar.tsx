@@ -1,6 +1,9 @@
-import Link from "next/link";
+"use client";
+
+import { signOut, useSession } from "next-auth/react";
 
 export default function Navbar() {
+  const { data: session } = useSession();
   return (
     <div className="navbar bg-base-200 text-base-content shadow-sm h-16 px-4 flex items-center sticky top-0 z-50">
       <div className="p-2 mr-7 hover:bg-gray-100 cursor-pointer rounded-md block lg:hidden">
@@ -93,8 +96,13 @@ export default function Navbar() {
           </div>
 
           <div className="flex flex-col leading-tight">
-            <span className="font-semibold text-[15px]">Moni Roy</span>
-            <span className="text-sm  -mt-0.5">Admin</span>
+            <span className="font-semibold text-[15px]">
+              {session?.user?.name ?? "User"}
+            </span>
+
+            <span className="text-sm -mt-0.5 capitalize">
+              {session?.user?.role ?? "user"}
+            </span>
           </div>
 
           <svg
@@ -118,9 +126,15 @@ export default function Navbar() {
           className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 mt-3 cursor-pointer"
         >
           <li>
-            <Link href="/" className="">
-              Logout
-            </Link>
+            <button
+              onClick={() =>
+                signOut({
+                  callbackUrl: "/login", // a dónde ir después del logout
+                })
+              }
+            >
+              log out
+            </button>
           </li>
         </ul>
       </div>

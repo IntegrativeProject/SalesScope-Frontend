@@ -1,79 +1,70 @@
-"use client";
+"use client"
 
 import Link from "next/link";
 import Image from "next/image";
 import Button from "../Button";
-import { motion } from "framer-motion";
+import { useState } from "react";
 
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12,
-    },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 15 },
-  show: { opacity: 1, y: 0 },
-};
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
-  return (
-    <div className="flex justify-center">
-      <div className="grid grid-cols-2 w-300 h-screen">
-        <div className="flex items-center justify-center">
-          <motion.form
-            variants={container}
-            initial="hidden"
-            animate="show"
-            className="max-w-md mx-auto p-2 flex justify-center flex-col"
-          >
-            <motion.div variants={item}>
-              <Image
-                src="/img/Logo.png"
-                alt="Logo"
-                width={350}
-                height={250}
-                className="flex items-center mx-auto"
-              />
-            </motion.div>
+    const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
-            <motion.p variants={item} className="font-semibold p-4 mb-8">
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const res = await signIn("credentials", {
+      email,
+      password,
+      redirect: false,
+    });
+
+    if (!res?.error) {
+      router.push("/dashboard");
+    } else {
+      alert("Invalid credentials");
+    }
+  };
+  return (
+    <div className="flex justify-center ">
+      <div className="grid grid-cols-2 w-300 h-screen ">
+        <div className="flex items-center justify-center  ">
+          <form onSubmit={handleSubmit} className="max-w-md mx-auto p-2  flex justify-center flex-col">
+            <Image
+              src="/img/Logo.png"
+              alt="Logo"
+              width={350}
+              height={250}
+              className=" flex items-center mx-auto"
+            />
+            <p className="font-semibold p-4 mb-8">
               Its your day. You shape it. Sign in to start managing your sales.
             </motion.p>
 
             <div className="mb-4 space-y-6">
-              <motion.div variants={item}>
-                <label id="email">Email</label>
-                <input
-                  type="text"
-                  placeholder="example@example.com"
-                  className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secundary"
-                />
-              </motion.div>
+              <label id="email">Email</label>
+              <input
+               onChange={(e) => setEmail(e.target.value)}
+                type="text"
+                placeholder="example@example.com"
+                className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secundary "
+              />
 
-              <motion.div variants={item}>
-                <label id="password">Password</label>
-                <input
-                  type="password"
-                  placeholder="********"
-                  className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:secundary"
-                />
-              </motion.div>
-
-              <motion.div variants={item}>
-                <motion.div
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.96 }}
-                >
-                  <Button className="bg-base-100 w-full border p-3 rounded-xl cursor-pointer hover:bg-base-200 font-bold mt-4 transform-border hover:scale-95">
-                    Sign-in
-                  </Button>
-                </motion.div>
-              </motion.div>
+              <label id="password">Password</label>
+              <input
+               onChange={(e) => setPassword(e.target.value)}
+                type="password"
+                placeholder="********"
+                className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:secundary "
+              />
+                 {error && <p className="text-error">{error}</p>}
+              <Button className="bg-base-100 w-full border p-3 rounded-xl cursor-pointer hover:bg-base-200  font-bold mt-4 transform-border hover:scale-95">
+                Sign-in
+              </Button>
 
               <motion.p variants={item} className="text-center text-sm mt-5">
                 Don’t you have an account?{" "}
