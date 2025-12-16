@@ -44,8 +44,8 @@ const item = {
     }
   };
   return (
-    <div className="flex justify-center ">
-      <div className="grid grid-cols-2 w-300 h-screen ">
+    <div className="flex justify-center p-10 ">
+      <div className="grid grid-cols-2 w-280 rounded-xl bg-base-200">
         <div className="flex items-center justify-center  ">
            <motion.form
             variants={container}
