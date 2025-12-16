@@ -12,7 +12,7 @@ const handler = NextAuth({
 
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
-          return null;
+          throw new Error("Missing credentials")
         }
 
         const res = await fetch(
@@ -28,8 +28,7 @@ const handler = NextAuth({
         );
 
         if (!res.ok) {
-          console.error("LOGIN FAILED");
-          return null;
+          throw new Error("Invalid email or password")
         }
 
         const data = await res.json();
